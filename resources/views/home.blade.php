@@ -190,7 +190,7 @@ nav ul li a:hover {
         <p>IMPERIAL CROWN</p>
         <p>N0 24</p>
         <p>COLOMBO 7</p>
-        <p>MCOLOMBO.</p>
+        <p>COLOMBO.</p>
     </footer>
 </body>
 </html>
