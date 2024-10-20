@@ -154,8 +154,11 @@ nav ul li a:hover {
     IMPERIAL CROWN
     </div>
     <ul>
-        <li><a href="#booking-section">Booking</a></li>
-        <li><a href="#food-ordering-section">Order</a></li>
+        <li><a href="{{ url('/booking') }}">Booking</a></li>
+        <li><a href="{{ url('/food-ordering') }}">Order</a></li>
+        <li><a href="{{ url('/login') }}">Login</a></li>
+        <li><a href="{{ url('/registration') }}">Register</a></li>
+
     </ul>
 </nav>
     <!-- Home Section -->
