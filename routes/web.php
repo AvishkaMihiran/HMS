@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/staff', function () {
+    return view('staff');
+});
+
 Route::get('/booking', function () {
     return view('booking'); // You will create booking.blade.php later
 });
