@@ -146,7 +146,7 @@
 
     <div class="header">
         <!-- Framed HOTEL NAME with background image -->
-        <h1>IMPERIAL CROWN</h1>
+        <h1>Hotel Name</h1>
         <div class="menu-buttons">
             <button>Menu</button>
             <button>Log Out</button>
