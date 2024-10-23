@@ -14,11 +14,11 @@ Route::get('/staff', function () {
 });
 
 Route::get('/booking', function () {
-    return view('booking'); // You will create booking.blade.php later
+    return view('booking');
 });
 
 Route::get('/food-ordering', function () {
-    return view('food-ordering'); // You will create food-ordering.blade.php later
+    return view('food-ordering'); 
 });
 Route::get('/login', function () {
     return view('login'); 
