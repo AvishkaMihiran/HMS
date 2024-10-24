@@ -90,7 +90,7 @@
 
 body {
     margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    padding: 100; /* Remove default padding */
     width: 100%; /* Ensure full width */
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
@@ -100,7 +100,7 @@ body {
     </style>
 </head>
 <body>
-
+    <button class="button">
     <!-- Home Section -->
     <div class="section home-section">
         <h1>WELCOME TO IMPERIAL CROWN </h1>
@@ -130,7 +130,7 @@ body {
         <p>IMPERIAL CROWN</p>
         <p>N0 24</p>
         <p>COLOMBO 7</p>
-        <p>COLOMBO.</p>
+        
     </footer>
 </body>
 </html>
