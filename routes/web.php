@@ -30,3 +30,7 @@ Route::get('/waiter', function () {
     return view('waiter'); 
 });
 
+Route::get('/admin', function () {
+    return view('admin.dashboard'); 
+});
+
