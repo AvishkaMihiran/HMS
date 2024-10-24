@@ -62,7 +62,7 @@
             color: white;
             margin-bottom: 20px;
             padding: 10px;
-            background-image: url('{{ asset('images/waiter.jpg') }}'); 
+        
             background-size: cover;
             background-position: center;
             display: inline-block;
@@ -158,7 +158,7 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="icon">
-                <img src="waiter.PNG" alt="Waiter Icon">
+                <img src="images/hhh.jpg" alt="Waiter Icon">
             </div>
             <button>Take Order</button>
             <label>No of customers</label>
