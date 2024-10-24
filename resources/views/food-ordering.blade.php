@@ -6,7 +6,7 @@
     <title>Food Ordering Page</title>
 </head>
 <body>
-    <h1>Food Ordering Page</h1>
+    <h1>Food Order</h1>
     <!-- Add your food ordering system here -->
 </body>
 </html>
