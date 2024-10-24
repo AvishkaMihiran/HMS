@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('pexels-mikitayo-17926439.jpg'); /* Add the hotel lobby background image here */
+            background-image:url('{{ asset('images/background.jpg') }}');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -56,13 +56,13 @@
             position: relative;
         }
 
-        /* Add frame around HOTEL NAME */
+       
         .header h1 {
             font-size: 40px;
             color: white;
             margin-bottom: 20px;
             padding: 10px;
-            background-image: url('header_background.jpg'); /* Background image for frame */
+            background-image: url('{{ asset('images/waiter.jpg') }}'); 
             background-size: cover;
             background-position: center;
             display: inline-block;
@@ -146,7 +146,7 @@
 
     <div class="header">
         <!-- Framed HOTEL NAME with background image -->
-        <h1>Hotel Name</h1>
+        <h1>IMPERIAL CROWN</h1>
         <div class="menu-buttons">
             <button>Menu</button>
             <button>Log Out</button>
