@@ -26,4 +26,7 @@ Route::get('/login', function () {
 Route::get('/registration', function () {
     return view('registration'); 
 });
+Route::get('/waiter', function () {
+    return view('waiter'); 
+});
 
