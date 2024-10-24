@@ -23,7 +23,8 @@
             justify-content: center;
             align-items: center;
             color: white;
-            text-align: center;}
+            text-align: center;
+        }
         .home-section {
             background-image: url('{{ asset('images/background.jpg') }}');
             background-size: cover;
