@@ -9,6 +9,6 @@ class HomeController extends Controller
     public function index()
     {
         // Here you could pass data to your view if needed
-        return view('home');
+        return view("home");
     }
 }

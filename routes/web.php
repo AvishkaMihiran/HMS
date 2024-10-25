@@ -1,36 +1,35 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/staff', function () {
-    return view('staff');
-});
-
+require __DIR__.'/auth.php';
 Route::get('/booking', function () {
     return view('booking');
 });
-
 Route::get('/food-ordering', function () {
-    return view('food-ordering'); 
-});
-Route::get('/login', function () {
-    return view('login'); 
-});
-Route::get('/registration', function () {
-    return view('registration'); 
+    return view('food-ordering');
 });
 Route::get('/waiter', function () {
-    return view('waiter'); 
+    return view('waiter');
 });
 
 Route::get('/admin', function () {
     return view('admin.dashboard'); 
 });
+
 
