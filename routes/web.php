@@ -24,4 +24,6 @@ Route::get('/booking', function () {
 Route::get('/food-ordering', function () {
     return view('food-ordering');
 });
-
+Route::get('/waiter', function () {
+    return view('waiter');
+});
