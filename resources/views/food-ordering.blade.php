@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
+            background-image: url('{{ asset('images/jeewa/back.jpg') }}');
         }
         header {
             background-color: #343a40;
