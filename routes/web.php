@@ -27,6 +27,9 @@ Route::get('/food-ordering', function () {
 Route::get('/waiter', function () {
     return view('waiter');
 });
+Route::get('/food-ordering', function () {
+    return view('food-ordering'); 
+});
 
 Route::get('/admin', function () {
     return view('admin.dashboard'); 
