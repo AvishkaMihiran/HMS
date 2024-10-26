@@ -124,7 +124,9 @@
                 <button class="order-button">Order Now</button>
             </div>
         </div>
-
+        <div class="menu-category">
+        <h2>vegitable Fried Rice</h2>
+        <div class="menu-item">
         <h2>Chicken Fried Rice</h2>
         <div class="menu-item">
             <img src="images/jeewa/chickrice.png" alt="Fried Rice">
@@ -141,12 +143,12 @@
 
     <!-- Koththu Category -->
     <div class="menu-category">
-        <h2>Koththu</h2>
+        <h2>Vegetable Koththu</h2>
         <div class="menu-item">
-            <img src="koththu.jpg" alt="Koththu">
+            <img src="images/jeewa/vegkottu.png" alt="Koththu">
             <div class="menu-details">
                 <h3>Chicken Koththu</h3>
-                <p class="price">$9.99</p>
+                <p class="price">950 LKR</p>
                 <label for="quantity-koththu">Quantity: </label>
                 <input type="number" id="quantity-koththu" min="1" value="1">
                 <button class="order-button">Order Now</button>
