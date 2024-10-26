@@ -29,7 +29,7 @@
             text-align: center;}
         .home-section {
             font-family: 'Libre Baskerville', serif;
-            background-image: url('{{ asset('images/background.jpg') }}');
+            background-image: url('{{ asset('images/background3.jpg') }}');
             background-size: cover;
             background-position: center;
         }  
