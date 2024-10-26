@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,4 +32,8 @@ Route::get('/admin', function () {
     return view('admin.dashboard'); 
 });
 
+Route::get('/create_room', function () {
+    return view('admin.create_room'); 
+});
 
+route::post('/add_room',[AdminController::class,'add_room']);
