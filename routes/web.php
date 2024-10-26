@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,4 +43,8 @@ Route::get('/cook', function () {
     return view('cook'); 
 })->middleware('auth');;
 
+Route::get('/create_room', function () {
+    return view('admin.create_room'); 
+});
 
+route::post('/add_room',[AdminController::class,'add_room']);
