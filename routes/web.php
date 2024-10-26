@@ -28,9 +28,20 @@ Route::get('/waiter', function () {
     return view('waiter');
 });
 
+Route::get('/receptionist', function () {
+    return view('receptionist');
+});
+
+Route::get('/food-ordering', function () {
+    return view('food-ordering'); 
+});
+
 Route::get('/admin', function () {
     return view('admin.dashboard'); 
 });
+Route::get('/cook', function () {
+    return view('cook'); 
+})->middleware('auth');;
 
 Route::get('/create_room', function () {
     return view('admin.create_room'); 
@@ -42,3 +53,4 @@ Route::get('/view_room',[AdminController::class,'view_room'])->name('admin.view_
 
 route::get('/room_delete/{id}',[AdminController::class,'room_delete'])->name('admin.room_delete');;
 
+route::post('/add_room',[AdminController::class,'add_room']);

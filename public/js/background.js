@@ -1,0 +1,2 @@
+// public/js/background.js
+

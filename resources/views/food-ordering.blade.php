@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
+            background-image: url('{{ asset('images/jeewa/back.jpg') }}');
         }
         header {
             background-color: #343a40;
@@ -27,7 +27,7 @@
         .menu-category h2 {
             border-bottom: 2px solid #343a40;
             padding-bottom: 5px;
-            color: #343a40;
+            color: #FFD700;
         }
         .menu-item {
             display: flex;
@@ -88,10 +88,21 @@
     <div class="menu-category">
         <h2>Salad</h2>
         <div class="menu-item">
-            <img src="salad.jpg" alt="Salad">
+            <img src="images/jeewa/vegsalad.jpg" alt="Salad">
             <div class="menu-details">
-                <h3>Caesar Salad</h3>
-                <p class="price">$7.99</p>
+                <h3>Vegitable Salad</h3>
+                <p class="price">500 LKR</p>
+                <label for="quantity-salad">Quantity: </label>
+                <input type="number" id="quantity-salad" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="images/jeewa/boilveg.png" alt="Salad">
+            <div class="menu-details">
+                <h3>Boil Vegitable</h3>
+                <p class="price">600 LKR</p>
                 <label for="quantity-salad">Quantity: </label>
                 <input type="number" id="quantity-salad" min="1" value="1">
                 <button class="order-button">Order Now</button>
