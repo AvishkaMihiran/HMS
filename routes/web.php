@@ -27,9 +27,14 @@ Route::get('/food-ordering', function () {
 Route::get('/waiter', function () {
     return view('waiter');
 });
-
+Route::get('/receptionist', function () {
+    return view('receptionist');
+});
 Route::get('/admin', function () {
     return view('admin.dashboard'); 
 });
+Route::get('/cook', function () {
+    return view('cook'); 
+})->middleware('auth');;
 
 
