@@ -110,11 +110,36 @@
             </div>
         </div>
 
+
+    <!-- Fried Rice Category -->
+    <div class="menu-category">
+        <h2>vegitable Fried Rice</h2>
+        <div class="menu-item">
+            <img src="images/jeewa/vegrice.png" alt="Fried Rice">
+            <div class="menu-details">
+                <h3>Chicken Fried Rice</h3>
+                <p class="price">750 LKR</p>
+                <label for="quantity-fried-rice">Quantity: </label>
+                <input type="number" id="quantity-fried-rice" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+        <div class="menu-category">
+        <h2>vegitable Fried Rice</h2>
+        <div class="menu-item">
+        <h2>Chicken Fried Rice</h2>
+        <div class="menu-item">
+            <img src="images/jeewa/chickrice.png" alt="Fried Rice">
+            <div class="menu-details">
+                <h3>Chicken Fried Rice</h3>
+                <p class="price">900 LKR</p>
+
         <div class="menu-item">
             <img src="images/jeewa/egg.jpeg" alt="Fried Rice">
             <div class="menu-details">
                 <h3>Egg Fried Rice</h3>
                 <p class="price">800 LKR</p>
+
                 <label for="quantity-fried-rice">Quantity: </label>
                 <input type="number" id="quantity-fried-rice" min="1" value="1">
                 <button class="order-button">Order Now</button>
@@ -125,8 +150,14 @@
 
     <!-- Koththu Category -->
     <div class="menu-category">
-        <h2>Koththu</h2>
+        <h2>Vegetable Koththu</h2>
         <div class="menu-item">
+
+            <img src="images/jeewa/vegkottu.png" alt="Koththu">
+            <div class="menu-details">
+                <h3>Chicken Koththu</h3>
+                <p class="price">950 LKR</p>
+
             <img src="images/jeewa/kottuv.jpg" alt="Koththu">
             <div class="menu-details">
                 <h3>Vegetable Koththu</h3>
@@ -153,6 +184,7 @@
             <div class="menu-details">
                 <h3>Egg Koththu</h3>
                 <p class="price">850 LKR</p>
+
                 <label for="quantity-koththu">Quantity: </label>
                 <input type="number" id="quantity-koththu" min="1" value="1">
                 <button class="order-button">Order Now</button>
