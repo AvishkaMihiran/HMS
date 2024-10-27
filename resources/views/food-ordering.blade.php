@@ -84,6 +84,215 @@
 </header>
 
 <div class="container">
+
+    <!-- Fried Rice Category -->
+    <div class="menu-category">
+        <h2> Fried Rice</h2>
+        <div class="menu-item">
+            <img src="images/jeewa/chif.png"" alt="Fried Rice">
+            <div class="menu-details">
+                <h3>Chicken Fried Rice</h3>
+                <p class="price">950 LKR</p>
+                <label for="quantity-fried-rice">Quantity: </label>
+                <input type="number" id="quantity-fried-rice" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="images/jeewa/vf.png" alt="Fried Rice">
+            <div class="menu-details">
+                <h3>Vegetable  Fried Rice</h3>
+                <p class="price">750 LKR</p>
+                <label for="quantity-fried-rice">Quantity: </label>
+                <input type="number" id="quantity-fried-rice" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+
+
+    <!-- Fried Rice Category -->
+    <div class="menu-category">
+        <h2>vegitable Fried Rice</h2>
+        <div class="menu-item">
+            <img src="images/jeewa/vegrice.png" alt="Fried Rice">
+            <div class="menu-details">
+                <h3>Chicken Fried Rice</h3>
+                <p class="price">750 LKR</p>
+                <label for="quantity-fried-rice">Quantity: </label>
+                <input type="number" id="quantity-fried-rice" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+        <div class="menu-category">
+        <h2>vegitable Fried Rice</h2>
+        <div class="menu-item">
+        <h2>Chicken Fried Rice</h2>
+        <div class="menu-item">
+            <img src="images/jeewa/chickrice.png" alt="Fried Rice">
+            <div class="menu-details">
+                <h3>Chicken Fried Rice</h3>
+                <p class="price">900 LKR</p>
+
+        <div class="menu-item">
+            <img src="images/jeewa/egg.jpeg" alt="Fried Rice">
+            <div class="menu-details">
+                <h3>Egg Fried Rice</h3>
+                <p class="price">800 LKR</p>
+
+                <label for="quantity-fried-rice">Quantity: </label>
+                <input type="number" id="quantity-fried-rice" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+        <!-- Add more fried rice items here -->
+    </div>
+
+    <!-- Koththu Category -->
+    <div class="menu-category">
+        <h2>Vegetable Koththu</h2>
+        <div class="menu-item">
+
+            <img src="images/jeewa/vegkottu.png" alt="Koththu">
+            <div class="menu-details">
+                <h3>Chicken Koththu</h3>
+                <p class="price">950 LKR</p>
+
+            <img src="images/jeewa/kottuv.jpg" alt="Koththu">
+            <div class="menu-details">
+                <h3>Vegetable Koththu</h3>
+                <p class="price">750 LKR</p>
+                <label for="quantity-koththu">Quantity: </label>
+                <input type="number" id="quantity-koththu" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="images/jeewa/chikk.jpg" alt="Koththu">
+            <div class="menu-details">
+                <h3>Chicken Koththu</h3>
+                <p class="price">950 LKR</p>
+                <label for="quantity-koththu">Quantity: </label>
+                <input type="number" id="quantity-koththu" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="images/jeewa/eggk.jpg" alt="Koththu">
+            <div class="menu-details">
+                <h3>Egg Koththu</h3>
+                <p class="price">850 LKR</p>
+
+                <label for="quantity-koththu">Quantity: </label>
+                <input type="number" id="quantity-koththu" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+        <!-- Add more koththu items here -->
+    </div>
+
+    <!-- Noodles Category -->
+    <div class="menu-category">
+        <h2>Noodles</h2>
+        <div class="menu-item">
+            <img src="images/jeewa/cn.jpg" alt="Noodles">
+            <div class="menu-details">
+                <h3>Chicken Noodles</h3>
+                <p class="price">1050 LKR</p>
+                <label for="quantity-noodles">Quantity: </label>
+                <input type="number" id="quantity-noodles" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="images/jeewa/vn.jpg" alt="Noodles">
+            <div class="menu-details">
+                <h3>Vegetable Noodles</h3>
+                <p class="price">850 LKR</p>
+                <label for="quantity-noodles">Quantity: </label>
+                <input type="number" id="quantity-noodles" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+        <!-- Add more noodles items here -->
+    </div>
+
+    <div class="menu-item">
+            <img src="images/jeewa/en.jpg" alt="Noodles">
+            <div class="menu-details">
+                <h3>Egg Noodles</h3>
+                <p class="price">950 LKR</p>
+                <label for="quantity-noodles">Quantity: </label>
+                <input type="number" id="quantity-noodles" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+        <!-- Add more noodles items here -->
+    
+
+    <!-- Seafood Category -->
+    <div class="menu-category">
+        <h2>Seafood</h2>
+        <div class="menu-item">
+            <img src="images/jeewa/sf.jpg" alt="Seafood">
+            <div class="menu-details">
+                <h3>Sea food Grilled plate  </h3>
+                <p class="price">2000 LKR</p>
+                <label for="quantity-seafood">Quantity: </label>
+                <input type="number" id="quantity-seafood" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="images/jeewa/gf.jpeg" alt="Seafood">
+            <div class="menu-details">
+                <h3>Grilled prawns </h3>
+                <p class="price">2000 LKR</p>
+                <label for="quantity-seafood">Quantity: </label>
+                <input type="number" id="quantity-seafood" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+        <!-- Add more seafood items here -->
+    </div>
+
+    <!-- Rice and Curry Category -->
+    <div class="menu-category">
+        <h2>Rice and Curry</h2>
+        <div class="menu-item">
+            <img src="images/jeewa/rc.png" alt="Rice and Curry">
+            <div class="menu-details">
+                <h3>Chicken Rice and Curry</h3>
+                <p class="price">350 LKR</p>
+                <label for="quantity-rice-curry">Quantity: </label>
+                <input type="number" id="quantity-rice-curry" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+        <!-- Add more rice and curry items here -->
+    </div>
+
+    <!-- Fresh Juice Category -->
+    <div class="menu-category">
+        <h2>Fresh Juice</h2>
+        <div class="menu-item">
+            <img src="images/jeewa/fj.png" alt="Fresh Juice">
+            <div class="menu-details">
+                <h3>Fruit  Juice</h3>
+                <p class="price">550 LKR</p>
+                <label for="quantity-juice">Quantity: </label>
+                <input type="number" id="quantity-juice" min="1" value="1">
+                <button class="order-button">Order Now</button>
+            </div>
+        </div>
+        <!-- Add more fresh juice items here -->
+    </div>
+
+
     <!-- Salad Category -->
     <div class="menu-category">
         <h2>Salad</h2>
@@ -110,117 +319,7 @@
         </div>
         <!-- Add more salad items here -->
     </div>
-
-    <!-- Fried Rice Category -->
-    <div class="menu-category">
-        <h2>vegitable Fried Rice</h2>
-        <div class="menu-item">
-            <img src="images/jeewa/vegrice.png" alt="Fried Rice">
-            <div class="menu-details">
-                <h3>Chicken Fried Rice</h3>
-                <p class="price">750 LKR</p>
-                <label for="quantity-fried-rice">Quantity: </label>
-                <input type="number" id="quantity-fried-rice" min="1" value="1">
-                <button class="order-button">Order Now</button>
-            </div>
-        </div>
-        <div class="menu-category">
-        <h2>vegitable Fried Rice</h2>
-        <div class="menu-item">
-        <h2>Chicken Fried Rice</h2>
-        <div class="menu-item">
-            <img src="images/jeewa/chickrice.png" alt="Fried Rice">
-            <div class="menu-details">
-                <h3>Chicken Fried Rice</h3>
-                <p class="price">900 LKR</p>
-                <label for="quantity-fried-rice">Quantity: </label>
-                <input type="number" id="quantity-fried-rice" min="1" value="1">
-                <button class="order-button">Order Now</button>
-            </div>
-        </div>
-        <!-- Add more fried rice items here -->
-    </div>
-
-    <!-- Koththu Category -->
-    <div class="menu-category">
-        <h2>Vegetable Koththu</h2>
-        <div class="menu-item">
-            <img src="images/jeewa/vegkottu.png" alt="Koththu">
-            <div class="menu-details">
-                <h3>Chicken Koththu</h3>
-                <p class="price">950 LKR</p>
-                <label for="quantity-koththu">Quantity: </label>
-                <input type="number" id="quantity-koththu" min="1" value="1">
-                <button class="order-button">Order Now</button>
-            </div>
-        </div>
-        <!-- Add more koththu items here -->
-    </div>
-
-    <!-- Noodles Category -->
-    <div class="menu-category">
-        <h2>Noodles</h2>
-        <div class="menu-item">
-            <img src="noodles.jpg" alt="Noodles">
-            <div class="menu-details">
-                <h3>Chicken Noodles</h3>
-                <p class="price">$8.99</p>
-                <label for="quantity-noodles">Quantity: </label>
-                <input type="number" id="quantity-noodles" min="1" value="1">
-                <button class="order-button">Order Now</button>
-            </div>
-        </div>
-        <!-- Add more noodles items here -->
-    </div>
-
-    <!-- Seafood Category -->
-    <div class="menu-category">
-        <h2>Seafood</h2>
-        <div class="menu-item">
-            <img src="seafood.jpg" alt="Seafood">
-            <div class="menu-details">
-                <h3>Grilled Prawns</h3>
-                <p class="price">$14.99</p>
-                <label for="quantity-seafood">Quantity: </label>
-                <input type="number" id="quantity-seafood" min="1" value="1">
-                <button class="order-button">Order Now</button>
-            </div>
-        </div>
-        <!-- Add more seafood items here -->
-    </div>
-
-    <!-- Rice and Curry Category -->
-    <div class="menu-category">
-        <h2>Rice and Curry</h2>
-        <div class="menu-item">
-            <img src="rice_curry.jpg" alt="Rice and Curry">
-            <div class="menu-details">
-                <h3>Chicken Rice and Curry</h3>
-                <p class="price">$7.99</p>
-                <label for="quantity-rice-curry">Quantity: </label>
-                <input type="number" id="quantity-rice-curry" min="1" value="1">
-                <button class="order-button">Order Now</button>
-            </div>
-        </div>
-        <!-- Add more rice and curry items here -->
-    </div>
-
-    <!-- Fresh Juice Category -->
-    <div class="menu-category">
-        <h2>Fresh Juice</h2>
-        <div class="menu-item">
-            <img src="fresh_juice.jpg" alt="Fresh Juice">
-            <div class="menu-details">
-                <h3>Orange Juice</h3>
-                <p class="price">$3.99</p>
-                <label for="quantity-juice">Quantity: </label>
-                <input type="number" id="quantity-juice" min="1" value="1">
-                <button class="order-button">Order Now</button>
-            </div>
-        </div>
-        <!-- Add more fresh juice items here -->
-    </div>
-</div>
+ </div>
 
 </body>
 </html>
