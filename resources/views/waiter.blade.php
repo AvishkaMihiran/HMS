@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@ body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('Hotel2.png'); /* Path to your hotel background image */
+            background-image: url('{{ asset('images/background.jpg') }}');
             background-size: cover; /* Cover the entire viewport */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Prevent repeating the image */
@@ -438,3 +437,5 @@ body {
     </script>
 </body>
 </html>
+
+
