@@ -45,7 +45,7 @@
 
         nav .logo {
             font-family: 'Cinzel', serif;
-            font-size: 24px;
+            font-size: 18px;
             color: #FFD700;
             text-transform: uppercase;
             font-weight: bold;
@@ -62,7 +62,7 @@
 
         nav ul li a {
             color: white;
-            font-size: 16px;
+            font-size: 12px;
             padding: 10px 15px;
             border-radius: 20px;
             transition: background-color 0.3s ease, color 0.3s ease;

@@ -10,7 +10,7 @@
             height: 100%;
             margin: 0;
             font-family: 'Libre Baskerville', serif;
-            background-image: url('{{ asset('images/background2.jpg') }}');
+            background-image: url('{{ asset('images/food.jpg') }}');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -29,7 +29,7 @@
         }
 
         h1 {
-            font-size: 36px;
+            font-size: 20spx;
             color: #FFD700; /* Luxurious gold color */
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Shadow for depth */
             margin-bottom: 20px;
@@ -64,7 +64,7 @@
             background: linear-gradient(135deg, #6b73ff, #000dff); /* Royal gradient */
             color: white;
             padding: 15px 30px;
-            font-size: 18px;
+            font-size: 12px;
             border-radius: 30px;
             border: none;
             cursor: pointer;
