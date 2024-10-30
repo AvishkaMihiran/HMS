@@ -75,7 +75,7 @@
             background-color: rgba(255, 215, 0, 0.2);
         }
 
-        /* Home Section */
+        /* Dashboard Section */
         .home-section {
             background-image: url('{{ asset('images/background3.jpg') }}');
             background-size: cover;
