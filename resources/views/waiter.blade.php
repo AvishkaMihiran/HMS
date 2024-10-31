@@ -5,28 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Waiter Ordering Interface</title>
     <style>
-      
-
-body {
+        body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('{{ asset('images/background.jpg') }}');
+            background-image: url('Hotel2.png'); /* Path to your hotel background image */
             background-size: cover; /* Cover the entire viewport */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Prevent repeating the image */
         }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white overlay */
-    z-index: 1; /* Place overlay above the background */
-}
-
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white overlay */
+            z-index: 1; /* Place overlay above the background */
+        }
 
         /* Header */
         header {
@@ -38,7 +35,7 @@ body {
             align-items: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-        
+
         header .logo {
             font-size: 28px;
             font-weight: bold;
@@ -65,9 +62,6 @@ body {
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-
-
-
 
         .sidebar h3 {
             margin-top: 0;
@@ -97,9 +91,11 @@ body {
             transition: background-color 0.3s;
         }
 
-        .sidebar button:hover {
-            background-color: #a58e34; /* Darker gold on hover */
-        }
+        
+.remove-button {
+    margin-top: 10px; /* Adjust the spacing as needed */
+}
+
 
         /* Main order section */
         .main {
@@ -107,18 +103,13 @@ body {
             padding: 20px;
             box-sizing: border-box;
         }
-	
-	.order-item {
-    	background-color: #f0f0f0; /* Light background color for selected items */
-    	border-radius: 5px; /* Rounded corners */
-    	padding: 10px; /* Padding for spacing */
-    	margin-bottom: 10px; /* Spacing between items */
-	}
 
-        .order-item input {
-            width: 40px;
+        .order-item {
+            background-color: #f0f0f0; /* Light background color for selected items */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Padding for spacing */
+            margin-bottom: 10px; /* Spacing between items */
         }
-
 
         /* Visual menu grid */
         .menu-grid {
@@ -127,27 +118,24 @@ body {
             gap: 15px;
             margin-top: 10px;
 
- background-color: rgba(255, 255, 255, 0.8); /* Light background for the menu grid */
-        padding: 15px; /* Add some padding */
-        border-radius: 8px; /* Optional: rounded corners */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: shadow effect */
+            background-color: rgba(255, 255, 255, 0.8); /* Light background for the menu grid */
+            padding: 15px; /* Add some padding */
+            border-radius: 8px; /* Optional: rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: shadow effect */
         }
 
+        .highlight {
+            background-color: #f0f0f0; /* Light background color */
+            color: #333; /* Text color */
+            padding: 10px; /* Some padding for better spacing */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
 
-.highlight {
-    background-color: #f0f0f0; /* Light background color */
-    color: #333; /* Text color */
-    padding: 10px; /* Some padding for better spacing */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-
-.highlight:hover {
-    background-color: #e0e0e0; /* Darker background on hover */
-}
-
+        .highlight:hover {
+            background-color: #e0e0e0; /* Darker background on hover */
+        }
 
         .menu-item {
             background-color: white;
@@ -162,7 +150,7 @@ body {
 
         .menu-item:hover {
             transform: translateY(-3px); /* Slight lift effect */
-	background-color: #f0f0f0; /* Change background on hover */
+            background-color: #f0f0f0; /* Change background on hover */
         }
 
         .menu-item img {
@@ -182,17 +170,19 @@ body {
             width: 25%;
             padding: 20px;
             box-sizing: border-box;
-            background-color: #f9f9f9;
+	    background-color: #4e4e6f; /* Darker shade for sidebar */
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .summary h3 {
             margin-top: 0;
+	    color: white;
         }
 
         .summary p {
             font-size: 18px;
+	    color: white;
             margin-bottom: 15px;
         }
 
@@ -209,14 +199,31 @@ body {
             transition: background-color 0.3s;
         }
 
+	.summary button:Cancel Order{
+	 display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #b59739; /* Gold color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+	}
+
         .summary button:hover {
             background-color: #a58e34; /* Darker gold on hover */
+	    margin-top: 50px; /* Adjust the spacing as needed */
         }
+
+
+
 
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #333;
+            
             color: white;
             position: fixed;
             bottom: 0;
@@ -235,9 +242,6 @@ body {
     </style>
 </head>
 <body>
-
-    
-
 <header>
     <div class="logo">IMPERIAL CROWN</div>
     <div class="waiter-info">
@@ -247,195 +251,223 @@ body {
     </div>
 </header>
 
-    <div class="container">
-        <!-- Sidebar for table number and number of customers -->
-        <div class="sidebar">
-            <h3>Order Details</h3>
-            <label for="table-number">Table Number</label>
-            <select id="table-number">
-                <option value="1">Table 1</option>
-                <option value="2">Table 2</option>
-                <option value="3">Table 3</option>
-                <option value="4">Table 4</option>
-            </select>
+<div class="container">
+    <!-- Sidebar for table number and number of customers -->
+    <div class="sidebar">
+        <h3>Order Details</h3>
+        <label for="table-number">Table Number</label>
+        <select id="table-number">
+            <option value="1">Table 1</option>
+            <option value="2">Table 2</option>
+            <option value="3">Table 3</option>
+            <option value="4">Table 4</option>
+        </select>
 
-	
-	<label for="num-customers">Number of Customers</label>
-	<select id="num-customers">
-    		<!-- Generate options for 1 to 20 customers -->
-    		<script>
-        		for (let i = 1; i <= 20; i++) {
-            			document.write(`<option value="${i}">${i} Customer${i > 1 ? 's' : ''}</option>`);
-        		}
-    		</script>
-		</select>
+        <label for="num-customers">Number of Customers</label>
+        <select id="num-customers">
+            <!-- Generate options for 1 to 20 customers -->
+            <script>
+                for (let i = 1; i <= 20; i++) {
+                    document.write(`<option value="${i}">${i} Customer${i > 1 ? 's' : ''}</option>`);
+                }
+            </script>
+        </select>
 
-
-            <!-- Buttons to switch between menu categories -->
-            <button onclick="showCategory('beverages')">Beverages</button>
-            <button onclick="showCategory('main-dish')">Main Dish</button>
-            <button onclick="showCategory('sides')">Sides</button>
-            <button onclick="showCategory('appetizers')">Appetizers</button>
-            <button onclick="showCategory('desserts')">Desserts</button>
+	    <!-- Buttons to switch between menu categories -->
+            <button onclick="showCategory('starters')">Starters</button>
+            <button onclick="showCategory('kebab')">Kebab</button>
             <button onclick="showCategory('soup')">Soup</button>
-        </div>
-
-        <!-- Main section for menu selection and order details -->
-        <div class="main">
-            <h3 class="highlight">Menu</h3>
-            <div class="menu-grid" id="menu-grid">
-                <!-- Dynamically populated with menu items -->
-            </div>
-
-            <h3 class="highlight">Selected Items</h3>
-            <div id="order-items">
-                <!-- Dynamically populated based on customer selection -->
-            </div>
-            <textarea rows="4" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;" placeholder="Special Instructions"></textarea>
-        </div>
-
-        <!-- Right sidebar for summary -->
-        <div class="summary">
-            <h3>Order Summary</h3>
-            <p>Table: <span id="table-summary">1</span></p>
-            <p>Customers: <span id="customers-summary">1</span></p>
-            <p>Total Items: <span id="total-items">0</span></p>
-            <p>Total Price: $<span id="total-price">0.00</span></p>
-            <button>Send to Kitchen</button>
-            <button>Hold Order</button>
-            <button>Cancel Order</button>
-        </div>
+            <button onclick="showCategory('sandwich')">Sandwich</button>
+            <button onclick="showCategory('fresh juice and shakes')">Fresh Juice and Shakes</button>
+            <button onclick="showCategory('salad')">Salad</button>
+	    <button onclick="showCategory('fried rice')">Fried Rice</button>
+            <button onclick="showCategory('kottu')">Kottu</button>
+            <button onclick="showCategory('noodles')">Noodles</button>
+            <button onclick="showCategory('pasta')">Pasta</button>
+            <button onclick="showCategory('chopsuey rice or noodles')">Chopsuey Rice Or Noodles</button>
+            <button onclick="showCategory('seafood')">SeaFood</button>
+	    <button onclick="showCategory('chicken')">Chicken</button>
+	    <button onclick="showCategory('egg omlet')">Egg Omlet</button>
+	    <button onclick="showCategory('rice and curry')">Rice and Curry</button>
+	    <button onclick="showCategory('desert')">Desert</button>
+            
     </div>
 
-    <footer>
-        <button>View Order History</button>
-        <button>Table Overview</button>
-        
-    </footer>
+    <!-- Main order section -->
+    <div class="main">
+        <div class="menu-grid" id="menu">
+            <!-- Example menu items with categories -->
+
+            <div class="menu-item" data-category="starters" onclick="addToOrder('Potato Wedges', 600)">
+                <p>Potato Wedges - 600 LKR</p>
+            </div>
+
+            <div class="menu-item" data-category="starters" onclick="addToOrder('Garlic Kankun', 600)">
+                <p>Garlic Kankun - 600 LKR</p>
+            </div>
+
+            <div class="menu-item" data-category="starters" onclick="addToOrder('Hot Butter Mushroom', 700)">
+                <p>Hot Butter Mushroom - 700 LKR</p>
+            </div>
+
+            <div class="menu-item" data-category="starters" onclick="addToOrder('French Fries', 800)">
+                <p>French Fries - 800 LKR</p>
+            </div>
+
+            <div class="menu-item" data-category="kebab" onclick="addToOrder('Sausage Kebab', 450)">
+                <p>Sausage Kebab - 450 LKR</p>
+            </div>
+
+            <div class="menu-item" data-category="kebab" onclick="addToOrder('Prawns or Cuttlefish Kebab', 450)">
+                <p>Prawns or Cuttlefish Kebab - 450 LKR</p>
+            </div>
+
+            <div class="menu-item" data-category="kebab" onclick="addToOrder('Fish Kebab', 500)">
+                <p>Fish Kebab - 500 LKR</p>
+            </div>
+
+            <div class="menu-item" data-category="kebab" onclick="addToOrder('Chicken Kebab', 500)">
+                <p>Chicken Kebab - 500 LKR</p>
+            </div>
+
+	    <div class="menu-item" data-category="kebab" onclick="addToOrder('Mix Kebab', 700)">
+                <p>Mix Kebab - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="soup" onclick="addToOrder('Cream of Vegetable', 700)">
+                <p>Cream of Vegetable - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="soup" onclick="addToOrder('Egg Drop', 700)">
+                <p>Egg Drop - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="soup" onclick="addToOrder('Cream of Chicken', 700)">
+                <p>Cream of Chicken - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="soup" onclick="addToOrder('Thai Potato Chicken', 700)">
+                <p>Thai Potato Chicken - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="soup" onclick="addToOrder('Creamy Lemon Prawns', 700)">
+                <p>Creamy Lemon Prawns - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="soup" onclick="addToOrder('Sri Lanka Style Crab Pepar', 700)">
+                <p>Sri Lanka Style Crab Pepar - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="soup" onclick="addToOrder('Tom yum Soup', 700)">
+                <p>Tom yum Soup - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="soup" onclick="addToOrder('PEARL WOK Special Seafood Soup', 700)">
+                <p>PEARL WOK Special Seafood Soup - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="sandwich" onclick="addToOrder('Egg Sandwich', 500)">
+                <p>Egg Sandwich - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="sandwich" onclick="addToOrder('Chicken Sandwich', 650)">
+                <p>Chicken Sandwich - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="sandwich" onclick="addToOrder('Grill Chicken Sandwich', 800)">
+                <p>Grill Chicken Sandwich - 700 LKR</p>
+            </div>
+
+	<div class="menu-item" data-category="sandwich" onclick="addToOrder('Club Sandwich', 900)">
+                <p>Club Sandwich - 700 LKR</p>
+            </div>
+
+	
+
+        </div>
+
+    </div>
+
+    <!-- Right sidebar for order summary -->
+    <div class="summary">
+        <h3>Order Summary</h3>
+        <div id="order-summary"></div>
+        <p>Total: <span id="total-price">0</span> LKR</p>
+        <button onclick="submitOrder()">Submit Order</button>
+	<button onclick="cancelOrder()">Cancel Order</button>
+    </div>
+</div>
+
+<footer>
+    <button onclick="clearOrder()">Clear Order</button>
+</footer>
 
 <script>
-    // Existing code...
+    let total = 0; // Initialize total price
+    let orderItems = []; // Store order items
 
-    // Function to display uploaded image
-    function displayImage(event) {
-        const file = event.target.files[0];
-        const imgElement = document.getElementById('waiter-photo-display');
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            imgElement.src = e.target.result; // Set the source of the image
-            imgElement.style.display = 'inline'; // Show the image
-        }
-
-        if (file) {
-            reader.readAsDataURL(file); // Read the file as a data URL
-        }
+    function showCategory(category) {
+        const items = document.querySelectorAll('.menu-item');
+        items.forEach(item => {
+            item.style.display = item.getAttribute('data-category') === category || category === 'all' ? 'block' : 'none';
+        });
     }
 
-    // Existing code...
+    function addToOrder(itemName, itemPrice) {
+        orderItems.push({ name: itemName, price: itemPrice });
+        total += itemPrice; // Update total price
+        updateOrderSummary();
+    }
+
+    function updateOrderSummary() {
+        const orderSummary = document.getElementById('order-summary');
+        orderSummary.innerHTML = ''; // Clear previous summary
+        orderItems.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'order-item';
+            div.innerHTML = `
+                
+
+                <span>${item.name} - ${item.price} LKR</span>
+		<br>
+	        <button onclick="removeItemFromOrder(${index})">Remove</button>
+            `;
+            orderSummary.appendChild(div);
+        });
+        document.getElementById('total-price').textContent = total; // Update total price display
+    }
+
+    function removeItemFromOrder(index) {
+        total -= orderItems[index].price; // Deduct item price from total
+        orderItems.splice(index, 1); // Remove the item from the array
+        updateOrderSummary(); // Update display
+    }
+
+    function submitOrder() {
+        alert(`Order submitted! Total: ${total} LKR`);
+        clearOrder(); // Clear order after submission
+    }
+    
+    function cancelOrder() {
+        alert(`Order calceled! Total: ${total} LKR`);
+        clearOrder(); // Clear order after submission
+    }
+
+   
+
+    function clearOrder() {
+        orderItems = []; // Reset order items
+        total = 0; // Reset total price
+        updateOrderSummary(); // Update order summary display
+    }
+
+    function displayImage(event) {
+        const image = document.getElementById('waiter-photo-display');
+        image.src = URL.createObjectURL(event.target.files[0]);
+        image.style.display = 'block'; // Show the image
+    }
+showCategory('starters');
 </script>
 
-    <script>
-        // Menu items data for each category with image, name, and price
-        const menuCategories = {
-            'beverages': [
-                { name: 'Coke', price: 1.99, image: 'coke.jpg' },
-                { name: 'Juice', price: 2.99, image: 'juice.jpg' }
-            ],
-            'main-dish': [
-                { name: 'Grilled Chicken', price: 12.99, image: 'grilled_chicken.jpg' },
-                { name: 'Rice', price: 8.99, image: 'rice.jpg' }
-            ],
-            'sides': [
-                { name: 'Fries', price: 3.99, image: 'fries.jpg' },
-                { name: 'Salad', price: 4.99, image: 'salad.jpg' }
-            ],
-            'appetizers': [
-                { name: 'Spring Rolls', price: 5.99, image: 'spring_rolls.jpg' },
-                { name: 'Garlic Bread', price: 4.99, image: 'garlic_bread.jpg' }
-            ],
-            'desserts': [
-                { name: 'Ice Cream', price: 3.99, image: 'ice_cream.jpg' },
-                { name: 'Cake', price: 4.99, image: 'cake.jpg' }
-            ],
-            'soup': [
-                { name: 'Tomato Soup', price: 6.99, image: 'tomato_soup.jpg' },
-                { name: 'Chicken Soup', price: 7.99, image: 'chicken_soup.jpg' }
-            ]
-        };
-
-        let order = [];
-        let totalItems = 0;
-        let totalPrice = 0.00;
-
-        // Function to show menu items based on the selected category
-        function showCategory(category) {
-            const menuGrid = document.getElementById('menu-grid');
-            menuGrid.innerHTML = ''; // Clear existing items
-
-            const items = menuCategories[category];
-            items.forEach(item => {
-                const div = document.createElement('div');
-                div.classList.add('menu-item');
-                div.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}">
-                    <p>${item.name}</p>
-                    <p>$${item.price.toFixed(2)}</p>
-                `;
-                div.onclick = () => addItem(item);
-                menuGrid.appendChild(div);
-            });
-        }
-
-        // Function to add an item to the order
-        function addItem(item) {
-            const orderItemsDiv = document.getElementById('order-items');
-            order.push(item);
-            totalItems++;
-            totalPrice += item.price;
-
-            const div = document.createElement('div');
-            div.classList.add('order-item');
-            div.innerHTML = `
-                <span>${item.name}</span>
-                <span>
-                    <input type="number" value="1" min="1" onchange="updatePrice(this, ${item.price})"> x $${item.price.toFixed(2)}
-                    <button onclick="removeItem(this, ${item.price})">Remove</button>
-                </span>
-            `;
-            orderItemsDiv.appendChild(div);
-
-            updateSummary();
-        }
-
-        // Function to update price based on quantity change
-        function updatePrice(element, price) {
-            const quantity = element.value;
-            totalPrice += price * (quantity - 1); // Adjust for new quantity
-            updateSummary();
-        }
-
-        // Function to remove items
-        function removeItem(button, price) {
-            const orderItemDiv = button.parentElement.parentElement;
-            orderItemDiv.remove();
-            totalItems--;
-            totalPrice -= price;
-            updateSummary();
-        }
-
-        // Function to update the summary (total items, price, etc.)
-        function updateSummary() {
-            document.getElementById('total-items').textContent = totalItems;
-            document.getElementById('total-price').textContent = totalPrice.toFixed(2);
-            document.getElementById('table-summary').textContent = document.getElementById('table-number').value;
-            document.getElementById('customers-summary').textContent = document.getElementById('num-customers').value;
-        }
-
-        // Initialize with the Beverages category by default
-        showCategory('beverages');
-    </script>
 </body>
 </html>
-
-
