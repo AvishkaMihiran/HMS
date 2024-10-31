@@ -1,97 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
-
-    <title>Dashboard Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <title>Imperial Crown | Dashboard</title>
     <style>
-        /* Background image styling */
+        /* General Styles */
         body {
-            
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Libre Baskerville', serif;
             scroll-behavior: smooth;
-
+            background-color: #f4f4f4;
         }
-        /* Container for the images and buttons */
-    
+
         .section {
-            height: 100vh; /* Full screen height for each section */
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            text-align: center;}
-        .home-section {
-            font-family: 'Libre Baskerville', serif;
-            background-image: url('{{ asset('images/background.jpg') }}');
-            background-size: cover;
-            background-position: center;
-        }  
-        .home-section, .booking-section, .food-ordering-section {
-   		 width: 100%; 
-	}
-        .booking-section {
-            background-image: url('{{ asset('images/booking.jpg') }}');
-            background-size: cover;
-            background-position: center;
-            padding-top: 50px; /* Add space at the top */
-            padding-bottom: 50px; /* Add space at the bottom */
-        }  
-        .food-ordering-section {
-            background-image: url('{{ asset('images/food-ordering.jpg') }}');
-            background-size: cover;
-            background-position: center;
-            padding-top: 50px; /* Add space at the top */
-            padding-bottom: 50px; /* Add space at the bottom */
-        }
-        /* Button styling */
-        .button-container {
             text-align: center;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
+            padding: 40px 20px;
         }
 
-        .button {
-            background: linear-gradient(135deg, #6b73ff, #000dff); /* Gradient */
-            color: white;
-            padding: 15px 30px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 18px;
-            margin: 10px;
-            border: none;
-            border-radius: 30px; /* Rounded corners */
-            cursor: pointer;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-            transition: all 0.3s ease; }
-
-            .button:hover {
-    background: linear-gradient(135deg, #ff6b6b, #ff0000); /* Hover color change */
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); /* Elevated shadow on hover */
-    transform: translateY(-5px); /* Upward movement on hover */
-}
-
-        .spacer {
-            height: 75px; /* Adjust this value to create more or less space */
-        }
-        footer {
-            font-family: 'Libre Baskerville', serif;
-            background-color: #222;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            font-size: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
+        /* Header and Navbar */
         nav {
     position: fixed; /* Stay at the top of the page */
     top: 5px; /* Ensure it is at the very top */
@@ -108,130 +41,206 @@
     box-sizing: border-box; 
     transition: background-color 0.3s ease;
     border-bottom: 3px solid rgba(25, 25, 0, 0.2);
-}
+        }
 
+        nav .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            color: #FFD700;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
-body {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    width: 100%; /* Ensure full width */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-/* Logo or brand name */
-nav .logo {
-    font-family: 'Cinzel', serif;
-    font-size: 16px; /* Increase logo size */
-    color: #B8860B; /* A gold color for luxury look */
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-    transition: color 0.3s ease;
-}
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
 
-nav .logo:hover {
-    color: #fff; /* Change logo color on hover */
-}
-/* Navigation links (Booking, Order) */
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-grow: 1; /* Allow it to take up available space */
-    justify-content: flex-end; /* Align items to the right */
-}
+        nav ul li a {
+            color: white;
+            font-size: 12px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-nav ul li {
-    margin-left: 20px;
-}
+        nav ul li a:hover {
+            color: #FFD700;
+            background-color: rgba(255, 215, 0, 0.2);
+        }
 
+        /* Dashboard Section */
+        .home-section {
+            background-image: url('{{ asset('images/background3.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            font-family: 'Cinzel', serif;
+        }
 
-nav ul li a {
-    color: white; /* Keep text white for contrast */
-    font-size: 16px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    transition: all 0.3s ease; /* Smooth transition */
-    text-decoration: none;
-    white-space: nowrap; /* Prevent text from wrapping */
-}
+        .home-section h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
 
-nav ul li a:hover {
-    color: #FFD700; /* Gold on hover */
-    border-color: #FFD700; /* Gold border on hover */
-    background-color: rgba(255, 215, 0, 0.2); /* Light golden background */
-    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3); /* Soft gold shadow */
-    transform: scale(1.05); /* Slightly enlarge the link on hover */
-}
+        /* Booking Section */
+        .booking-section, .food-ordering-section {
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+            font-family: 'Cinzel', serif;
+        }
 
+        .booking-section {
+            background-image: url('{{ asset('images/booking.jpg') }}');
+        }
 
-body {
-    margin: 0; /* Remove default margin */
-    padding: 100; /* Remove default padding */
-    width: 100%; /* Ensure full width */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
+        .food-ordering-section {
+            background-image: url('{{ asset('images/food-ordering.jpg') }}');
+        }
+        
+        h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #FFD700;
+        }
 
+        /* Room Info Section */
+        .room-info-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
+        .room-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 20%;
+            text-align: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .room-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .room-image {
+            width: 80%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Button Styles */
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #FFD700;
+            color: #333;
+            padding: 12px 24px;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e0c200;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #FFD700;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            font-family: 'Libre Baskerville', serif;
+        }
 
     </style>
-
-
 </head>
 <body>
-  
-    <!-- Dashboard Section -->
+    <nav>
+        <div class="logo">IMPERIAL CROWN</div>
+        <ul>
+            <li><a href="{{ url('/booking') }}"><i class="fas fa-calendar-alt"></i> Booking</a></li>
+            <li><a href="{{ url('/food-ordering') }}"><i class="fas fa-utensils"></i> Order</a></li>
+            @auth
+                <li><a href="{{ url('/redirects') }}"><i class="fas fa-user"></i> Dashboard</a></li>
+            @else
+                <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                @if (Route::has('register'))
+                    <li><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i> Register</a></li>
+                @endif
+            @endauth
+        </ul>
+    </nav>
+
     <div class="section home-section">
-        <h1>WELCOME TO IMPERIAL CROWN </h1>
+        <h1>Welcome to Imperial Crown</h1>
     </div>
-    <div class="spacer"></div>
-<nav>
-    <div class="logo">
-    IMPERIAL CROWN
-    </div>
-    <ul>
-        <li><a href="{{ url('/booking') }}"><i class="fas fa-calendar-alt"></i>Booking</a></li>
-        <li><a href="{{ url('/food-ordering') }}"><i class="fas fa-utensils"></i> Order</a></li>
-        @auth
-            <!-- Only show Dashboard button if logged in -->
-            <li><a href="{{ url('/dashboard') }}"><i class="fas fa-user"></i> Dashboard</a></li>
-        @else
-            <!-- Show login and register buttons if not logged in -->
-            <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-            @if (Route::has('register'))
-                <li><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i> Register</a></li>
-            @endif
-        @endauth
-
-    </ul>
-</nav>
-    
-    <!-- Booking Section -->
     <div class="section booking-section" id="booking-section">
-        <div>
-            <h2>Book Your Stay</h2>
-            <div class="button-container">
-            <a href="{{ url('/booking') }}" class="button"><i class="fas fa-calendar-alt"></i> Booking</a>
+        <h2>Add Your Bookings</h2>
+        <div class="room-info-container">
+            <div class="room-box">
+                <img src="{{ asset('images/lroom.jpg') }}" alt="Full Board" class="room-image">
+                <h3>Full Board</h3>
+                <p>Includes breakfast, lunch, and dinner with luxurious accommodations.</p>
+            </div>
+            <div class="room-box">
+                <img src="{{ asset('images/room.jpg') }}" alt="Half Board" class="room-image">
+                <h3>Half Board</h3>
+                <p>Includes breakfast and dinner. Perfect for a flexible stay.</p>
+            </div>
+            <div class="room-box">
+                <img src="{{ asset('images/rooml.jpg') }}" alt="Room Only" class="room-image">
+                <h3>Room Only</h3>
+                <p>Spacious rooms with AC or non-AC options available for your comfort.</p>
+            </div>
+        </div>
+        <div class="button-container">
+            <a href="{{ url('/booking') }}" class="button"><i class="fas fa-calendar-alt"></i> Book Now</a>
+        </div>
+    </div>
+    </div><div class="section food-ordering-section" id="food-ordering-section">
+        <h2>Order Delicious Food</h2>
+        <div class="button-container">
+            <a href="{{ url('/food-ordering') }}" class="button"><i class="fas fa-utensils"></i> Order</a>
+        </div>
+    </div>
 
-</div>
-        </div>
-    </div>
-    <div class="spacer"></div>
-    <!-- Food Ordering Section -->
-    <div class="section food-ordering-section" id="food-ordering-section">
-        <div>
-            <h2>Order Delicious Food</h2>
-            <div class="button-container">
-            <a href="{{ url('/food-ordering') }}" class="button"><i class="fas fa-utensils"></i> Order</a> </div>
-        </div>
-    </div>
     <footer>
-        <p>IMPERIAL CROWN</p>
-        <p>N0 24</p>
-        <p>COLOMBO 7</p>
-        <p>COLOMBO.</p>
+        <p>&copy; 2024 Imperial Crown | No. 24, Colombo 7, Sri Lanka</p>
     </footer>
 </body>
 </html>
-
-
