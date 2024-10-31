@@ -46,6 +46,7 @@
                             <th class = "th_deg">Room Type</th>
                             <th class = "th_deg">Image</th>
                             <th class = "th_deg">Delete</th>
+                            <th class = "th_deg">Update</th>
                         </tr>
                      @if($data->isEmpty())
                          <tr class = "tr_deg">
@@ -65,6 +66,10 @@
 
                             <td>
                                 <a onclick = "return confirm('Are you sure to delete this');" class = "btn btn-danger" href = "{{url('room_delete', $item->id)}}">Delete</a>
+                            </td>
+
+                            <td>
+                                <a class = "btn btn-warning" href = "{{url('update_room', $item->id)}}">Update</a>
                             </td>
                         </tr>
                        
