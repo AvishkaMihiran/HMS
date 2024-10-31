@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +37,4 @@ route::get('/room_delete/{id}',[AdminController::class,'room_delete'])->name('ad
 Route::get('/update_room/{id}', [AdminController::class, 'update_room'])->name('update_room');
 
 Route::post('/edit_room/{id}', [AdminController::class, 'edit_room']);
+Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('data.edit_room');
