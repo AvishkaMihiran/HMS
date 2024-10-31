@@ -52,7 +52,15 @@ Route::get('/create_room', function () {
     return view('admin.create_room'); 
 });
 
+
+Route::get('/food-ordering', function () {
+    return view('food-ordering');
+})->name('food-ordering'); //link from receptionist foods to order
+
+
+
 Route::get("/redirects",[HomeController::class,"redirects"]);
+
 
 route::post('/add_room',[AdminController::class,'add_room']);
 
