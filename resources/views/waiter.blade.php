@@ -429,7 +429,7 @@
                 
 
                 <span>${item.name} - ${item.price} LKR</span>
-		<br>
+		<br><br>
 	        <button onclick="removeItemFromOrder(${index})">Remove</button>
             `;
             orderSummary.appendChild(div);
