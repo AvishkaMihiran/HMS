@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Waiter Ordering Interface</title>
     <style>
+        /* Your existing CSS styles */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('Hotel2.png'); /* Path to your hotel background image */
+            background-image: url('{{ asset('images/Hotel2.png') }}');
             background-size: cover; /* Cover the entire viewport */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Prevent repeating the image */
@@ -91,11 +92,9 @@
             transition: background-color 0.3s;
         }
 
-        
-.remove-button {
-    margin-top: 10px; /* Adjust the spacing as needed */
-}
-
+        .remove-button {
+            margin-top: 10px; /* Adjust the spacing as needed */
+        }
 
         /* Main order section */
         .main {
@@ -170,19 +169,19 @@
             width: 25%;
             padding: 20px;
             box-sizing: border-box;
-	    background-color: #4e4e6f; /* Darker shade for sidebar */
+            background-color: #4e4e6f; /* Darker shade for sidebar */
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .summary h3 {
             margin-top: 0;
-	    color: white;
+            color: white;
         }
 
         .summary p {
             font-size: 18px;
-	    color: white;
+            color: white;
             margin-bottom: 15px;
         }
 
@@ -199,31 +198,13 @@
             transition: background-color 0.3s;
         }
 
-	.summary button:Cancel Order{
-	 display: block;
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #b59739; /* Gold color */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-	}
-
         .summary button:hover {
             background-color: #a58e34; /* Darker gold on hover */
-	    margin-top: 50px; /* Adjust the spacing as needed */
         }
-
-
-
 
         footer {
             text-align: center;
             padding: 15px;
-            
             color: white;
             position: fixed;
             bottom: 0;
@@ -273,31 +254,31 @@
             </script>
         </select>
 
-	    <!-- Buttons to switch between menu categories -->
+        <!-- Buttons to switch between menu categories -->
+       <!-- Buttons to switch between menu categories -->
             <button onclick="showCategory('starters')">Starters</button>
             <button onclick="showCategory('kebab')">Kebab</button>
             <button onclick="showCategory('soup')">Soup</button>
             <button onclick="showCategory('sandwich')">Sandwich</button>
             <button onclick="showCategory('fresh juice and shakes')">Fresh Juice and Shakes</button>
             <button onclick="showCategory('salad')">Salad</button>
-	    <button onclick="showCategory('fried rice')">Fried Rice</button>
+	        <button onclick="showCategory('fried rice')">Fried Rice</button>
             <button onclick="showCategory('kottu')">Kottu</button>
             <button onclick="showCategory('noodles')">Noodles</button>
             <button onclick="showCategory('pasta')">Pasta</button>
             <button onclick="showCategory('chopsuey rice or noodles')">Chopsuey Rice Or Noodles</button>
             <button onclick="showCategory('seafood')">SeaFood</button>
-	    <button onclick="showCategory('chicken')">Chicken</button>
-	    <button onclick="showCategory('egg omlet')">Egg Omlet</button>
-	    <button onclick="showCategory('rice and curry')">Rice and Curry</button>
-	    <button onclick="showCategory('desert')">Desert</button>
-            
+	        <button onclick="showCategory('chicken')">Chicken</button>
+	        <button onclick="showCategory('egg omlet')">Egg Omlet</button>
+	        <button onclick="showCategory('rice and curry')">Rice and Curry</button>
+	        <button onclick="showCategory('desert')">Desert</button>
     </div>
 
-    <!-- Main order section -->
+    <!-- Main section for menu and order -->
     <div class="main">
-        <div class="menu-grid" id="menu">
-            <!-- Example menu items with categories -->
-
+        <h2 class="highlight">Menu</h2>
+        <div id="menu" class="menu-grid">
+            <!-- Starter menu items -->
             <div class="menu-item" data-category="starters" onclick="addToOrder('Potato Wedges', 600)">
                 <p>Potato Wedges - 600 LKR</p>
             </div>
@@ -381,93 +362,104 @@
 	<div class="menu-item" data-category="sandwich" onclick="addToOrder('Club Sandwich', 900)">
                 <p>Club Sandwich - 700 LKR</p>
             </div>
-
-	
-
         </div>
-
     </div>
 
     <!-- Right sidebar for order summary -->
     <div class="summary">
         <h3>Order Summary</h3>
         <div id="order-summary"></div>
-        <p>Total: <span id="total-price">0</span> LKR</p>
-        <button onclick="submitOrder()">Submit Order</button>
-	<button onclick="cancelOrder()">Cancel Order</button>
+        <button onclick="placeOrder()">Place Order</button>
     </div>
 </div>
 
 <footer>
-    <button onclick="clearOrder()">Clear Order</button>
+    <button onclick="window.print()">Print Order</button>
+    <button>Log Out</button>
 </footer>
 
 <script>
-    let total = 0; // Initialize total price
-    let orderItems = []; // Store order items
-
-    function showCategory(category) {
-        const items = document.querySelectorAll('.menu-item');
-        items.forEach(item => {
-            item.style.display = item.getAttribute('data-category') === category || category === 'all' ? 'block' : 'none';
-        });
-    }
+    let order = {};
 
     function addToOrder(itemName, itemPrice) {
-        orderItems.push({ name: itemName, price: itemPrice });
-        total += itemPrice; // Update total price
-        updateOrderSummary();
+        const quantity = prompt("Enter quantity for " + itemName + ":");
+        if (quantity && !isNaN(quantity) && quantity > 0) {
+            const itemQuantity = parseInt(quantity);
+
+            // Check if the item already exists in the order
+            if (order[itemName]) {
+                // Update the existing item's quantity
+                order[itemName].quantity += itemQuantity;
+            } else {
+                // Add new item to the order
+                order[itemName] = {
+                    price: itemPrice,
+                    quantity: itemQuantity
+                };
+            }
+            updateOrderSummary();
+        } else {
+            alert("Please enter a valid quantity.");
+        }
     }
 
     function updateOrderSummary() {
-        const orderSummary = document.getElementById('order-summary');
-        orderSummary.innerHTML = ''; // Clear previous summary
-        orderItems.forEach((item, index) => {
-            const div = document.createElement('div');
-            div.className = 'order-item';
-            div.innerHTML = `
-                
+        const summaryDiv = document.getElementById("order-summary");
+        summaryDiv.innerHTML = ''; // Clear the summary
 
-                <span>${item.name} - ${item.price} LKR</span>
-		<br><br>
-	        <button onclick="removeItemFromOrder(${index})">Remove</button>
-            `;
-            orderSummary.appendChild(div);
-        });
-        document.getElementById('total-price').textContent = total; // Update total price display
+        for (const itemName in order) {
+            const item = order[itemName];
+            const itemDiv = document.createElement("div");
+            itemDiv.className = "order-item";
+            itemDiv.innerText = `${itemName} - Quantity: ${item.quantity} - Total: ${item.price * item.quantity} LKR`;
+            summaryDiv.appendChild(itemDiv);
+        }
     }
 
-    function removeItemFromOrder(index) {
-        total -= orderItems[index].price; // Deduct item price from total
-        orderItems.splice(index, 1); // Remove the item from the array
-        updateOrderSummary(); // Update display
-    }
+    function placeOrder() {
+        if (Object.keys(order).length === 0) {
+            alert("Your order is empty!");
+            return;
+        }
 
-    function submitOrder() {
-        alert(`Order submitted! Total: ${total} LKR`);
-        clearOrder(); // Clear order after submission
-    }
-    
-    function cancelOrder() {
-        alert(`Order canlceled! Total: ${total} LKR`);
-        clearOrder(); // Clear order after submission
-    }
-
-   
-
-    function clearOrder() {
-        orderItems = []; // Reset order items
-        total = 0; // Reset total price
-        updateOrderSummary(); // Update order summary display
+        // Clear the order and update the summary
+        order = {};
+        updateOrderSummary();
+        alert("Your order has been placed!");
     }
 
     function displayImage(event) {
-        const image = document.getElementById('waiter-photo-display');
-        image.src = URL.createObjectURL(event.target.files[0]);
-        image.style.display = 'block'; // Show the image
+        const img = document.getElementById("waiter-photo-display");
+        img.src = URL.createObjectURL(event.target.files[0]);
+        img.style.display = "block"; // Show the image after it's loaded
+    }
+
+    // Function to show menu category based on button clicked
+    function showCategory(category) {
+        const menuItems = document.getElementById("menu");
+        // Clear the current items
+        menuItems.innerHTML = '';
+
+        // Example of adding items based on the category
+        if (category === 'starters') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="starters" onclick="addToOrder('Potato Wedges', 600)">
+                    <p>Potato Wedges - 600 LKR</p>
+                </div>
+                <div class="menu-item" data-category="starters" onclick="addToOrder('Spring Rolls', 250)">
+                    <p>Spring Rolls - 250 LKR</p>
+                </div>
+                <div class="menu-item" data-category="starters" onclick="addToOrder('Stuffed Mushrooms', 300)">
+                    <p>Stuffed Mushrooms - 300 LKR</p>
+                </div>
+                <div class="menu-item" data-category="starters" onclick="addToOrder('Garlic Bread', 200)">
+                    <p>Garlic Bread - 200 LKR</p>
+                </div>
+            `;
+        }
+        // Add similar blocks for other categories
     }
 showCategory('starters');
 </script>
-
 </body>
 </html>
