@@ -449,7 +449,7 @@
     }
     
     function cancelOrder() {
-        alert(`Order calceled! Total: ${total} LKR`);
+        alert(`Order canlceled! Total: ${total} LKR`);
         clearOrder(); // Clear order after submission
     }
 
