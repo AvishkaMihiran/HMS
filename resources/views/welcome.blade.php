@@ -75,7 +75,7 @@
             background-color: rgba(255, 215, 0, 0.2);
         }
 
-        /* Home Section */
+        /* Dashboard Section */
         .home-section {
             background-image: url('{{ asset('images/background3.jpg') }}');
             background-size: cover;
@@ -196,7 +196,7 @@
             <li><a href="{{ url('/booking') }}"><i class="fas fa-calendar-alt"></i> Booking</a></li>
             <li><a href="{{ url('/food-ordering') }}"><i class="fas fa-utensils"></i> Order</a></li>
             @auth
-                <li><a href="{{ url('/dashboard') }}"><i class="fas fa-user"></i> Dashboard</a></li>
+                <li><a href="{{ url('/redirects') }}"><i class="fas fa-user"></i> Dashboard</a></li>
             @else
                 <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
                 @if (Route::has('register'))
@@ -240,7 +240,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Imperial Crown | No. 24, Colombo 7, Colombo</p>
+        <p>&copy; 2024 Imperial Crown | No. 24, Colombo 7, Sri Lanka</p>
     </footer>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html>
   <head> 
@@ -11,3 +12,4 @@
       
   </body>
 </html>
+</x-app-layout>
