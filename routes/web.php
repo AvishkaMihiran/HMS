@@ -51,6 +51,12 @@ Route::get('/create_room', function () {
     return view('admin.create_room'); 
 });
 
+Route::get('/food-ordering', function () {
+    return view('food-ordering');
+})->name('food-ordering'); //link from receptionist foods to order
+
+
+
 route::post('/add_room',[AdminController::class,'add_room']);
 
 Route::get('/view_room',[AdminController::class,'view_room'])->name('admin.view_room');
