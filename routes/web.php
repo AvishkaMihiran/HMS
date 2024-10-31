@@ -24,9 +24,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/food-ordering', function () {
-    return view('food-ordering');
-});
+
 Route::get('/waiter', function () {
     return view('waiter');
 });
@@ -46,6 +44,15 @@ Route::get('/cook', function () {
 Route::get("/redirects",[HomeController::class,"redirects"]);
 
 
+Route::get('/booking', function () {
+    return view('booking');
+})->middleware('auth');;
+
+Route::get('/food-ordering', function () {
+    return view('food-ordering');
+})->middleware('auth');;;
+
+
 Route::get('/admin', function () {
     return view('admin.dashboard'); 
 });
@@ -63,3 +70,4 @@ route::get('/room_delete/{id}',[AdminController::class,'room_delete'])->name('ad
 Route::get('/update_room/{id}', [AdminController::class, 'update_room'])->name('update_room');
 
 Route::post('/edit_room/{id}', [AdminController::class, 'edit_room']);
+
