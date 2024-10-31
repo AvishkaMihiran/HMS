@@ -51,6 +51,8 @@ route::post('/add_room',[AdminController::class,'add_room']);
 
 Route::get('/view_room',[AdminController::class,'view_room'])->name('admin.view_room');
 
-route::get('/room_delete/{id}',[AdminController::class,'room_delete'])->name('admin.room_delete');;
+route::get('/room_delete/{id}',[AdminController::class,'room_delete'])->name('admin.room_delete');
 
-route::post('/add_room',[AdminController::class,'add_room']);
+Route::get('/update_room/{id}', [AdminController::class, 'update_room'])->name('update_room');
+
+Route::post('/edit_room/{id}', [AdminController::class, 'edit_room']);
