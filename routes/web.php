@@ -44,6 +44,12 @@ Route::get('/cook', function () {
 })->middleware('auth');;
 
 Route::get("/redirects",[HomeController::class,"redirects"]);
+
+
+Route::get('/admin', function () {
+    return view('admin.dashboard'); 
+
 Route::get('/booking', function () {
     return view('booking');
 })->middleware('auth');;
+
