@@ -24,9 +24,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/food-ordering', function () {
-    return view('food-ordering');
-});
+
 Route::get('/waiter', function () {
     return view('waiter');
 });
@@ -44,6 +42,11 @@ Route::get('/cook', function () {
 })->middleware('auth');;
 
 Route::get("/redirects",[HomeController::class,"redirects"]);
+
 Route::get('/booking', function () {
     return view('booking');
 })->middleware('auth');;
+
+Route::get('/food-ordering', function () {
+    return view('food-ordering');
+})->middleware('auth');;;
