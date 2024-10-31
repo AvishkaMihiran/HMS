@@ -1,12 +1,8 @@
 <?php
-use App\Http\Controllers\AdminController;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookingController;
-use App\Http\Controllers\HomeController;
 
-Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
-Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,37 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 require __DIR__.'/auth.php';
-
-
-Route::get('/waiter', function () {
-    return view('waiter');
-});
-
-Route::get('/receptionist', function () {
-    return view('receptionist');
-});
-
-Route::get('/food-ordering', function () {
-    return view('food-ordering'); 
-});
-
-Route::get('/cook', function () {
-    return view('cook'); 
-})->middleware('auth');;
-
-Route::get("/redirects",[HomeController::class,"redirects"]);
-
-
-Route::get('/booking', function () {
-    return view('booking');
-})->middleware('auth');;
-
-Route::get('/food-ordering', function () {
-    return view('food-ordering');
-})->middleware('auth');;;
-
 
 Route::get('/admin', function () {
     return view('admin.dashboard'); 
@@ -70,4 +36,3 @@ route::get('/room_delete/{id}',[AdminController::class,'room_delete'])->name('ad
 Route::get('/update_room/{id}', [AdminController::class, 'update_room'])->name('update_room');
 
 Route::post('/edit_room/{id}', [AdminController::class, 'edit_room']);
-
