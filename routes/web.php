@@ -43,6 +43,7 @@ Route::get('/cook', function () {
 
 Route::get("/redirects",[HomeController::class,"redirects"]);
 
+
 Route::get('/booking', function () {
     return view('booking');
 })->middleware('auth');;
@@ -50,3 +51,23 @@ Route::get('/booking', function () {
 Route::get('/food-ordering', function () {
     return view('food-ordering');
 })->middleware('auth');;;
+
+
+Route::get('/admin', function () {
+    return view('admin.dashboard'); 
+});
+
+Route::get('/create_room', function () {
+    return view('admin.create_room'); 
+});
+
+route::post('/add_room',[AdminController::class,'add_room']);
+
+Route::get('/view_room',[AdminController::class,'view_room'])->name('admin.view_room');
+
+route::get('/room_delete/{id}',[AdminController::class,'room_delete'])->name('admin.room_delete');
+
+Route::get('/update_room/{id}', [AdminController::class, 'update_room'])->name('update_room');
+
+Route::post('/edit_room/{id}', [AdminController::class, 'edit_room']);
+
