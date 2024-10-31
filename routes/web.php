@@ -64,7 +64,8 @@ route::get('/room_delete/{id}',[AdminController::class,'room_delete'])->name('ad
 
 Route::get('/update_room/{id}', [AdminController::class, 'update_room'])->name('update_room');
 
-Route::post('/edit_room/{id}', [AdminController::class, 'edit_room']);
 
+Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('data.edit_room');
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
+
