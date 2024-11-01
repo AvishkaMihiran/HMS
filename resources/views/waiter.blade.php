@@ -278,90 +278,7 @@
     <div class="main">
         <h2 class="highlight">Menu</h2>
         <div id="menu" class="menu-grid">
-            <!-- Starter menu items -->
-            <div class="menu-item" data-category="starters" onclick="addToOrder('Potato Wedges', 600)">
-                <p>Potato Wedges - 600 LKR</p>
-            </div>
-
-            <div class="menu-item" data-category="starters" onclick="addToOrder('Garlic Kankun', 600)">
-                <p>Garlic Kankun - 600 LKR</p>
-            </div>
-
-            <div class="menu-item" data-category="starters" onclick="addToOrder('Hot Butter Mushroom', 700)">
-                <p>Hot Butter Mushroom - 700 LKR</p>
-            </div>
-
-            <div class="menu-item" data-category="starters" onclick="addToOrder('French Fries', 800)">
-                <p>French Fries - 800 LKR</p>
-            </div>
-
-            <div class="menu-item" data-category="kebab" onclick="addToOrder('Sausage Kebab', 450)">
-                <p>Sausage Kebab - 450 LKR</p>
-            </div>
-
-            <div class="menu-item" data-category="kebab" onclick="addToOrder('Prawns or Cuttlefish Kebab', 450)">
-                <p>Prawns or Cuttlefish Kebab - 450 LKR</p>
-            </div>
-
-            <div class="menu-item" data-category="kebab" onclick="addToOrder('Fish Kebab', 500)">
-                <p>Fish Kebab - 500 LKR</p>
-            </div>
-
-            <div class="menu-item" data-category="kebab" onclick="addToOrder('Chicken Kebab', 500)">
-                <p>Chicken Kebab - 500 LKR</p>
-            </div>
-
-	    <div class="menu-item" data-category="kebab" onclick="addToOrder('Mix Kebab', 700)">
-                <p>Mix Kebab - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="soup" onclick="addToOrder('Cream of Vegetable', 700)">
-                <p>Cream of Vegetable - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="soup" onclick="addToOrder('Egg Drop', 700)">
-                <p>Egg Drop - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="soup" onclick="addToOrder('Cream of Chicken', 700)">
-                <p>Cream of Chicken - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="soup" onclick="addToOrder('Thai Potato Chicken', 700)">
-                <p>Thai Potato Chicken - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="soup" onclick="addToOrder('Creamy Lemon Prawns', 700)">
-                <p>Creamy Lemon Prawns - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="soup" onclick="addToOrder('Sri Lanka Style Crab Pepar', 700)">
-                <p>Sri Lanka Style Crab Pepar - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="soup" onclick="addToOrder('Tom yum Soup', 700)">
-                <p>Tom yum Soup - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="soup" onclick="addToOrder('PEARL WOK Special Seafood Soup', 700)">
-                <p>PEARL WOK Special Seafood Soup - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="sandwich" onclick="addToOrder('Egg Sandwich', 500)">
-                <p>Egg Sandwich - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="sandwich" onclick="addToOrder('Chicken Sandwich', 650)">
-                <p>Chicken Sandwich - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="sandwich" onclick="addToOrder('Grill Chicken Sandwich', 800)">
-                <p>Grill Chicken Sandwich - 700 LKR</p>
-            </div>
-
-	<div class="menu-item" data-category="sandwich" onclick="addToOrder('Club Sandwich', 900)">
-                <p>Club Sandwich - 700 LKR</p>
-            </div>
+            
         </div>
     </div>
 
@@ -457,7 +374,105 @@
                 </div>
             `;
         }
-        // Add similar blocks for other categories
+
+        if (category === 'kebab') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="kebab" onclick="addToOrder('Sausage Kebab', 450)">
+                    <p>Sausage Kebab - 450 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kebab" onclick="addToOrder('Prawns or Cuttlefish Kebab', 450)">
+                    <p>Prawns or Cuttlefish Kebab - 450 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kebab" onclick="addToOrder('Fish Kebab', 500)">
+                    <p>Fish Kebab - 500 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kebab" onclick="addToOrder('Chicken Kebab', 500)">
+                    <p>Chicken Kebab - 500 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kebab" onclick="addToOrder('Mix Kebab', 700)">
+                    <p>Mix Kebab - 700 LKR</p>
+                </div>
+            `;
+        }
+
+        if (category === 'soup') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="soup" onclick="addToOrder('Cream of Vegetable', 500)">
+                    <p>Cream of Vegetable - 500 LKR</p>
+                </div>
+                <div class="menu-item" data-category="soup" onclick="addToOrder('Egg Drop', 630)">
+                    <p>Egg Drop - 630 LKR</p>
+                </div>
+                <div class="menu-item" data-category="soup" onclick="addToOrder('Cream of Chicken', 690)">
+                    <p>Cream of Chicken - 690 LKR</p>
+                </div>
+                <div class="menu-item" data-category="soup" onclick="addToOrder('Thai Potato Chicken', 750)">
+                    <p>Thai Potato Chicken - 750 LKR</p>
+                </div>
+                <div class="menu-item" data-category="soup" onclick="addToOrder('Creamy Lemon Prawns', 790)">
+                    <p>Creamy Lemon Prawns - 790 LKR</p>
+                </div>
+                <div class="menu-item" data-category="soup" onclick="addToOrder('Sri Lanka Style Crab Pepar', 840)">
+                    <p>Sri Lanka Style Crab Pepar - 840 LKR</p>
+                </div>
+                <div class="menu-item" data-category="soup" onclick="addToOrder('Tom Yum Soup', 870)">
+                    <p>Tom Yum Soup - 870 LKR</p>
+                </div>
+                <div class="menu-item" data-category="soup" onclick="addToOrder('PEARL WOK Special Seafood Soup', 980)">
+                    <p>PEARL WOK Special Seafood Soup - 980 LKR</p>
+                </div>
+            `;
+        }
+
+        if (category === 'sandwich') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="sandwich" onclick="addToOrder('Egg Sandwich', 500)">
+                    <p>Egg Sandwich - 500 LKR</p>
+                </div>
+                <div class="menu-item" data-category="sandwich" onclick="addToOrder('Chicken Sandwich', 650)">
+                    <p>Chicken Sandwich - 650 LKR</p>
+                </div>
+                <div class="menu-item" data-category="sandwich" onclick="addToOrder('Grill Chicken Sandwich', 800)">
+                    <p>Grill Chicken Sandwich - 800 LKR</p>
+                </div>
+                <div class="menu-item" data-category="sandwich" onclick="addToOrder('Club Sandwich', 900)">
+                    <p>Club Sandwich - 900 LKR</p>
+                </div>
+            `;
+        }
+
+        if (category === 'fresh juice and shakes') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="fresh juice and shakes" onclick="addToOrder('Watermelon Juice', 300)">
+                    <p>Watermelon Juice - 300 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fresh juice and shakes" onclick="addToOrder('Papaya Juice', 350)">
+                    <p>Papaya Juice - 350 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fresh juice and shakes" onclick="addToOrder('Mango Juice', 350)">
+                    <p>Mango Juice - 350 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fresh juice and shakes" onclick="addToOrder('Lime juice', 350)">
+                    <p>Lime juice - 350 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fresh juice and shakes" onclick="addToOrder('Avacado Juice', 400)">
+                    <p>Avacado Juice - 400 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fresh juice and shakes" onclick="addToOrder('Pineapple Juice', 450)">
+                    <p>Pineapple Juice - 450 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fresh juice and shakes" onclick="addToOrder('Banana Milkshake', 650)">
+                    <p>Banana Milkshake - 650 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fresh juice and shakes" onclick="addToOrder('Strawberry Milkshake', 700)">
+                    <p>Strawberry Milkshake - 700 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fresh juice and shakes" onclick="addToOrder('Chocolate Milkshake', 800)">
+                    <p>Chocolate Milkshake - 800 LKR</p>
+                </div>
+            `;
+        }
+        
     }
 showCategory('starters');
 </script>
