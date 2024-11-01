@@ -293,6 +293,7 @@
 <footer>
     <button onclick="window.print()">Print Order</button>
     <button>Log Out</button>
+    <button>Notification</button>
 </footer>
 
 <script>
@@ -472,6 +473,312 @@
                 </div>
             `;
         }
+
+        if (category === 'salad') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="salad" onclick="addToOrder('Vegetable Salad', 600)">
+                    <p>Vegetable Salad - 600 LKR</p>
+                </div>
+                <div class="menu-item" data-category="salad" onclick="addToOrder('Boiled Vegetable', 700)">
+                    <p>Boiled Vegetable - 700 LKR</p>
+                </div>
+                <div class="menu-item" data-category="salad" onclick="addToOrder('Egg Potato Salad', 750)">
+                    <p>Egg Potato Salad - 750 LKR</p>
+                </div>
+                <div class="menu-item" data-category="salad" onclick="addToOrder('Chicken Salad', 800)">
+                    <p>Chicken Salad - 800 LKR</p>
+                </div>
+                <div class="menu-item" data-category="salad" onclick="addToOrder('Seafood Salad', 950)">
+                    <p>Seafood Salad - 950 LKR</p>
+                </div>
+		        <div class="menu-item" data-category="salad" onclick="addToOrder('PEARL WOK Special Salad', 1100)">
+                    <p>PEARL WOK Special Salad - 1100 LKR</p>
+                </div>
+            `;
+        }
+
+                
+		if (category === 'fried rice') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="fried rice" onclick="addToOrder('Vegetable Fried Rice', 1200)">
+                    <p>Vegetable Fried Rice - 1200 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fried rice" onclick="addToOrder('Egg Fried Rice', 1450)">
+                    <p>Egg Fried Rice - 1450 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fried rice" onclick="addToOrder('Chicken Fried Rice', 1900)">
+                    <p>Chicken Fried Rice - 1900 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fried rice" onclick="addToOrder('Seafood Fried Rice', 2500)">
+                    <p>Seafood Fried Rice - 2500 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fried rice" onclick="addToOrder('Mix Fried Rice', 2800)">
+                    <p>Mix Fried Rice - 2800 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fried rice" onclick="addToOrder('PEARL WOK Special Fried Rice', 3000)">
+                    <p>PEARL WOK Special Fried Rice - 3000 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fried rice" onclick="addToOrder('Nasi Goreng', 3050)">
+                    <p>Nasi Goreng - 3050 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fried rice" onclick="addToOrder('Thai Rice Chicken', 2400)">
+                    <p>Thai Rice Chicken - 2400 LKR</p>
+                </div>
+                <div class="menu-item" data-category="fried rice" onclick="addToOrder('Classic Thai Rice Mix', 3000)">
+                    <p>Classic Thai Rice Mix - 3000 LKR</p>
+                </div>
+		        <div class="menu-item" data-category="fried rice" onclick="addToOrder('PEARL WOK Special Thai Rice', 3300)">
+                    <p>PEARL WOK Special Thai Rice - 3300 LKR</p>
+                </div>
+            `;
+        }
+
+        if (category === 'kottu') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="kottu" onclick="addToOrder('Vegetable Kottu', 1200)">
+                    <p>Vegetable Kottu - 1200 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kottu" onclick="addToOrder('Egg Kottu', 1350)">
+                    <p>Egg Kottu - 1350 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kottu" onclick="addToOrder('Chicken Kottu', 1550)">
+                    <p>Chicken Kottu - 1550 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kottu" onclick="addToOrder('Roast Chicken Kottu', 1700)">
+                    <p>Roast Chicken Kottu - 1700 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kottu" onclick="addToOrder('Seafood Kottu', 2100)">
+                    <p>Seafood Kottu - 2100 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kottu" onclick="addToOrder('Mix Kottu', 2600)">
+                    <p>Mix Kottu - 2600 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kottu" onclick="addToOrder('Cheese Chicken Kottu', 2600)">
+                    <p>Cheese Chicken Kottu - 2600 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kottu" onclick="addToOrder('Cheese Mix Kottu', 3200)">
+                    <p>Cheese Mix Kottu - 3200 LKR</p>
+                </div>
+                <div class="menu-item" data-category="kottu" onclick="addToOrder('PEARL WOK Special Kottu', 3750)">
+                    <p>PEARL WOK Special Kottu - 3750 LKR</p>
+                </div>
+            `;
+        }
+
+        if (category === 'noodles') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="noodles" onclick="addToOrder('Vegetable Noodles', 1050)">
+                    <p>Vegetable Noodles - 1050 LKR</p>
+                </div>
+                <div class="menu-item" data-category="noodles" onclick="addToOrder('Egg Noodles', 1200)">
+                    <p>Egg Noodles - 1200 LKR</p>
+                </div>
+                <div class="menu-item" data-category="noodles" onclick="addToOrder('Chicken Noodles', 1450)">
+                    <p>Chicken Noodles - 1450 LKR</p>
+                </div>
+                <div class="menu-item" data-category="noodles" onclick="addToOrder('Roast Chicken Noodles', 1600)">
+                    <p>Roast Chicken Noodles - 1600 LKR</p>
+                </div>
+                <div class="menu-item" data-category="noodles" onclick="addToOrder('Seafood Noodles', 2250)">
+                    <p>Seafood Noodles - 2250 LKR</p>
+                </div>
+		<div class="menu-item" data-category="noodles" onclick="addToOrder('Mix Noodles', 2400)">
+                    <p>Mix Noodles - 2400 LKR</p>
+                </div>
+		<div class="menu-item" data-category="noodles" onclick="addToOrder('PEARL WOK Special Noodles', 2900)">
+                    <p>PEARL WOK Special Noodles - 2900 LKR</p>
+                </div>
+            `;
+	}
+
+    if (category === 'pasta') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="pasta" onclick="addToOrder('Vegetable Creamy Pasta', 1110)">
+                    <p>Vegetable Creamy Pasta - 1110 LKR</p>
+                </div>
+                <div class="menu-item" data-category="pasta" onclick="addToOrder('Egg Pasta', 1300)">
+                    <p>Egg Pasta - 1300 LKR</p>
+                </div>
+                <div class="menu-item" data-category="pasta" onclick="addToOrder('Chicken Pasta', 1450)">
+                    <p>Chicken Pasta - 1450 LKR</p>
+                </div>
+                <div class="menu-item" data-category="pasta" onclick="addToOrder('Seafood Pasta', 2000)">
+                    <p>Seafood Pasta - 2000 LKR</p>
+                </div>
+                <div class="menu-item" data-category="pasta" onclick="addToOrder('Mix Pasta', 2400)">
+                    <p>Mix Pasta - 2400 LKR</p>
+                </div>
+		        <div class="menu-item" data-category="pasta" onclick="addToOrder('Chicken Pasta with Cheese', 2400)">
+                    <p>Mix Pasta - 2400 LKR</p>
+                </div>
+		        <div class="menu-item" data-category="pasta" onclick="addToOrder('Mix Pasta with Cheese', 3050)">
+                    <p>Mix Pasta with Cheese - 3050 LKR</p>
+                </div>
+		        <div class="menu-item" data-category="pasta" onclick="addToOrder('PEARL WOK Special Pasta', 3500)">
+                    <p>PEARL WOK Special Pasta - 3500 LKR</p>
+                </div>
+            `;
+	}
+
+    if (category === 'chopsuey rice or noodles') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="chopsuey rice or noodles" onclick="addToOrder('Chopsuey Rice or Noodles Vegetable', 1400)">
+                    <p>Chopsuey Rice or Noodles Vegetable - 1400 LKR</p>
+                </div>
+                <div class="menu-item" data-category="chopsuey rice or noodles" onclick="addToOrder('Chopsuey Rice or Noodles Egg', 1600)">
+                    <p>Chopsuey Rice or Noodles Egg - 1600 LKR</p>
+                </div>
+                <div class="menu-item" data-category="chopsuey rice or noodles" onclick="addToOrder('Chopsuey Rice or Noodles Chicken', 2100)">
+                    <p>Chopsuey Rice or Noodles Chicken - 2100 LKR</p>
+                </div>
+                <div class="menu-item" data-category="chopsuey rice or noodles" onclick="addToOrder('Chopsuey Rice or Noodles Seafood', 2400)">
+                    <p>Chopsuey Rice or Noodles Seafood - 2400 LKR</p>
+                </div>
+                <div class="menu-item" data-category="chopsuey rice or noodles" onclick="addToOrder('Chopsuey Rice or Noodles Mix', 3050)">
+                    <p>Chopsuey Rice or Noodles Mix - 3050 LKR</p>
+                </div>
+		        <div class="menu-item" data-category="chopsuey rice or noodles" onclick="addToOrder('PEARL WOK Special Chopsuey', 3500)">
+                    <p>PEARL WOK Special Chopsuey - 3500 LKR</p>
+                </div>
+            `;
+        }
+
+        if (category === 'seafood') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="seafood" onclick="addToOrder('Fish or Prawns or Cuttlefish Deep Fried with Onion', 2400)">
+                    <p>Fish or Prawns or Cuttlefish Deep Fried with Onion - 2400 LKR</p>
+                </div>
+                <div class="menu-item" data-category="seafood" onclick="addToOrder('Fish Strew', 2400)">
+                    <p>Fish Strew - 2400 LKR</p>
+                </div>
+                <div class="menu-item" data-category="seafood" onclick="addToOrder('Black Pepper Fish', 2400)">
+                    <p>Black Pepper Fish - 2400 LKR</p>
+                </div>
+                <div class="menu-item" data-category="seafood" onclick="addToOrder('Fish or Prawns or Cuttlefish Devilled', 2500)">
+                    <p>Fish or Prawns or Cuttlefish Devilled - 2500 LKR</p>
+                </div>
+                <div class="menu-item" data-category="seafood" onclick="addToOrder('Grill Fish with Boiled Vegetable or Salad', 3200)">
+                    <p>Grill Fish with Boiled Vegetable or Salad - 3200 LKR</p>
+                </div>
+		<div class="menu-item" data-category="seafood" onclick="addToOrder('Fish Breadcrumb with Chefs Special Hot Sauce', 3700)">
+                    <p>Fish Breadcrumb with Chefs Special Hot Sauce - 3700 LKR</p>
+                </div>
+		<div class="menu-item" data-category="seafood" onclick="addToOrder('IMPERIAL CROWN Special Fried Hot Butter Prawns', 2700)">
+                    <p>IMPERIAL CROWN Special Fried Hot Butter Prawns - 2700 LKR</p>
+                </div>
+		<div class="menu-item" data-category="seafood" onclick="addToOrder('Sweet and Sour Prawns', 3000)">
+                    <p>Sweet and Sour Prawns - 3000 LKR</p>
+                </div>
+                <div class="menu-item" data-category="seafood" onclick="addToOrder('Grill Prawns with boiled Vegetable or Salad', 3200)">
+                    <p>Grill Prawns with boiled Vegetable or Salad - 3200 LKR</p>
+                </div>
+                <div class="menu-item" data-category="seafood" onclick="addToOrder('IMPERIAL CROWN Butter Cuttle Fish', 2720)">
+                    <p>IMPERIAL CROWN Butter Cuttle Fish - 2720 LKR</p>
+                </div>
+                <div class="menu-item" data-category="seafood" onclick="addToOrder('Fish and Chips', 1600)">
+                    <p>Fish and Chips - 1600 LKR</p>
+                </div>
+                <div class="menu-item" data-category="seafood" onclick="addToOrder('Seafood Grill Platter', 4500)">
+                    <p>Seafood Grill Platter - 4500 LKR</p>
+                </div>
+		<div class="menu-item" data-category="seafood" onclick="addToOrder('Mix Grill Platter', 5300)">
+                    <p>Mix Grill Platter - 5300 LKR</p>
+                </div>
+		<div class="menu-item" data-category="seafood" onclick="addToOrder('Grill Fish Fillet with Vegetable Salad', 450)">
+                    <p>Grill Fish Fillet with Vegetable Salad - 450 LKR</p>
+                </div>
+            `;
+	}
+
+
+		if (category === 'chicken') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="chicken" onclick="addToOrder('Chicken Fried with onion', 1900)">
+                    <p>Chicken Fried with onion - 1900 LKR</p>
+                </div>
+                <div class="menu-item" data-category="chicken" onclick="addToOrder('Chicken Strew', 2200)">
+                    <p>Chicken Strew - 2200 LKR</p>
+                </div>
+                <div class="menu-item" data-category="chicken" onclick="addToOrder('Chicken Devilled', 2400)">
+                    <p>Chicken Devilled - 2400 LKR</p>
+                </div>
+                <div class="menu-item" data-category="chicken" onclick="addToOrder('Black Pepar Chicken', 2400)">
+                    <p>Black Pepar Chicken - 2400 LKR</p>
+                </div>
+                <div class="menu-item" data-category="chicken" onclick="addToOrder('Sweet and Sour Chicken', 2400)">
+                    <p>Sweet and Sour Chicken - 2400 LKR</p>
+                </div>
+		<div class="menu-item" data-category="chicken" onclick="addToOrder('Chilli Chicken', 2600)">
+                    <p>Chilli Chicken - 2600 LKR</p>
+                </div>
+		<div class="menu-item" data-category="chicken" onclick="addToOrder('Hot Batter Chicken', 2600)">
+                    <p>Hot Batter Chicken - 2600 LKR</p>
+                </div>
+            `;
+	}
+
+
+		if (category === 'egg omlet') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="egg omlet" onclick="addToOrder('Boiled Egg', 100)">
+                    <p>Boiled Egg - 100 LKR</p>
+                </div>
+                <div class="menu-item" data-category="egg omlet" onclick="addToOrder('Bullseye', 100)">
+                    <p>Bullseye - 100 LKR</p>
+                </div>
+                <div class="menu-item" data-category="egg omlet" onclick="addToOrder('Sri lankan Omlet', 450)">
+                    <p>Sri lankan Omlet - 450 LKR</p>
+                </div>
+                <div class="menu-item" data-category="egg omlet" onclick="addToOrder('Chicken Omelet', 600)">
+                    <p>Chicken Omelet - 600 LKR</p>
+                </div>
+                <div class="menu-item" data-category="egg omlet" onclick="addToOrder('Cheese Omlet', 800)">
+                    <p>Cheese Omlet - 800 LKR</p>
+                </div>
+		<div class="menu-item" data-category="egg omlet" onclick="addToOrder('IMPERIAL CROWN Special Omlet', 950)">
+                    <p>IMPERIAL CROWN Special Omlet - 950 LKR</p>
+                </div>
+            `;
+        }
+
+		if (category === 'rice and curry') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="rice and curry" onclick="addToOrder('Vegetable Rice & Curry', 350)">
+                    <p>Vegetable Rice & Curry - 350 LKR</p>
+                </div>
+                <div class="menu-item" data-category="rice and curry" onclick="addToOrder('Egg Rice & Curry', 450)">
+                    <p>Egg Rice & Curry - 450 LKR</p>
+                </div>
+                <div class="menu-item" data-category="rice and curry" onclick="addToOrder('Fish Rice & Curry', 500)">
+                    <p>Fish Rice & Curry - 500 LKR</p>
+                </div>
+                <div class="menu-item" data-category="rice and curry" onclick="addToOrder('Chicken Rice & Curry', 500)">
+                    <p>Chicken Rice & Curry - 500 LKR</p>
+                </div>
+            `;
+        }
+	
+
+		
+        if (category === 'desert') {
+            menuItems.innerHTML = `
+                <div class="menu-item" data-category="desert" onclick="addToOrder('Ice Cream', 300)">
+                    <p>Ice Cream - 300 LKR</p>
+                </div>
+                <div class="menu-item" data-category="desert" onclick="addToOrder('Fruit Salad', 400)">
+                    <p>Fruit Salad - 400 LKR</p>
+                </div>
+                <div class="menu-item" data-category="desert" onclick="addToOrder('Fruit Salad with Ice Cream', 500)">
+                    <p>Fruit Salad with Ice Cream - 500 LKR</p>
+                </div>
+                <div class="menu-item" data-category="desert" onclick="addToOrder('Fruit Platter', 900)">
+                    <p>Fruit Platter - 900 LKR</p>
+                </div>
+            `;
+        }	
+
+
+
         
     }
 showCategory('starters');
