@@ -1,18 +1,14 @@
+// public/js/receptionist.js
 function navigateTo(section) {
     switch (section) {
-        case 'foods':
-            window.location.href = '/foods'; // Update with the actual route
-            break;
-        case 'rooms':
-            window.location.href = '/rooms'; // Update with the actual route
-            break;
         case 'calendar':
-            window.location.href = '/calendar'; // Update with the actual route
+            window.location.href = '/calendar'; // Update this if there's a named route for calendar
             break;
         case 'bill':
-            window.location.href = '/bill'; // Update with the actual route
+            window.location.href = '/bill'; // Update this if there's a named route for bill
             break;
         default:
             console.error("Invalid section");
     }
 }
+
