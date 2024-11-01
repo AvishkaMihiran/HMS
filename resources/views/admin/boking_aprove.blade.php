@@ -68,7 +68,7 @@
 
                             <td>
                                 <span style = "padding-bottom: 8px;">
-                                 <a class = "btn btn-success" href = "{{url('boking_aprove', $item->id)}}">Aprove</a>
+                                 <a class = "btn btn-success" href = "{{url('boking_aproved', $item->id)}}">Aprove</a>
 
                                 </span>
                                  <a class = "btn btn-warning" href = "{{url('boking_Reject', $item->id)}}">Reject</a>

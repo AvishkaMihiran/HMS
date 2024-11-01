@@ -15,6 +15,7 @@ class Booking extends Model
         'package',
         'check_in_date',
         'check_out_date',
-        'rooms',
+        'rooms'
+        //'status'
     ];
 }

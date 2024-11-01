@@ -18,12 +18,14 @@ return new class extends Migration
         $table->integer('rooms');
         $table->date('check_in_date');
         $table->date('check_out_date');
+        //$table->string('status')->default('pending');
         $table->timestamps();
 
         // Foreign key to link with users table
         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
     });
 }
+
 
     /**
      * Reverse the migrations.
