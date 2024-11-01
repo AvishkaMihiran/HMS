@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/images/receptionist-foods-background.jpg'); /* Use the provided image path */
+    background-size: cover;
+    background-position: center;
+}
+
+.foods-container {
+    width: 80%;
+    max-width: 1000px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+}
+
+.foods-header h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.foods-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section {
+    padding: 20px;
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover animation */
+}
+
+.section.hovered {
+    transform: scale(1.05); /* Scale up slightly */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Increase shadow for a raised effect */
+}
+
+.order {
+    background-image: url('/images/receptionist-foods-order-background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.details {
+    background-image: url('/images/receptionist-foods-details-background.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.kitchen {
+    background-image: url('/images/receptionist-foods-kitchen-background.png');
+    background-size: cover;
+    background-position: center;
+}

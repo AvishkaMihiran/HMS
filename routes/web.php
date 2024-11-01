@@ -26,19 +26,23 @@ require __DIR__.'/auth.php';
 Route::get('/booking', function () {
     return view('booking');
 });
-Route::get('/food-ordering', function () {
+/*Route::get('/food-ordering', function () {
     return view('food-ordering');
-});
+});*/
 Route::get('/waiter', function () {
     return view('waiter');
 });
 
 Route::get('/receptionist', function () {
-    return view('receptionist');
+    return view('receptionist.receptionist');
 });
 
-Route::get('/food-ordering', function () {
-    return view('food-ordering'); 
+Route::get('/receptionist/foods', function () {
+    return view('receptionist.foods-interface');
+});
+
+Route::get('/receptionist/rooms', function () {
+    return view('receptionist.rooms-interface');
 });
 
 Route::get('/admin', function () {
@@ -57,6 +61,18 @@ Route::get('/food-ordering', function () {
     return view('food-ordering');
 })->name('food-ordering'); //link from receptionist foods to order
 
+Route::get('/receptionist/foods-interface', function () {
+    return view('receptionist.foods-interface');
+})->name('receptionist.foods-interface'); //link from receptionist/foods to foods interface
+
+// web.php
+Route::get('/receptionist/rooms-interface', function () {
+    return view('receptionist.rooms-interface');
+})->name('receptionist.rooms-interface');
+
+Route::get('/booking', function () {
+    return view('booking');
+})->name('booking');
 
 
 Route::get("/redirects",[HomeController::class,"redirects"]);
