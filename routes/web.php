@@ -73,7 +73,7 @@ Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('dat
 
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
-Route::get('/bookings/success', [BookingController::class, 'success'])->name('bookings.success');
+
 
 
 Route::get('/boking_aprove', [AdminController::class, 'boking_aprove'])->name('admin.boking_aprove');

@@ -252,6 +252,24 @@
             document.getElementById(totalSpanId).innerText = totalPrice;
             document.getElementById(priceInputId).value = totalPrice; // Update hidden total price field
         }
+        window.onload = function() {
+        const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+        
+        // Set minimum date for all check-in inputs
+        document.querySelectorAll('input[type="date"]').forEach(input => {
+            input.setAttribute('min', today);
+        });
+
+        // Add event listeners for check-in dates to adjust check-out dates accordingly
+        document.querySelectorAll('input[name="check_in_date"]').forEach(checkInInput => {
+            checkInInput.onchange = function() {
+                const checkInDate = new Date(checkInInput.value);
+                checkInDate.setDate(checkInDate.getDate() + 1); // Set min check-out date to the next day
+                const checkOutInput = checkInInput.closest('form').querySelector('input[name="check_out_date"]');
+                checkOutInput.setAttribute('min', checkInDate.toISOString().split('T')[0]);
+            };
+        });
+    };
     </script>
 </body>
 </html>
