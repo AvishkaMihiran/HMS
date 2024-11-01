@@ -300,10 +300,27 @@
     }
 
     orderNowButton.addEventListener('click', () => {
-        alert('Order placed successfully!');
-        cart.length = 0; // Clear the cart
-        updateCart(); // Refresh the cart display
-    });
+    fetch("{{ route('order.store') }}", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({ cart })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.message);
+            cart.length = 0; // Clear the cart
+            updateCart(); // Refresh the cart display
+        } else {
+            alert('Error placing order.');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+
 </script>
 
 </body>

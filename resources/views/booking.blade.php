@@ -88,6 +88,12 @@
             margin: 10px 0;
         }
 
+        .price {
+            font-size: 16px;
+            color: #FFD700;
+            margin-top: 10px;
+        }
+
         .booking-form {
             display: flex;
             flex-direction: column;
@@ -112,25 +118,11 @@
             width: 100%;
         }
 
-        .room-selector {
-            display: flex;
-            gap: 5px;
+        .total-price {
+            font-size: 16px;
+            color: #FFD700;
             margin-top: 10px;
-        }
-
-        .room-selector button {
-            padding: 5px 10px;
-            background: #FFD700;
-            color: #2c2a3c;
-            border: none;
-            border-radius: 5px;
             font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .room-selector button:hover {
-            background: #ffdb58;
         }
 
         .book-now-button {
@@ -166,22 +158,28 @@
                 <div class="content">
                     <h2>Full Board</h2>
                     <p>Enjoy a complete stay with all meals included.</p>
+                    <div class="price">Price: 20000 Rs per room</div>
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
-                    <input type="hidden" name="package" value="Full Board"> <!-- or the appropriate package -->
+                    <input type="hidden" name="package" value="Full Board">
+                    <input type="hidden" name="total_price" id="fullBoardTotalPrice" value="20000">
 
-                    <label for="check_in_date">Check-in Date:</label>
-                    <input id="check_in_date" name="check_in_date" type="date" required>
+                    <label for="check_in_date_full_board">Check-in Date:</label>
+                    <input id="check_in_date_full_board" name="check_in_date" type="date" required>
 
-                    <label for="check_out_date">Check-out Date:</label>
-                    <input id="check_out_date" name="check_out_date" type="date" required>
+                    <label for="check_out_date_full_board">Check-out Date:</label>
+                    <input id="check_out_date_full_board" name="check_out_date" type="date" required>
 
-                    <label for="rooms">Number of Rooms:</label>
-                    <input id="rooms" name="rooms" type="number" min="1" required>
+                    <label for="rooms_full_board">Number of Rooms:</label>
+                    <input id="rooms_full_board" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_full_board', 'fullBoardTotalPrice', 'totalFullBoard')">
 
+                    <div class="total-price">Total Price: <span id="totalFullBoard">20000</span> Rs</div>
+
+                    <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
+                    
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
-                </form> 
+                </form>
             </div>
 
             <!-- Half Board Option -->
@@ -190,22 +188,28 @@
                 <div class="content">
                     <h2>Half Board</h2>
                     <p>Stay with breakfast and dinner included.</p>
+                    <div class="price">Price: 15000 Rs per room</div>
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
-                    <input type="hidden" name="package" value="Half Board"> <!-- or the appropriate package -->
+                    <input type="hidden" name="package" value="Half Board">
+                    <input type="hidden" name="total_price" id="halfBoardTotalPrice" value="15000">
 
-                    <label for="check_in_date">Check-in Date:</label>
-                    <input id="check_in_date" name="check_in_date" type="date" required>
+                    <label for="check_in_date_half_board">Check-in Date:</label>
+                    <input id="check_in_date_half_board" name="check_in_date" type="date" required>
 
-                    <label for="check_out_date">Check-out Date:</label>
-                    <input id="check_out_date" name="check_out_date" type="date" required>
+                    <label for="check_out_date_half_board">Check-out Date:</label>
+                    <input id="check_out_date_half_board" name="check_out_date" type="date" required>
 
-                    <label for="rooms">Number of Rooms:</label>
-                    <input id="rooms" name="rooms" type="number" min="1" required>
+                    <label for="rooms_half_board">Number of Rooms:</label>
+                    <input id="rooms_half_board" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_half_board', 'halfBoardTotalPrice', 'totalHalfBoard')">
+
+                    <div class="total-price">Total Price: <span id="totalHalfBoard">15000</span> Rs</div>
+
+                    <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
 
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
-                </form> 
+                </form>
             </div>
 
             <!-- Room Only Option -->
@@ -214,24 +218,58 @@
                 <div class="content">
                     <h2>Room Only</h2>
                     <p>Book a room with no additional meals.</p>
+                    <div class="price">Price: 5000 Rs per room</div>
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
-                    <input type="hidden" name="package" value="Room Only"> <!-- or the appropriate package -->
+                    <input type="hidden" name="package" value="Room Only">
+                    <input type="hidden" name="total_price" id="roomOnlyTotalPrice" value="5000">
 
-                    <label for="check_in_date">Check-in Date:</label>
-                    <input id="check_in_date" name="check_in_date" type="date" required>
+                    <label for="check_in_date_room_only">Check-in Date:</label>
+                    <input id="check_in_date_room_only" name="check_in_date" type="date" required>
 
-                    <label for="check_out_date">Check-out Date:</label>
-                    <input id="check_out_date" name="check_out_date" type="date" required>
+                    <label for="check_out_date_room_only">Check-out Date:</label>
+                    <input id="check_out_date_room_only" name="check_out_date" type="date" required>
 
-                    <label for="rooms">Number of Rooms:</label>
-                    <input id="rooms" name="rooms" type="number" min="1" required>
+                    <label for="rooms_room_only">Number of Rooms:</label>
+                    <input id="rooms_room_only" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_room_only', 'roomOnlyTotalPrice', 'totalRoomOnly')">
+
+                    <div class="total-price">Total Price: <span id="totalRoomOnly">5000</span> Rs</div>
+
+                    <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
 
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
-                </form> 
+                </form>
             </div>
         </div>
     </div>
+
+    <script>
+        function calculateTotal(roomInputId, priceInputId, totalSpanId) {
+            const rooms = document.getElementById(roomInputId).value;
+            const pricePerRoom = document.getElementById(priceInputId).value;
+            const totalPrice = rooms * pricePerRoom;
+            document.getElementById(totalSpanId).innerText = totalPrice;
+            document.getElementById(priceInputId).value = totalPrice; // Update hidden total price field
+        }
+        window.onload = function() {
+        const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+        
+        // Set minimum date for all check-in inputs
+        document.querySelectorAll('input[type="date"]').forEach(input => {
+            input.setAttribute('min', today);
+        });
+
+        // Add event listeners for check-in dates to adjust check-out dates accordingly
+        document.querySelectorAll('input[name="check_in_date"]').forEach(checkInInput => {
+            checkInInput.onchange = function() {
+                const checkInDate = new Date(checkInInput.value);
+                checkInDate.setDate(checkInDate.getDate() + 1); // Set min check-out date to the next day
+                const checkOutInput = checkInInput.closest('form').querySelector('input[name="check_out_date"]');
+                checkOutInput.setAttribute('min', checkInDate.toISOString().split('T')[0]);
+            };
+        });
+    };
+    </script>
 </body>
 </html>

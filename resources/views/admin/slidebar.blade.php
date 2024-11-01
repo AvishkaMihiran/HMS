@@ -19,15 +19,15 @@
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{url('create_room')}}">Add Room</a></li>
                     <li><a href="{{url('view_room')}}">View Room</a></li>
-                    <li><a href="#">Delet Room</a></li>
+                    <li><a href="{{url('boking_aprove')}}">Booking Approve</a></li>
                   </ul>
                 </li>
                 <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>
         </ul><span class="heading">Extras</span>
         <ul class="list-unstyled">
           <li> <a href="#"> <i class="icon-settings"></i>Demo </a></li>
-          <li> <a href="#"> <i class="icon-writing-whiteboard"></i>Demo </a></li>
-          <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
+          <!--<li> <a href="#"> <i class="icon-writing-whiteboard"></i>Demo </a></li>
+          <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>-->
         </ul>
       </nav>
       <!-- Sidebar Navigation end-->

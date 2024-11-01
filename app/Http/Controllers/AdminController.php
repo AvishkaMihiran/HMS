@@ -1,7 +1,9 @@
 <?php
 
+namespace App\Http\Controllers\Admin;
 namespace App\Http\Controllers;
 use App\Models\Room;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -47,6 +49,51 @@ class AdminController extends Controller
         $data = Room::find($id);
         if ($data) {
             $data->delete();  // Delete the room instance
+        } else {
+            // Optionally, you could add a flash message if the room was not found
+            return redirect()->back()->with('error', 'Room not found');
+        }
+    
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Room deleted successfully');
+    
+    }
+
+    public function update_room($id){
+        $data = Room::find($id);
+        return view('admin.update_room', compact('data'));
+    }
+
+    public function edit_room(Request $request, $id)
+    {
+        $data = Room::find($id);
+        $data ->room_title = $request->title;
+        $data ->description = $request->description;
+        $data ->price = $request->price;
+        $data ->wifi = $request->wifi;
+        $data ->room_type = $request->type;
+
+        $image = $request->image;
+        if($image){
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('room',$imagename);
+            $data->image = $imagename;
+        }
+
+        $data->save();
+        return redirect()->back();
+    }
+
+    public function boking_aprove() {
+        $bookings = Booking::all(); 
+        return view('admin.boking_aprove', compact('bookings'));
+
+    }
+
+    public function boking_delete($id) {
+        $bookings = Booking::find($id);
+        if ($bookings) {
+            $bookings->delete();  // Delete the room instance
         } else {
             // Optionally, you could add a flash message if the room was not found
             return redirect()->back()->with('error', 'Room not found');

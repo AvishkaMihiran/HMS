@@ -56,7 +56,7 @@
                                 Room Type
                             </lable>
                             <select name = "type">
-                                <option value = "fullboard">Full Board</option>
+                                <option selected value = "fullboard">Full Board</option>
                                 <option value = "halfboard">Half Board</option>
                                 <option value = "roomonly">Room Only</option>
 
