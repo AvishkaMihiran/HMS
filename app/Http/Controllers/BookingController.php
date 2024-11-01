@@ -7,38 +7,34 @@ use App\Models\Booking;
 
 class BookingController extends Controller
 {
-    // Method to store bookings
     public function store(Request $request)
     {
-        // Validate the incoming request data
+        // Validate incoming request data
         $request->validate([
-            'package' => 'required|string',
+            'username' => 'required|string|max:255',
+            'package' => 'required|string|max:255',
             'check_in_date' => 'required|date',
-            'check_out_date' => 'required|date|after:check_in_date',
-            'rooms' => 'required|integer|min:1', // Validate that rooms is a positive integer
+            'check_out_date' => 'required|date',
+            'rooms' => 'required|integer|min:1',
+            'total_price' => 'required|numeric|min:0',
         ]);
 
-        // Create a new booking record in the database
+        // Create a new booking
         Booking::create([
-            'user_id' => auth()->id(), // Assumes the user is logged in
-            'package' => $request->input('package'),
-            'check_in_date' => $request->input('check_in_date'),
-            'check_out_date' => $request->input('check_out_date'),
-            'rooms' => $request->input('rooms'), // Store the number of rooms
+            'username' => $request->username, // Ensure this is retrieved correctly
+            'package' => $request->package,
+            'check_in_date' => $request->check_in_date,
+            'check_out_date' => $request->check_out_date,
+            'rooms' => $request->rooms,
+            'total_price' => $request->total_price,
         ]);
 
-        // Redirect to the bookings index page with a success message
-        return redirect()->route('bookings.index')->with('success', 'Booking created successfully!');
+        // Redirect to success page
+        return redirect()->route('booking.success');
     }
 
-    // Method to show bookings
-    public function index()
+    public function success()
     {
-        // Get bookings for the authenticated user
-        $bookings = Booking::where('user_id', auth()->id())->get(); 
-        // Return the bookings index view with the booking data
-        return view('bookings.index', compact('bookings'));
-    } 
-
-    
+        return view('booking-success'); // Make sure you have this view created
+    }
 }
