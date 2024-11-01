@@ -106,9 +106,17 @@ class AdminController extends Controller
 
     public function boking_aproved($id) {
         $bookings = Booking::find($id); 
-        $bookings->status = 'approve';
+        $bookings->status = 'Approved';
         $bookings->save();
         return redirect()->back()->with('success', 'Room approve successfully');
+
+    }
+
+    public function boking_reject($id) {
+        $bookings = Booking::find($id); 
+        $bookings->status = 'Rejected';
+        $bookings->save();
+        return redirect()->back()->with('success', 'Room reject successfully');
 
     }
 }

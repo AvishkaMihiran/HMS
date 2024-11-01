@@ -60,8 +60,17 @@
                             <td>{{ optional($item)->rooms}}</td>
                             <td>{{ optional($item)->check_in_date}}</td>
                             <td>{{ optional($item)->check_out_date }}</td>
-                           <td>{{ optional($item)->status}}</td>
+                           <td>
+                            @if(optional($item)->status == 'Approved')
+                            <span style = "color: skyblue;">Approved</span>
+                            @endif
+                            
+                            @if(optional($item)->status == 'Rejected')
+                            <span style = "color: red;">Rejected</span>
+                            @endif
+                            </td>
 
+                            
                             <td>
                                 <a onclick = "return confirm('Are you sure to delete this');" class = "btn btn-danger" href = "{{url('boking_delete', $item->id)}}">Delete</a>
                             </td>
@@ -71,7 +80,7 @@
                                  <a class = "btn btn-success" href = "{{url('boking_aproved', $item->id)}}">Aprove</a>
 
                                 </span>
-                                 <a class = "btn btn-warning" href = "{{url('boking_Reject', $item->id)}}">Reject</a>
+                                 <a class = "btn btn-warning" href = "{{url('boking_reject', $item->id)}}">Reject</a>
 
                             
                             </td>

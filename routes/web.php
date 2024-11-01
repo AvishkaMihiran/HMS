@@ -72,5 +72,7 @@ Route::post('/bookings', [BookingController::class, 'store'])->name('booking.sto
 Route::get('/boking_aprove', [AdminController::class, 'boking_aprove'])->name('admin.boking_aprove');
 route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name('admin.boking_delete');
 Route::get('/boking_aproved/{id}', [AdminController::class, 'boking_aproved'])->name('boking_aproved');
+Route::get('/boking_reject/{id}', [AdminController::class, 'boking_reject'])->name('boking_reject');
+
 
 
