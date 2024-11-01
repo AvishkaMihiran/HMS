@@ -27,8 +27,8 @@ Route::get('/waiter', function () {
     return view('waiter');
 });
 
-Route::get('/receptionist', function () {
-    return view('receptionist');
+Route::get('/receptionist/receptionist', function () {
+    return view('receptionist.receptionist');
 });
 
 Route::get('/cook', function () {
