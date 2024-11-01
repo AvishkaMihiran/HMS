@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foods - Imperial Crown</title>
-    <link rel="stylesheet" href="{{ asset('css/foods.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/foods.css') }}"> <!-- Directly load CSS without Vite -->
 </head>
 <body>
     <div class="foods-container">
@@ -29,6 +29,6 @@
     <script>
         const foodOrderingUrl = "{{ route('food-ordering') }}";
     </script>
-    <script src="{{ asset('js/foods.js') }}"></script>
+    <script src="{{ asset('js/foods.js') }}"></script> <!-- Directly load JavaScript without Vite -->
 </body>
 </html>
