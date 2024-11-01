@@ -39,4 +39,6 @@ class BookingController extends Controller
         // Return the bookings index view with the booking data
         return view('bookings.index', compact('bookings'));
     } 
+
+    
 }
