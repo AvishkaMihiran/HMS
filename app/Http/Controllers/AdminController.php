@@ -1,7 +1,9 @@
 <?php
 
+namespace App\Http\Controllers\Admin;
 namespace App\Http\Controllers;
 use App\Models\Room;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -80,5 +82,25 @@ class AdminController extends Controller
 
         $data->save();
         return redirect()->back();
+    }
+
+    public function boking_aprove() {
+        $bookings = Booking::all(); 
+        return view('admin.boking_aprove', compact('bookings'));
+
+    }
+
+    public function boking_delete($id) {
+        $bookings = Booking::find($id);
+        if ($bookings) {
+            $bookings->delete();  // Delete the room instance
+        } else {
+            // Optionally, you could add a flash message if the room was not found
+            return redirect()->back()->with('error', 'Room not found');
+        }
+    
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Room deleted successfully');
+    
     }
 }

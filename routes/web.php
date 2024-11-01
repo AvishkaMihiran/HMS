@@ -6,8 +6,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 
-Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
-Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,10 +31,6 @@ Route::get('/waiter', function () {
 
 Route::get('/receptionist', function () {
     return view('receptionist');
-});
-
-Route::get('/food-ordering', function () {
-    return view('food-ordering'); 
 });
 
 Route::get('/cook', function () {
@@ -70,19 +65,22 @@ Route::get('/room_delete/{id}',[AdminController::class,'room_delete'])->name('ad
 
 Route::get('/update_room/{id}', [AdminController::class, 'update_room'])->name('update_room');
 
-<<<<<<< Updated upstream
+
 Route::post('/edit_room/{id}', [AdminController::class, 'edit_room']);
-=======
+
 
 Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('data.edit_room');
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
 
 Route::get('/boking_aprove', [AdminController::class, 'boking_aprove'])->name('admin.boking_aprove');
+
 Route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name('admin.boking_delete');
 
 
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 
->>>>>>> Stashed changes
+
+Route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name('admin.boking_delete');
+
 
