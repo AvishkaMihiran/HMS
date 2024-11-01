@@ -19,9 +19,29 @@
             padding: 20px;
             border-radius: 10px;
             display: inline-block;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
         .success-message h1 {
             color: #FFD700;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #6b73ff, #000dff);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        .button:hover {
+            background: linear-gradient(135deg, #3a4ed1, #0000ff);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
@@ -29,7 +49,7 @@
     <div class="success-message">
         <h1>Booking Successful!</h1>
         <p>Your booking has been confirmed. Thank you for choosing us!</p>
-       
+        <a href="{{ route('dashboard') }}" class="button"><i class="fas fa-home"></i> Back to Dashboard</a>
     </div>
 </body>
 </html>
