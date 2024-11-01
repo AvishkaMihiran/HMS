@@ -31,6 +31,23 @@ Route::get('/receptionist/receptionist', function () {
     return view('receptionist.receptionist');
 });
 
+Route::get('/booking', function () {
+    return view('booking');
+})->name('booking');
+
+Route::get('/receptionist/rooms-interface', function () {
+    return view('receptionist.rooms-interface');
+})->name('receptionist.rooms-interface'); // Define the route name here
+
+Route::get('/receptionist/foods-interface', function () {
+    return view('receptionist.foods-interface');
+})->name('receptionist.foods-interface'); // Define the route name here
+
+// Define route to food-ordering view
+Route::get('/food-ordering', function () {
+    return view('food-ordering');
+})->name('food-ordering');
+
 Route::get('/cook', function () {
     return view('cook'); 
 })->middleware('auth');
