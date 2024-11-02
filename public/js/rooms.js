@@ -12,7 +12,7 @@ document.querySelectorAll('.section').forEach(section => {
         if (sectionTitle === 'Booking') {
             window.location.href = roomBookingUrl;
         } else {
-            alert(`Navigating to ${sectionTitle}`);
+            window.location.href = roomDetailsUrl;
         }
     });
 });
