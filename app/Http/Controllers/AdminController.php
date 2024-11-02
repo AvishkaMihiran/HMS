@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\Booking;
 use App\Models\User;
+use Notification;
 use Illuminate\Http\Request;
+use App\Notifications\MyFirstNotification;
 
 class AdminController extends Controller
 {
@@ -87,7 +89,7 @@ class AdminController extends Controller
 
     public function boking_aprove() {
         $bookings = Booking::all(); 
-        return view('admin.boking_aprove', compact('bookings'));
+        return view('admin.boking_aprove');
 
     }
 
@@ -122,19 +124,39 @@ class AdminController extends Controller
     }
 
     public function all_msg() {
-        $bookings = Booking::all(); 
-        return view('admin.all_msg', compact('bookings'));
+        $users = User::all(); 
+        return view('admin.all_msg', compact('users'));
    }
 
    public function send_mail($id)
     {
-    $bookings = Booking::find($id);
+    $users = User::find($id);
 
-    if (!$bookings) {
+    if (!$users) {
         return redirect()->back()->with('error', 'Booking not found');
     }
 
-    return view('admin.send_mail', compact('bookings'));
+    return view('admin.send_mail', compact('users'));
+}
+
+public function mail(Request $request, $id)
+{
+    // Retrieve the single user instance by ID
+    $user = User::find($id);
+
+    // Define the details array for the notification
+    $details = [
+        'greeting' => $request->greeting,
+        'body' => $request->body,
+        'action_text' => $request->action_text,
+        'action_url' => $request->action_url,
+        'endline' => $request->endline,
+    ];
+
+    // Send the notification to the user
+    Notification::send($user, new MyFirstNotification($details));
+    
+    return redirect()->back()->with('success', 'Mail sent successfully.');
 }
 
    

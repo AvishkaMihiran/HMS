@@ -40,13 +40,15 @@
                     <table class ="table_deg">
                         <tr class = "tr_deg">
                             <th class = "th_deg">User Name</th>
+                            <th class = "th_deg">Email</th>
                             <th class = "th_deg">Send Mail</th>
                             
                         </tr>
                        
-                      @foreach($bookings as $item)
+                      @foreach($users as $item)
                         <tr class = "tr_deg">
-                            <td class = "td_deg">{{ optional($item)->username }}</td>
+                            <td class = "td_deg">{{ optional($item)->name }}</td>
+                            <td class = "td_deg">{{ optional($item)->email }}</td>
 
 
                             <td>
