@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use Carbon\Carbon;
 
 class BookingController extends Controller
 {
@@ -13,8 +14,8 @@ class BookingController extends Controller
         $request->validate([
             'username' => 'required|string|max:255',
             'package' => 'required|string|max:255',
-            'check_in_date' => 'required|date',
-            'check_out_date' => 'required|date',
+            'check_in_date' => 'required|date|after_or_equal:today',
+            'check_out_date' => 'required|date|after:check_in_date',
             'rooms' => 'required|integer|min:1',
             'total_price' => 'required|numeric|min:0',
         ]);
