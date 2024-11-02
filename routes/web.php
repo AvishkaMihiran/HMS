@@ -31,9 +31,6 @@ Route::get('/receptionist', function () {
     return view('receptionist.receptionist');
 });
 
-Route::get('/booking', function () {
-    return view('booking');
-})->name('booking');
 
 Route::get('/receptionist/rooms-interface', function () {
     return view('receptionist.rooms-interface');
@@ -54,13 +51,13 @@ Route::get('/cook', function () {
 
 Route::get("/redirects", [HomeController::class, "redirects"]);
 
-/*Route::get('/booking', function () {
+Route::get('/booking', function () {
     return view('booking');
 })->middleware('auth');
 
 Route::get('/food-ordering', function () {
     return view('food-ordering');
-})->middleware('auth');*/
+})->middleware('auth');
 
 Route::get('/admin', function () {
     return view('admin.dashboard'); 
