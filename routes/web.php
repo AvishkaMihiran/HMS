@@ -88,5 +88,6 @@ Route::get('/all_msg', [AdminController::class, 'all_msg'])->name('admin.all_msg
 
 Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admin.send_mail');
 
-Route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name('admin.boking_delete');
+Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
+
 

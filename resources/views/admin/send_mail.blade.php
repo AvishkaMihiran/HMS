@@ -28,8 +28,8 @@
         <div class="page-header">
             <div class="container-fluid">
                 <div class ="div_center">
-                    <h1 style = "font-size: 30px; font-weight: bold;">Mail send to {{ optional($bookings)->username }}</h1>
-                    <form action="" method="Post">
+                    <h1 style = "font-size: 30px; font-weight: bold;">Mail send to {{ optional($users)->name }}</h1>
+                    <form action="{{ url('mail', $users->id) }}" method="Post">
                         @csrf
                         <div class = "div_deg">
                             <lable>

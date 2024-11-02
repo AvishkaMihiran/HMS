@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('rooms', function (Blueprint $table) {
-            $table->string('status')->default('waiting')->after('created_at');
+        Schema::table('bookings', function (Blueprint $table) {
+            $table->string('status')->default('pending')->after('rooms');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('rooms', function (Blueprint $table) {
-            $table->dropColum('status');
+        Schema::table('bookings', function (Blueprint $table) {
+            //
         });
     }
 };
