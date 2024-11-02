@@ -33,6 +33,9 @@ Route::get('/receptionist', function () {
 });
 
 
+
+
+
 Route::get('/receptionist/rooms-interface', function () {
     return view('receptionist.rooms-interface');
 })->name('receptionist.rooms-interface');
@@ -95,5 +98,9 @@ Route::get('/all_msg', [AdminController::class, 'all_msg'])->name('admin.all_msg
 Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admin.send_mail');
 
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
+
+Route::get('/food-menu', function () {
+    return view('food-menu');
+});
 
 
