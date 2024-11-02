@@ -63,9 +63,15 @@ Route::get('/booking-success', [BookingController::class, 'success'])->name('boo
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
 Route::get('/boking_aprove', [AdminController::class, 'boking_aprove'])->name('admin.boking_aprove');
-Route::get('/boking_delete/{id}', [AdminController::class, 'boking_delete'])->name('admin.boking_delete');
+Route::get('/boking_aproved/{id}', [AdminController::class, 'boking_aproved'])->name('boking_aproved');
+Route::get('/boking_reject/{id}', [AdminController::class, 'boking_reject'])->name('boking_reject');
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name('admin.boking_delete');
+
+Route::get('/all_msg', [AdminController::class, 'all_msg'])->name('admin.all_msg');
+
+Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admin.send_mail');
+
 
 
 

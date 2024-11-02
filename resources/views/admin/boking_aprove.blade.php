@@ -47,6 +47,7 @@
                             <th class = "th_deg">Status</th>
                             <th class = "th_deg">Delete</th>
                             <th class = "th_deg">Status Update</th>
+                            <th class = "th_deg">Send Mail</th>
                         </tr>
                      @if($bookings->isEmpty())
                          <tr class = "tr_deg">
