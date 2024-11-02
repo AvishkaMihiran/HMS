@@ -24,6 +24,26 @@
     </div>
     <script>
         const roomBookingUrl = "{{ route('booking') }}";
+        const roomDetailsUrl = "{{ route('receptionist.rooms-details-interface') }}"; // Add this line
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.addEventListener('mouseenter', () => {
+                section.classList.add('hovered');
+            });
+
+            section.addEventListener('mouseleave', () => {
+                section.classList.remove('hovered');
+            });
+
+            section.addEventListener('click', () => {
+                const sectionTitle = section.querySelector('h2').textContent;
+                if (sectionTitle === 'Booking') {
+                    window.location.href = roomBookingUrl;
+                } else if (sectionTitle === 'Details') {
+                    window.location.href = roomDetailsUrl; // Update to navigate to room details
+                }
+            });
+        });
     </script>
     <script src="{{ asset('js/rooms.js') }}"></script>
 </body>

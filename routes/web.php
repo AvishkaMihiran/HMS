@@ -6,6 +6,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoomController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,6 +48,11 @@ Route::get('/receptionist/foods-interface', function () {
 Route::get('/food-ordering', function () {
     return view('food-ordering');
 })->middleware('auth')->name('food-ordering');
+
+// Define the route to rooms-details-interface view
+Route::get('/receptionist/rooms-details-interface', [RoomController::class, 'showRoomDetails'])
+    ->name('receptionist.rooms-details-interface');
+
 
 Route::get('/cook', function () {
     return view('cook'); 
