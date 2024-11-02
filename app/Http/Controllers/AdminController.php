@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\Booking;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -103,4 +104,39 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Room deleted successfully');
     
     }
+
+    public function boking_aproved($id) {
+        $bookings = Booking::find($id); 
+        $bookings->status = 'Approved';
+        $bookings->save();
+        return redirect()->back()->with('success', 'Room approve successfully');
+
+    }
+
+    public function boking_reject($id) {
+        $bookings = Booking::find($id); 
+        $bookings->status = 'Rejected';
+        $bookings->save();
+        return redirect()->back()->with('success', 'Room reject successfully');
+
+    }
+
+    public function all_msg() {
+        $bookings = Booking::all(); 
+        return view('admin.all_msg', compact('bookings'));
+   }
+
+   public function send_mail($id)
+    {
+    $bookings = Booking::find($id);
+
+    if (!$bookings) {
+        return redirect()->back()->with('error', 'Booking not found');
+    }
+
+    return view('admin.send_mail', compact('bookings'));
+}
+
+   
+
 }
