@@ -1,3 +1,4 @@
+<!-- resources/views/receptionist/receptionist.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +10,12 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1>Receptionist </h1>
+            <h1>Receptionist</h1>
         </header>
         <main class="main-content">
-            <div class="section" onclick="window.location.href='{{ route('food-ordering') }}'">Foods</div>
-            <div class="section" onclick="navigateTo('rooms')">Rooms</div>
+            <!-- Update: Use route for Foods button to navigate to foods-interface -->
+            <div class="section" onclick="window.location.href='{{ route('receptionist.foods-interface') }}'">Foods</div>
+            <div class="section" onclick="window.location.href='{{ route('receptionist.rooms-interface') }}'">Rooms</div>
             <div class="section" onclick="navigateTo('calendar')">Calendar</div>
             <div class="section" onclick="navigateTo('bill')">Bill</div>
         </main>
@@ -25,6 +27,3 @@
     <script src="{{ asset('js/receptionist.js') }}"></script>
 </body>
 </html>
-
-
-

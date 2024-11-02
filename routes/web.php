@@ -28,8 +28,22 @@ Route::get('/waiter', function () {
 });
 
 Route::get('/receptionist', function () {
-    return view('receptionist');
+    return view('receptionist.receptionist');
 });
+
+
+Route::get('/receptionist/rooms-interface', function () {
+    return view('receptionist.rooms-interface');
+})->name('receptionist.rooms-interface');
+
+Route::get('/receptionist/foods-interface', function () {
+    return view('receptionist.foods-interface');
+})->name('receptionist.foods-interface'); // Define the route name here
+
+// Define route to food-ordering view
+Route::get('/food-ordering', function () {
+    return view('food-ordering');
+})->middleware('auth')->name('food-ordering');
 
 Route::get('/cook', function () {
     return view('cook'); 
@@ -62,13 +76,9 @@ Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('dat
 Route::get('/booking-success', [BookingController::class, 'success'])->name('booking.success');
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
+
 Route::get('/boking_aprove', [AdminController::class, 'boking_aprove'])->name('admin.boking_aprove');
 Route::get('/boking_delete/{id}', [AdminController::class, 'boking_delete'])->name('admin.boking_delete');
 
 Route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name('admin.boking_delete');
-
-Route::post('/order', [OrderController::class, 'store'])->name('order.store');
-
-
-
 
