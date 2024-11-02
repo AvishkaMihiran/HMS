@@ -298,27 +298,30 @@
 <script>
     let order = {};
 
-    function addToOrder(itemName, itemPrice) {
-        const quantity = prompt("Enter quantity for " + itemName + ":");
-        if (quantity && !isNaN(quantity) && quantity > 0) {
-            const itemQuantity = parseInt(quantity);
-
-            // Check if the item already exists in the order
-            if (order[itemName]) {
-                // Update the existing item's quantity
-                order[itemName].quantity += itemQuantity;
-            } else {
-                // Add new item to the order
-                order[itemName] = {
-                    price: itemPrice,
-                    quantity: itemQuantity
-                };
-            }
-            updateOrderSummary();
-        } else {
-            alert("Please enter a valid quantity.");
-        }
+function addToOrder(itemName, itemPrice) {
+    // Check if the item already exists in the order
+    if (order[itemName]) {
+        // Increment the existing item's quantity by 1
+        order[itemName].quantity += 1;
+    } else {
+        // Add new item to the order with initial quantity of 1
+        order[itemName] = {
+            price: itemPrice,
+            quantity: 1
+        };
     }
+    updateOrderSummary(); // Call this function to refresh the displayed order summary
+}
+
+// Example function to display the current order summary
+function updateOrderSummary() {
+    let summary = "";
+    for (const item in order) {
+        summary += `${item}: ${order[item].quantity} x $${order[item].price} = $${order[item].quantity * order[item].price}\n`;
+    }
+    alert("Order Summary:\n" + summary); // Display order summary as an alert (or update your UI as needed)
+}
+
 
     function updateOrderSummary() {
         const summaryDiv = document.getElementById("order-summary");
