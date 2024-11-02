@@ -13,6 +13,7 @@
             <h1>Receptionist</h1>
         </header>
         <main class="main-content">
+            <!-- Update: Use route for Foods button to navigate to foods-interface -->
             <div class="section" onclick="window.location.href='{{ route('receptionist.foods-interface') }}'">Foods</div>
             <div class="section" onclick="window.location.href='{{ route('receptionist.rooms-interface') }}'">Rooms</div>
             <div class="section" onclick="navigateTo('calendar')">Calendar</div>
