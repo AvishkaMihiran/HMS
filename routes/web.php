@@ -64,8 +64,10 @@ Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.ind
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
 Route::get('/boking_aprove', [AdminController::class, 'boking_aprove'])->name('admin.boking_aprove');
 Route::get('/boking_delete/{id}', [AdminController::class, 'boking_delete'])->name('admin.boking_delete');
-Route::post('/order', [OrderController::class, 'store'])->name('order.store');
+
 Route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name('admin.boking_delete');
+
+Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 
 
 

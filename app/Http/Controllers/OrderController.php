@@ -9,17 +9,20 @@ class OrderController extends Controller
 {
     public function store(Request $request)
     {
-        // Retrieve and save each item from the request to the database
-        foreach ($request->cart as $item) {
+        $cartItems = $request->input('cart');
+
+        foreach ($cartItems as $item) {
             Order::create([
                 'item_name' => $item['name'],
                 'price' => $item['price'],
                 'quantity' => $item['quantity'],
                 'total' => $item['total'],
+                'user_id' => auth()->id() // Assumes user is logged in
             ]);
         }
 
         return response()->json(['success' => true, 'message' => 'Order placed successfully!']);
     }
 }
+
 
