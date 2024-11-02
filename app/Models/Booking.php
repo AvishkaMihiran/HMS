@@ -9,12 +9,13 @@ class Booking extends Model
 {
     use HasFactory;
 
+    // Specify which attributes can be mass assigned
     protected $fillable = [
         'username',
         'package',
         'check_in_date',
         'check_out_date',
         'rooms',
-        'total_price',
+        'price_list'
     ];
 }

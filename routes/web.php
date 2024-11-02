@@ -32,9 +32,6 @@ Route::get('/receptionist', function () {
     return view('receptionist.receptionist');
 });
 
-Route::get('/booking', function () {
-    return view('booking');
-})->name('booking');
 
 Route::get('/receptionist/rooms-interface', function () {
     return view('receptionist.rooms-interface');
@@ -60,13 +57,13 @@ Route::get('/cook', function () {
 
 Route::get("/redirects", [HomeController::class, "redirects"]);
 
-/*Route::get('/booking', function () {
+Route::get('/booking', function () {
     return view('booking');
 })->middleware('auth');
 
 Route::get('/food-ordering', function () {
     return view('food-ordering');
-})->middleware('auth');*/
+})->middleware('auth');
 
 Route::get('/admin', function () {
     return view('admin.dashboard'); 
@@ -87,7 +84,16 @@ Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.ind
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
 
 Route::get('/boking_aprove', [AdminController::class, 'boking_aprove'])->name('admin.boking_aprove');
-Route::get('/boking_delete/{id}', [AdminController::class, 'boking_delete'])->name('admin.boking_delete');
+
+Route::get('/boking_aproved/{id}', [AdminController::class, 'boking_aproved'])->name('boking_aproved');
+Route::get('/boking_reject/{id}', [AdminController::class, 'boking_reject'])->name('boking_reject');
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name('admin.boking_delete');
+
+Route::get('/all_msg', [AdminController::class, 'all_msg'])->name('admin.all_msg');
+
+Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admin.send_mail');
+
+Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
+
 
