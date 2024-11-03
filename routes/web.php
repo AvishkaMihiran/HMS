@@ -59,11 +59,16 @@ Route::get("/redirects", [HomeController::class, "redirects"]);
 
 Route::get('/booking', function () {
     return view('booking');
-})->middleware('auth');
+})->middleware('auth')->name('booking');
 
-Route::get('/food-ordering', function () {
+
+/*Route::get('/booking', function () {
+    return view('booking');
+})->middleware('auth');*/
+
+/*Route::get('/food-ordering', function () {
     return view('food-ordering');
-})->middleware('auth');
+})->middleware('auth');*/
 
 Route::get('/admin', function () {
     return view('admin.dashboard'); 
