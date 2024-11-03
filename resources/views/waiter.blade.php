@@ -238,6 +238,13 @@
             font-weight: bold;
             box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3);
         }
+
+        .menu-item img {
+    width: 95%;  /* Make the image take the full width of the menu item */
+    height: 50%; /* Maintain the aspect ratio */
+    border-radius: 8px; /* Optional: Add some border radius for aesthetics */
+        }
+
     </style>
 </head>
 <body>
@@ -269,9 +276,11 @@
                 }
             </script>
         </select>
-        <button onclick="showCategory('starters')">Starters</button>
-        <button onclick="showCategory('kebab')">Kebab</button>
-        <button onclick="showCategory('soup')">Soup</button>
+        <button onclick="showCategory('FriedRice')">Fried Rice</button>
+        <button onclick="showCategory('Koththu')">Koththu</button>
+        <button onclick="showCategory('Noodles')">Noodles</button>
+        <button onclick="showCategory('Sandwich')">Sandwich</button>
+        <button onclick="showCategory('FreshJuice')">Fresh Juice</button>
     </div>
 
     <!-- Main Content -->
@@ -300,23 +309,64 @@
 
 <script>
     const menuItems = {
-        starters: [{ name: 'Spring Rolls', price: 500 }],
-        kebab: [{ name: 'Chicken Kebab', price: 900 }],
-        soup: [{ name: 'Tom Yum Soup', price: 700 }],
+        FriedRice: [
+            { name: 'Chicken Fried Rice', price: 2000,image: 'images//jeewa/chif.png'},
+            { name: 'Vegitable Fried Rice', price: 1850,image: 'images/jeewa/vf.png'},
+            { name: 'Egg Fried Rice', price: 1900,image: 'images/jeewa/ef.jpg'},
+            { name: 'Sea food Fried Rice', price: 2500,image: 'images/jeewa/ssf.jpg'},
+            { name: 'Mix Fried Rice', price: 2650,image: 'images/jeewa/mif.jpg'},
+            { name: 'Nasi Goreng', price: 3500,image: 'images/jeewa/ng.jpg'},
+            { name: 'Thai Rice Chicken', price: 2500,image: 'images/jeewa/tr.jpg'},
+        
+        ],
+    
+        Koththu: [
+            { name: 'Vegetable Koththu', price: 1500,image: 'images/jeewa/vegkottu.png'},
+            { name: 'Chicken Koththu', price: 1950,image: 'images/jeewa/chikk.jpg'},
+            { name: 'Egg Koththu', price: 1650,image: 'images/jeewa/eggkk.jpg'},
+            { name: 'Sea food Koththu', price: 2500,image: 'images/jeewa/sk.jpeg'},
+
+        ],
+        Sandwich: [
+            { name: 'Egg Sandwitch', price: 500,image: 'images/jeewa/es.jpg'},
+            { name: 'Chicken Sandwich', price: 850,image: 'images/jeewa/cs.png'},
+            { name: 'Grill Chicken Sandwich', price: 950,image: 'images/jeewa/gs.jpg'},
+            { name: 'Club Sandwich', price: 1050,image: 'images/jeewa/css.jpg'},
+        ],
+        Noodles: [
+            { name: 'Chicken Noodles', price: 1050,image: 'images/jeewa/cn.jpg'},
+            { name: 'Vegetable Noodles', price: 850,image: 'images/jeewa/vn.jpg'},
+            { name: 'Egg Noodles', price: 950,image: 'images/jeewa/en.jpg'},
+            { name: 'Sea Food Noodles', price: 950,image: 'images/jeewa/sn.png'},
+        ],
+        FreshJuice: [
+            { name: 'Watermelone Juice', price: 850,image: 'images/jeewa/wj.jpg'},
+            { name: 'Papaya Juice', price: 900,image: 'images/jeewa/pj.jpg'},
+            { name: 'Mango Juice', price: 950,image: 'images/jeewa/mj.jpeg'},
+            { name: 'Lime Juice', price: 950,image: 'images/jeewa/lj.jpeg'},
+        ],
     };
     let order = [];
 
     function showCategory(category) {
-        const menuGrid = document.getElementById('menu-grid');
-        menuGrid.innerHTML = '';
-        menuItems[category].forEach((item, index) => {
+    const menuGrid = document.getElementById('menu-grid');
+    menuGrid.innerHTML = ''; // Clear previous items
+
+    // Check if the category exists in menuItems
+    if (menuItems[category]) {
+        menuItems[category].forEach((item) => {
             const itemElement = document.createElement('div');
             itemElement.className = 'menu-item';
-            itemElement.innerHTML = `<p>${item.name} - ${item.price} LKR</p>`;
-            itemElement.onclick = () => addToOrder(item);
+            itemElement.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" style="width: 100%; border-bottom: 1px solid #ddd;">
+                <p>${item.name} - ${item.price} LKR</p>
+            `;
+            itemElement.onclick = () => addToOrder(item); // Add item to order on click
             menuGrid.appendChild(itemElement);
         });
     }
+}
+
 
     function addToOrder(item) {
         order.push(item);
@@ -353,9 +403,7 @@
     function placeOrder() {
     const tableNumber = document.getElementById('table-number').value;
     const numCustomers = document.getElementById('num-customers').value;
-
-    // Assuming you have a way to get the current waiter user ID (you can fetch it dynamically)
-    const waiterUserId = 1; // Replace this with the actual waiter user ID dynamically if needed
+    const waiterUserId = 1; // Replace with actual waiter user ID if needed
 
     const orderData = {
         table_number: tableNumber,
@@ -364,28 +412,29 @@
         waiter_user_id: waiterUserId,
     };
 
-    fetch('/api/orders', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}' // Add CSRF token if you are using Laravel's CSRF protection
-        },
-        body: JSON.stringify(orderData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert(`Order placed successfully! Order ID: ${data.order.id}`);
-            clearOrder(); // Clear order after placing it
-        } else {
-            alert('Failed to place order: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred while placing the order.');
-    });
+    fetch('/orders', { // Removed `/api` since we're using `web.php`
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-TOKEN': csrfToken
+    },
+    body: JSON.stringify(orderData)
+})
+.then(response => response.json())
+.then(data => {
+    if (data.success) {
+        alert(`Order placed successfully! Order ID: ${data.order.id}`);
+        clearOrder(); // Clear order after placing it
+    } else {
+        alert('Failed to place order: ' + data.message);
+    }
+})
+.catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred while placing the order.');
+});
 }
+
 
 
 
