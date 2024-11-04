@@ -34,7 +34,7 @@ Route::get('/receptionist', function () {
 
 Route::get('/cook', function () {
     return view('cook'); 
-})->middleware('auth');;
+})->middleware('auth');
 
 Route::get("/redirects",[HomeController::class,"redirects"]);
 
