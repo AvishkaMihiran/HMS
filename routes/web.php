@@ -38,16 +38,13 @@ Route::get('/receptionist', function () {
     return view('receptionist.receptionist');
 });
 
-// routes/web.php
-
+// Receptionist routes
 Route::get('/receptionist/calendar', function () {
     return view('receptionist.calendar');
 })->name('receptionist.calendar');
 
 Route::get('/receptionist/get-bookings/{date}', [ReceptionistController::class, 'getBookingsByDate']);
 
-
-// Receptionist routes
 Route::get('/receptionist/rooms-interface', function () {
     return view('receptionist.rooms-interface');
 })->name('receptionist.rooms-interface');
@@ -60,6 +57,11 @@ Route::get('/receptionist/foods-interface', function () {
 Route::get('/food-ordering', function () {
     return view('food-ordering');
 })->middleware('auth')->name('food-ordering');
+
+// Food menu view (single definition)
+Route::get('/foodmenu', function () {
+    return view('foodmenu');
+})->name('foodmenu'); // Named route for 'foodmenu'
 
 // Rooms details interface
 Route::get('/receptionist/rooms-details-interface', [RoomController::class, 'showRoomDetails'])
@@ -107,17 +109,9 @@ Route::get('/all_msg', [AdminController::class, 'all_msg'])->name('admin.all_msg
 Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admin.send_mail');
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 
-// Food menu and table routes
-Route::get('/foodmenu', function () {
-    return view('foodmenu');
-});
-
+// Table route
 Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
 
-// waiter routes
-
+// Waiter routes
 Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
-
 Route::post('/orders', [WaiterOrderController::class, 'store']);
-
-//routs

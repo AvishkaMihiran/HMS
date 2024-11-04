@@ -28,6 +28,7 @@
     </div>
     <script>
         const foodOrderingUrl = "{{ route('food-ordering') }}";
+        const foodMenuUrl = "{{ route('foodmenu') }}";
     </script>
     <script src="{{ asset('js/foods.js') }}"></script> <!-- Directly load JavaScript without Vite -->
 </body>
