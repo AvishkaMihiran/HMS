@@ -109,3 +109,5 @@ Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
 Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 
 Route::post('/orders', [WaiterOrderController::class, 'store']);
+
+//routs
