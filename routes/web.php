@@ -7,6 +7,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\WaiterOrderController;
+use App\Http\Controllers\ReceptionistController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +34,14 @@ Route::get('/waiter', function () {
 Route::get('/receptionist', function () {
     return view('receptionist.receptionist');
 });
+
+
+
+Route::get('/receptionist/calendar', function () {
+    return view('receptionist.calendar');
+})->name('receptionist.calendar');
+
+Route::get('/receptionist/get-bookings/{date}', [ReceptionistController::class, 'getBookingsByDate']);
 
 
 Route::get('/receptionist/rooms-interface', function () {
@@ -95,6 +106,14 @@ Route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name
 
 Route::get('/all_msg', [AdminController::class, 'all_msg'])->name('admin.all_msg');
 Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admin.send_mail');
+
+Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
+
+// Food menu and table routes
+Route::get('/foodmenu', function () {
+    return view('foodmenu');
+});
+
 
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
