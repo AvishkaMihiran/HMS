@@ -62,15 +62,18 @@ Route::get("/redirects", [HomeController::class, "redirects"]);
 
 Route::get('/booking', function () {
     return view('booking');
-})->middleware('auth');
+})->middleware('auth')->name('booking');
 
-Route::get('/food-ordering', function () {
+
+/*Route::get('/booking', function () {
+    return view('booking');
+})->middleware('auth');*/
+
+/*Route::get('/food-ordering', function () {
     return view('food-ordering');
-})->middleware('auth');
+})->middleware('auth');*/
 
-Route::get('/admin', function () {
-    return view('admin.dashboard'); 
-});
+Route::get('/admin', [AdminController::class, 'admindashboard'])->name('admin.admindashboard');
 
 Route::get('/create_room', function () {
     return view('admin.create_room'); 
@@ -99,8 +102,11 @@ Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admi
 
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 
+
 Route::get('/food-menu', function () {
     return view('food-menu');
-});
+
+Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
+
 
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\AdminadminController;
 namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\Booking;
@@ -12,9 +13,10 @@ use App\Notifications\MyFirstNotification;
 class AdminController extends Controller
 {
     // Display the admin dashboard
-    public function dashboard()
+    public function admindashboard()
     {
-        return view('admin.dashboard');
+        return view('admin.admindashboard');
+        
     }
 
     public function create_room()
@@ -27,11 +29,12 @@ class AdminController extends Controller
         $data = new Room();
 
         $data ->room_title = $request->title;
-        $data ->description = $request->description;
-        $data ->price = $request->price;
-        $data ->wifi = $request->wifi;
         $data ->room_type = $request->type;
-
+        $data ->description = $request->description;
+        $data ->wifi = $request->wifi;
+        $data ->price = $request->price;
+        $data ->total_rooms = $request->total_rooms;
+        $data ->available = $request->available;
         $image = $request->image;
         if($image){
             $imagename = time().'.'.$image->getClientOriginalExtension();
@@ -157,6 +160,11 @@ public function mail(Request $request, $id)
     Notification::send($user, new MyFirstNotification($details));
     
     return redirect()->back()->with('success', 'Mail sent successfully.');
+}
+
+public function table() {
+    $data = Room::all(); 
+    return view('admin.table', compact('data'));
 }
 
    

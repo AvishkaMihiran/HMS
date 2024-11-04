@@ -34,7 +34,12 @@
                             <lable>
                                 Room Title
                             </lable>
-                            <input type = "text" name = "title">
+                            <select name = "title">
+                                <option selected value = "family">Family</option>
+                                <option value = "single">Single</option>
+                                <option value = "double">Double</option>
+
+                            </select>
                         </div>
 
                         <div class = "div_deg">
@@ -49,6 +54,20 @@
                                 Price
                             </lable>
                             <input type = "number" name = "price">
+                        </div>
+
+                        <div class = "div_deg">
+                            <lable>
+                                Total Room
+                            </lable>
+                            <input type = "number" name = "total_rooms">
+                        </div>
+
+                        <div class = "div_deg">
+                            <lable>
+                                Available Room
+                            </lable>
+                            <input type = "number" name = "available">
                         </div>
 
                         <div class = "div_deg">

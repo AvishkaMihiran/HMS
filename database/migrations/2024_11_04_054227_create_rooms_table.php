@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('room_title')->nullable();
-            $table->longText('description')->nullable();
-            $table->string('price')->nullable();
-            $table->string('wifi')->default('yes');
             $table->string('room_type')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('wifi')->default('yes');
+            $table->unsignedInteger('price')->nullable(); 
+            $table->unsignedInteger('total_rooms')->nullable();
+            $table->unsignedInteger('available')->nullable(); 
             $table->string('image')->nullable();
             $table->timestamps();
         });

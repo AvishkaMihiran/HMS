@@ -11,9 +11,9 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
-                <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
+                <li><a href="{{url('admin')}}"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="{{url('all_msg')}}"> <i class="icon-mail"></i>Send message</a></li>
-                <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
+                <li><a href="{{url('table')}}"> <i class="icon-grid"></i>Tables </a></li>
                 <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Room</a>
