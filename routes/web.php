@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\WaiterOrderController;
 use App\Http\Controllers\ReceptionistController;
+
 use App\Http\Controllers\KitchenOrdersController;
 use App\Http\Controllers\BillController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -73,6 +75,7 @@ Route::get('/kitchen-orders', [KitchenOrdersController::class, 'showKitchenOrder
 
 Route::get('/receptionist/bill', [BillController::class, 'showBills'])->name('receptionist.bill');
 
+
 Route::get('/cook', function () {
     return view('cook'); 
 })->middleware('auth');
@@ -82,6 +85,7 @@ Route::get("/redirects", [HomeController::class, "redirects"]);
 Route::get('/booking', function () {
     return view('booking');
 })->middleware('auth')->name('booking');
+
 
 /*Route::get('/booking', function () {
     return view('booking');
@@ -120,6 +124,31 @@ Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admi
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 
 
+
+// Table route
+Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
+
+// Waiter routes
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::post('/orders', [WaiterOrderController::class, 'store']);
+
+// Food menu and table routes
+Route::get('/foodmenu', function () {
+    return view('foodmenu');
+});
+
+
+Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
+Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
+
+Route::get('/booking', [BookingController::class, 'booking'])->name('bookings');
+
+
+// for cook
+Route::get('/cook', [OrderController::class, 'showOrders'])->name('cook');
+Route::delete('/order/{id}/complete', [OrderController::class, 'completeOrder'])->name('order.complete');
+
+
 // Table route
 Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
 
@@ -137,4 +166,3 @@ Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
 
 Route::get('/booking', [BookingController::class, 'booking'])->name('bookings');
-

@@ -23,6 +23,24 @@ class OrderController extends Controller
 
         return response()->json(['success' => true, 'message' => 'Order placed successfully!']);
     }
+
+
+            // In OrderController.php
+            public function showOrders()
+    {
+                    $orders = Order::all();
+                     return view('cook', compact('orders'));
+                        }
+
+            public function completeOrder($id)
+                    {
+                    $order = Order::find($id);
+                    if ($order) {
+                        $order->delete();
+                    }
+    return response()->json(['success' => true]);
+    }
+
 }
 
 
