@@ -98,8 +98,8 @@ Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admi
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 
 // Food menu and table routes
-Route::get('/food-menu', function () {
-    return view('food-menu');
+Route::get('/foodmenu', function () {
+    return view('foodmenu');
 });
 
 Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
