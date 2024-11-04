@@ -82,8 +82,11 @@
     </style>
 </head>
 <body>
+<x-app-layout></x-app-layout>
     <div class="content">
+    
         <h1>Cook's Dashboard</h1>
+        
         <p>View and manage incoming food orders.</p>
     </div>
 

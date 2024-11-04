@@ -1,4 +1,13 @@
 <x-guest-layout>
+
+    <style>
+        .radio-group{
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+    </style>
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -37,6 +46,32 @@
                             name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+
+
+        <div class="mt-4">
+            <x-input-label for="User Type" :value="__('User Type')" />
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="usertype" value="0">
+                    <x-input-label for="customer" :value="__('customer')" />
+                </label>
+
+                <label>
+                    <input type="radio" name="usertype" value="3">
+                    <x-input-label for="Waiter" :value="__('waiter')" />
+                </label>
+
+                <label>
+                    <input type="radio" name="usertype" value="4">
+                    <x-input-label for="Cook" :value="__('Cook')" />
+                </label>
+
+                <label>
+                    <input type="radio" name="usertype" value="2">
+                    <x-input-label for="Receptionist" :value="__('Receptionist')" />
+                </label>
+            </div>
         </div>
 
         <div class="flex items-center justify-end mt-4">

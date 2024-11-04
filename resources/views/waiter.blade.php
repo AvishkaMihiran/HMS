@@ -224,11 +224,14 @@
 </head>
 <body>
 <header>
+
     <div class="logo">IMPERIAL CROWN</div>
     <div class="waiter-info">
+    <x-app-layout>
         Waiter: John Doe
         <input type="file" id="waiter-photo" accept="image/*" style="margin-left: 10px;" onchange="displayImage(event)"/>
         <img id="waiter-photo-display" src="" alt="Waiter Photo" style="width: 50px; height: 50px; border-radius: 50%; margin-left: 10px; display: none;"/>
+    </x-app-layout>
     </div>
 </header>
 

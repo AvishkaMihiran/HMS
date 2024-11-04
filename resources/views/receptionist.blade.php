@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="{{ asset('css/receptionist.css') }}">
 </head>
 <body>
+    
     <div class="container">
+    <x-app-layout>
         <header class="header">
             <h1>Receptionist </h1>
         </header>
         <main class="main-content">
-            <div class="section" onclick="window.location.href='{{ route('food-ordering') }}'">Foods</div>
+            <div class="section" onclick="window.location.href="{{url('food-ordering') }}">Foods</div>
             <div class="section" onclick="navigateTo('rooms')">Rooms</div>
             <div class="section" onclick="navigateTo('calendar')">Calendar</div>
             <div class="section" onclick="navigateTo('bill')">Bill</div>
