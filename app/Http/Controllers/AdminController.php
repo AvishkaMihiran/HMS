@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 namespace App\Http\Controllers\AdminadminController;
 namespace App\Http\Controllers;
 use App\Models\Room;
+use App\Models\Order;
 use App\Models\Booking;
 use App\Models\User;
 use Notification;
@@ -165,6 +166,8 @@ public function mail(Request $request, $id)
 public function table() {
     $data = Room::all(); 
     return view('admin.table', compact('data'));
+    $item = Order::all(); 
+    return view('admin.table', compact('item'));
 }
 
    
