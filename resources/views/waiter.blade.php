@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+
     <title>Luxurious Modern Ordering Interface</title>
     <style>
         /* Reset CSS */
@@ -412,28 +413,29 @@
         waiter_user_id: waiterUserId,
     };
 
-    fetch('/orders', { // Removed `/api` since we're using `web.php`
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': csrfToken
-    },
-    body: JSON.stringify(orderData)
-})
-.then(response => response.json())
-.then(data => {
-    if (data.success) {
-        alert(`Order placed successfully! Order ID: ${data.order.id}`);
-        clearOrder(); // Clear order after placing it
-    } else {
-        alert('Failed to place order: ' + data.message);
-    }
-})
-.catch(error => {
-    console.error('Error:', error);
-    alert('An error occurred while placing the order.');
-});
+    fetch('/orders', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken
+        },
+        body: JSON.stringify(orderData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(`Order placed successfully! Order ID: ${data.order.id}`);
+            clearOrder(); // Clear order after placing it
+        } else {
+            alert('Failed to place order: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while placing the order.');
+    });
 }
+
 
 
 
