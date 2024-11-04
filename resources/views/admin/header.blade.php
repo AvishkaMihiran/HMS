@@ -136,7 +136,7 @@
             </div>-->
             <!-- Log out               -->
             <div class="list-inline-item logout">                   
-              <a id="logout" href="{{url('login')}}" class="nav-link">LOG OUT<i class="icon-logout"></i></a></div>
+              <a id="logout" href="{{url('login')}}" class="nav-link">Log Out<i class="icon-logout"></i></a></div>
           </div>
         </div>
       </nav>
