@@ -16,7 +16,7 @@
             <!-- Update: Use route for Foods button to navigate to foods-interface -->
             <div class="section" onclick="window.location.href='{{ route('receptionist.foods-interface') }}'">Foods</div>
             <div class="section" onclick="window.location.href='{{ route('receptionist.rooms-interface') }}'">Rooms</div>
-            <div class="section" onclick="navigateTo('calendar')">Calendar</div>
+            <div class="section" onclick="window.location.href='{{ route('receptionist.calendar') }}'">Calendar</div>
             <div class="section" onclick="navigateTo('bill')">Bill</div>
         </main>
         <footer class="footer">
