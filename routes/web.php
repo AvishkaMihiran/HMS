@@ -36,7 +36,6 @@ Route::get('/receptionist', function () {
 });
 
 
-
 Route::get('/receptionist/calendar', function () {
     return view('receptionist.calendar');
 })->name('receptionist.calendar');
@@ -57,7 +56,15 @@ Route::get('/food-ordering', function () {
     return view('food-ordering');
 })->middleware('auth')->name('food-ordering');
 
+// Food menu view (single definition)
+Route::get('/foodmenu', function () {
+    return view('foodmenu');
+})->name('foodmenu'); // Named route for 'foodmenu'
+
+// Rooms details interface
+
 // Define the route to rooms-details-interface view
+
 Route::get('/receptionist/rooms-details-interface', [RoomController::class, 'showRoomDetails'])
     ->name('receptionist.rooms-details-interface');
 
@@ -109,6 +116,14 @@ Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admi
 
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 
+
+// Table route
+Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
+
+// Waiter routes
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::post('/orders', [WaiterOrderController::class, 'store']);
+
 // Food menu and table routes
 Route::get('/foodmenu', function () {
     return view('foodmenu');
@@ -119,3 +134,4 @@ Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
 
 Route::get('/booking', [BookingController::class, 'booking'])->name('bookings');
+
