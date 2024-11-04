@@ -40,11 +40,12 @@
                     <table class ="table_deg">
                         <tr class = "tr_deg">
                             <th class = "th_deg">Room Title</th>
+                            <th class = "th_deg">Packge Type</th>
                             <th class = "th_deg">Description</th>
-                            <th class = "th_deg">Price</th>
                             <th class = "th_deg">Wifi</th>
-                            <th class = "th_deg">Room Type</th>
-                            <th class = "th_deg">Image</th>
+                            <th class = "th_deg">Price</th>
+                            <th class = "th_deg">Total Room</th>
+                            <th class = "th_deg">Available Room</th>
                             <th class = "th_deg">Delete</th>
                             <th class = "th_deg">Update</th>
                         </tr>
@@ -56,13 +57,14 @@
                       @foreach($data as $item)
                         <tr class = "tr_deg">
                             <td class = "td_deg">{{ optional($item)->room_title }}</td>
-                            <td>{{ optional($item)->description }}</td>
-                            <td>{{ optional($item)->price }}$</td>
-                            <td>{{ optional($item)->wifi }}</td>
                             <td>{{ optional($item)->room_type }}</td>
-                            <td>
-                                <img width = "60" src = "{{ asset('room/'.$item->image) }}">
-                            </td>
+                            <td>{{ optional($item)->description }}</td>
+                            <td>{{ optional($item)->wifi }}</td>
+                            <td>{{ optional($item)->price }}$</td>
+                            <td>{{ optional($item)->total_rooms }}</td>
+                            <td>{{ optional($item)->available }}</td>
+                            
+                            
 
                             <td>
                                 <a onclick = "return confirm('Are you sure to delete this');" class = "btn btn-danger" href = "{{url('room_delete', $item->id)}}">Delete</a>

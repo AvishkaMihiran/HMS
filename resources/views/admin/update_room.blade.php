@@ -37,8 +37,15 @@
                             <lable>
                                 Room Title
                             </lable>
-                            <input type = "text" name = "title" value = "{{$data->room_title}}">
+                            <select name = "title" value = "{{$data->room_title}}">
+                            <option selected value = "{{$data->room_type}}">{{$data->room_title}}</option>
+                                <option value = "family">Family</option>
+                                <option value = "single">Single</option>
+                                <option value = "double">Double</option>
+
+                            </select>
                         </div>
+
 
                         <div class = "div_deg">
                             <lable>
@@ -77,6 +84,20 @@
                                 <option value = "no">No</option>
 
                             </select>
+                        </div>
+
+                        <div class = "div_deg">
+                            <lable>
+                                Total Room
+                            </lable>
+                            <input type = "number" name = "total_rooms" value = "{{$data->total_rooms}}">
+                        </div>
+
+                        <div class = "div_deg">
+                            <lable>
+                                Available Room
+                            </lable>
+                            <input type = "number" name = "available" value = "{{$data->available}}">
                         </div>
 
                         <div class = "div_deg">
