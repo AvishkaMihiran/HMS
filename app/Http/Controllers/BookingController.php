@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use Carbon\Carbon;
 
 class BookingController extends Controller
-{
+{   
     public function store(Request $request)
     {
         // Validate incoming request data
@@ -33,6 +33,10 @@ class BookingController extends Controller
             'price' => $request->price,
         ]);
 
+     
+           
+        
+
         // Redirect to success page
         return redirect()->route('booking.success');
     }
@@ -40,5 +44,17 @@ class BookingController extends Controller
     public function success()
     {
         return view('booking-success'); // Make sure you have this view created
+    }
+
+    public function booking()
+    {
+        $data = Room::all(); 
+        return view('booking', compact('data'));
+
+        $roomData = DB::table('rooms')->select('room_title', 'price')->get();
+        return view('booking_form', ['data' => $roomData]);
+        
+        $roomData = DB::table('rooms')->select('room_type', 'price')->get();
+        return view('booking_form', ['data' => $roomData]);
     }
 }
