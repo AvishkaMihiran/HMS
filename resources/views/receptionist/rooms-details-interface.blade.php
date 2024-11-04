@@ -23,7 +23,6 @@
                         <th>Room Type</th>
                         <th>Image</th>
                         <th>Created At</th>
-                        <th>Status</th>
                         <th>Updated At</th>
                         <!--<th>Action</th>-->
                         <!-- Add other columns as needed -->
@@ -40,7 +39,6 @@
                             <td>{{ $room->room_type }}</td>
                             <td>{{ $room->image }}</td>
                             <td>{{ $room->created_at }}</td>
-                            <td>{{ $room->status }}</td>
                             <td>{{ $room->updated_at }}</td>
                             <!-- Add other fields as needed -->
                         </tr>
