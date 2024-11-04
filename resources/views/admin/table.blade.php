@@ -20,34 +20,38 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
+                        <th>Room Title</th>
+                            <th>Packge Type</th>
+                            <th>Description</th>
+                            <th>Wifi</th>
+                            <th>Price</th>
+                            <th>Total Room</th>
+                            <th>Available Room</th>
+                            
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
+                      @if($data->isEmpty())
+                         <tr class = "tr_deg">
+                            <td colspan="6">No rooms available.</td>
                         </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
+                    @else
+                      @foreach($data as $item)
+                        <tr class = "tr_deg">
+                            <td class = "td_deg">{{ optional($item)->room_title }}</td>
+                            <td>{{ optional($item)->room_type }}</td>
+                            <td>{{ optional($item)->description }}</td>
+                            <td>{{ optional($item)->wifi }}</td>
+                            <td>{{ optional($item)->price }}$</td>
+                            <td>{{ optional($item)->total_rooms }}</td>
+                            <td>{{ optional($item)->available }}</td>
+                            
                         </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
+                       
+
+                        @endforeach
+
+                        @endif
                       </tbody>
                     </table>
                   </div>
@@ -61,32 +65,34 @@
                   <div class="table-responsive"> 
                     <table class="table table-striped">
                       <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
+                      <tr>
+                            <th>Item Name</th>
+                            <th>Price</th>
+                            <th>Quntity</th>
+                            <th>Total Price</th>
+                            <th>Price</th>
+                            
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
+                      @if($item->isEmpty())
+                         <tr class = "tr_deg">
+                            <td colspan="6">No rooms available.</td>
                         </tr>
+                    @else
+                      @foreach($item as $item)
                         <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
+                            <td>{{ optional($item)->item_name }}</td>
+                            <td>{{ optional($item)->price}}</td>
+                            <td>{{ optional($item)->quantity}}</td>
+                            <td>{{ optional($item)->total}}</td>
+                          
                         </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter  </td>
-                        </tr>
+                       
+
+                        @endforeach
+
+                        @endif
                       </tbody>
                     </table>
                   </div>
