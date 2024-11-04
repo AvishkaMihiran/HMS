@@ -70,9 +70,7 @@ Route::get('/booking', function () {
     return view('food-ordering');
 })->middleware('auth');*/
 
-Route::get('/admin', function () {
-    return view('admin.dashboard'); 
-});
+Route::get('/admin', [AdminController::class, 'admindashboard'])->name('admin.admindashboard');
 
 Route::get('/create_room', function () {
     return view('admin.create_room'); 
@@ -100,5 +98,8 @@ Route::get('/all_msg', [AdminController::class, 'all_msg'])->name('admin.all_msg
 Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admin.send_mail');
 
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
+
+Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
+
 
 
