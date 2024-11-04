@@ -13,21 +13,24 @@ class BookingController extends Controller
         // Validate incoming request data
         $request->validate([
             'username' => 'required|string|max:255',
-            'package' => 'required|string|max:255',
+            'room_title' => 'required|string|max:255',
+            'room_type' => 'required|string|max:255',
+            'avilable' => 'required|integer|min:1',
             'check_in_date' => 'required|date|after_or_equal:today',
             'check_out_date' => 'required|date|after:check_in_date',
-            'rooms' => 'required|integer|min:1',
-            'total_price' => 'required|numeric|min:0',
+            'num_rooms' => 'required|integer|min:1',
+            'price' => 'required|numeric|min:0',
         ]);
 
         // Create a new booking
         Booking::create([
             'username' => $request->username, // Ensure this is retrieved correctly
-            'package' => $request->package,
+            'room_title' => $request->room_title,
+            'room_type' => $request->room_type,
             'check_in_date' => $request->check_in_date,
             'check_out_date' => $request->check_out_date,
-            'rooms' => $request->rooms,
-            'total_price' => $request->total_price,
+            'num_rooms' => $request->num_rooms,
+            'price' => $request->price,
         ]);
 
         // Redirect to success page

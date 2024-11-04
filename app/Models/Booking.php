@@ -12,10 +12,12 @@ class Booking extends Model
     // Specify which attributes can be mass assigned
     protected $fillable = [
         'username',
-        'package',
+        'room_title',
+        'room_type',
+        'available',
         'check_in_date',
         'check_out_date',
-        'rooms',
-        'price_list'
+        'num_rooms',
+        'price'
     ];
 }
