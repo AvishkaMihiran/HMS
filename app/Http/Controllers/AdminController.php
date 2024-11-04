@@ -29,11 +29,12 @@ class AdminController extends Controller
         $data = new Room();
 
         $data ->room_title = $request->title;
-        $data ->description = $request->description;
-        $data ->price = $request->price;
-        $data ->wifi = $request->wifi;
         $data ->room_type = $request->type;
-
+        $data ->description = $request->description;
+        $data ->wifi = $request->wifi;
+        $data ->price = $request->price;
+        $data ->total_rooms = $request->total_rooms;
+        $data ->available = $request->available;
         $image = $request->image;
         if($image){
             $imagename = time().'.'.$image->getClientOriginalExtension();
