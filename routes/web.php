@@ -8,6 +8,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WaiterOrderController;
+use App\Http\Controllers\ReceptionistController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,6 +37,15 @@ Route::get('/waiter', function () {
 Route::get('/receptionist', function () {
     return view('receptionist.receptionist');
 });
+
+// routes/web.php
+
+Route::get('/receptionist/calendar', function () {
+    return view('receptionist.calendar');
+})->name('receptionist.calendar');
+
+Route::get('/receptionist/get-bookings/{date}', [ReceptionistController::class, 'getBookingsByDate']);
+
 
 // Receptionist routes
 Route::get('/receptionist/rooms-interface', function () {
