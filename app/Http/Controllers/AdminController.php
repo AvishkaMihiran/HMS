@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\AdminadminController;
 namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\Booking;
@@ -12,9 +13,10 @@ use App\Notifications\MyFirstNotification;
 class AdminController extends Controller
 {
     // Display the admin dashboard
-    public function dashboard()
+    public function admindashboard()
     {
-        return view('admin.dashboard');
+        return view('admin.admindashboard');
+        
     }
 
     public function create_room()
@@ -157,6 +159,12 @@ public function mail(Request $request, $id)
     Notification::send($user, new MyFirstNotification($details));
     
     return redirect()->back()->with('success', 'Mail sent successfully.');
+}
+
+public function table()
+{
+    return view('admin.table');
+    
 }
 
    
