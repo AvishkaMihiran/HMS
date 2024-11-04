@@ -8,10 +8,12 @@ class Room extends Model
 {
     protected $fillable = [
     'room_title',
-    'description',
-    'price',
-    'wifi',
     'room_type',
+    'description',
+    'wifi',
+    'price',
+    'total_rooms',
+    'available',
     'image'
     ];
 }
