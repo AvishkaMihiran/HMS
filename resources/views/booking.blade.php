@@ -57,13 +57,12 @@
                     @foreach($data as $item)
             @if($item->room_title == 'family' && $item->room_type=='halfboard') 
                 <div class="price">Rs {{ $item->price }} </div>
-            @endif
-        @endforeach
+            
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="package" value="Half Board Family">
-                    <input type="hidden" name="total_price" id="halfBoardTotalPrice" value="20000">
+                    <input type="hidden" name="total_price" id="halfBoardTotalPrice" value=" {{ $item->price }}">
 
                     <label for="check_in_date_half_board">Check-in Date:</label>
                     <input id="check_in_date_half_board" name="check_in_date" type="date" required>
@@ -74,12 +73,14 @@
                     <label for="rooms_half_board">Number of Rooms:</label>
                     <input id="rooms_half_board" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_half_board', 'halfBoardTotalPrice', 'totalHalfBoard')">
 
-                    <div class="total-price">Total Price: <span id="totalHalfBoard">20000</span> Rs</div>
+                    <div class="total-price">Total Price: <span id="totalHalfBoard"> {{ $item->price }}</span> Rs</div>
 
                     <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
 
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
                 </form>
+                @endif
+        @endforeach
             </div>
 
             <!-- Room Only Option -->
@@ -91,13 +92,12 @@
                     @foreach($data as $item)
             @if($item->room_title == 'family' && $item->room_type=='roomonly') 
                 <div class="price">Rs {{ $item->price }} </div>
-            @endif
-        @endforeach
+            
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="package" value="Room Only Family">
-                    <input type="hidden" name="total_price" id="roomOnlyTotalPrice" value="10000">
+                    <input type="hidden" name="total_price" id="roomOnlyTotalPrice" value=" {{ $item->price }}">
 
                     <label for="check_in_date_room_only">Check-in Date:</label>
                     <input id="check_in_date_room_only" name="check_in_date" type="date" required>
@@ -108,12 +108,14 @@
                     <label for="rooms_room_only">Number of Rooms:</label>
                     <input id="rooms_room_only" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_room_only', 'roomOnlyTotalPrice', 'totalRoomOnly')">
 
-                    <div class="total-price">Total Price: <span id="totalRoomOnly">10000</span> Rs</div>
+                    <div class="total-price">Total Price: <span id="totalRoomOnly"> {{ $item->price }}</span> Rs</div>
 
                     <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
 
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
                 </form>
+                @endif
+        @endforeach
             </div>
         </div>
     </div>
@@ -130,13 +132,12 @@
                     @foreach($data as $item)
             @if($item->room_title == 'double' && $item->room_type=='fullboard') 
                 <div class="price">Rs {{ $item->price }} </div>
-            @endif
-        @endforeach
+            
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="package" value="Full Board Double">
-                    <input type="hidden" name="total_price" id="fullBoardTotalPrice" value="23000">
+                    <input type="hidden" name="total_price" id="fullBoardTotalPrice" value=" {{ $item->price }}">
 
                     <label for="check_in_date_full_board">Check-in Date:</label>
                     <input id="check_in_date_full_board" name="check_in_date" type="date" required>
@@ -147,12 +148,14 @@
                     <label for="rooms_full_board">Number of Rooms:</label>
                     <input id="rooms_full_board" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_full_board', 'fullBoardTotalPrice', 'totalFullBoard')">
 
-                    <div class="total-price">Total Price: <span id="totalFullBoard">23000</span> Rs</div>
+                    <div class="total-price">Total Price: <span id="totalFullBoard"> {{ $item->price }}</span> Rs</div>
 
                     <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
                     
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
                 </form>
+                @endif
+        @endforeach
             </div>
 
             <!-- Half Board Option -->
@@ -164,13 +167,12 @@
                     @foreach($data as $item)
             @if($item->room_title == 'double' && $item->room_type=='halfboard') 
                 <div class="price">Rs {{ $item->price }} </div>
-            @endif
-        @endforeach
+            
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="package" value="Half Board Double">
-                    <input type="hidden" name="total_price" id="halfBoardTotalPrice" value="17000">
+                    <input type="hidden" name="total_price" id="halfBoardTotalPrice" value=" {{ $item->price }}">
 
                     <label for="check_in_date_half_board">Check-in Date:</label>
                     <input id="check_in_date_half_board" name="check_in_date" type="date" required>
@@ -181,12 +183,14 @@
                     <label for="rooms_half_board">Number of Rooms:</label>
                     <input id="rooms_half_board" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_half_board', 'halfBoardTotalPrice', 'totalHalfBoard')">
 
-                    <div class="total-price">Total Price: <span id="totalHalfBoard">17000</span> Rs</div>
+                    <div class="total-price">Total Price: <span id="totalHalfBoard"> {{ $item->price }}</span> Rs</div>
 
                     <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
 
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
                 </form>
+                @endif
+        @endforeach
             </div>
 
             <!-- Room Only Option -->
@@ -198,13 +202,12 @@
                     @foreach($data as $item)
             @if($item->room_title == 'double' && $item->room_type=='roomonly') 
                 <div class="price">Rs {{ $item->price }} </div>
-            @endif
-        @endforeach
+            
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="package" value="Room Only Double">
-                    <input type="hidden" name="total_price" id="roomOnlyTotalPrice" value="7000">
+                    <input type="hidden" name="total_price" id="roomOnlyTotalPrice" value=" {{ $item->price }}">
 
                     <label for="check_in_date_room_only">Check-in Date:</label>
                     <input id="check_in_date_room_only" name="check_in_date" type="date" required>
@@ -215,12 +218,14 @@
                     <label for="rooms_room_only">Number of Rooms:</label>
                     <input id="rooms_room_only" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_room_only', 'roomOnlyTotalPrice', 'totalRoomOnly')">
 
-                    <div class="total-price">Total Price: <span id="totalRoomOnly">7000</span> Rs</div>
+                    <div class="total-price">Total Price: <span id="totalRoomOnly"> {{ $item->price }}</span> Rs</div>
 
                     <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
 
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
                 </form>
+                @endif
+        @endforeach
             </div>
         </div>
     </div>
@@ -237,13 +242,12 @@
                     @foreach($data as $item)
             @if($item->room_title == 'single' && $item->room_type=='fullboard') 
                 <div class="price">Rs {{ $item->price }} </div>
-            @endif
-        @endforeach
+            
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="package" value="Full Board Single">
-                    <input type="hidden" name="total_price" id="fullBoardTotalPrice" value="20000">
+                    <input type="hidden" name="total_price" id="fullBoardTotalPrice" value=" {{ $item->price }}">
 
                     <label for="check_in_date_full_board">Check-in Date:</label>
                     <input id="check_in_date_full_board" name="check_in_date" type="date" required>
@@ -254,12 +258,14 @@
                     <label for="rooms_full_board">Number of Rooms:</label>
                     <input id="rooms_full_board" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_full_board', 'fullBoardTotalPrice', 'totalFullBoard')">
 
-                    <div class="total-price">Total Price: <span id="totalFullBoard">20000</span> Rs</div>
+                    <div class="total-price">Total Price: <span id="totalFullBoard"> {{ $item->price }}</span> Rs</div>
 
                     <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
                     
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
                 </form>
+                @endif
+        @endforeach
             </div>
 
             <!-- Half Board Option -->
@@ -271,13 +277,12 @@
                     @foreach($data as $item)
             @if($item->room_title == 'single' && $item->room_type=='halfboard') <!-- Adjust this based on room type -->
                 <div class="price">Rs {{ $item->price }} </div>
-            @endif
-        @endforeach
+            
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="package" value="Half Board Single">
-                    <input type="hidden" name="total_price" id="halfBoardTotalPrice" value="15000">
+                    <input type="hidden" name="total_price" id="halfBoardTotalPrice" value=" {{ $item->price }}">
 
                     <label for="check_in_date_half_board">Check-in Date:</label>
                     <input id="check_in_date_half_board" name="check_in_date" type="date" required>
@@ -288,12 +293,14 @@
                     <label for="rooms_half_board">Number of Rooms:</label>
                     <input id="rooms_half_board" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_half_board', 'halfBoardTotalPrice', 'totalHalfBoard')">
 
-                    <div class="total-price">Total Price: <span id="totalHalfBoard">15000</span> Rs</div>
+                    <div class="total-price">Total Price: <span id="totalHalfBoard"> {{ $item->price }}</span> Rs</div>
 
                     <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
 
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
                 </form>
+                @endif
+        @endforeach
             </div>
 
             <!-- Room Only Option -->
@@ -305,13 +312,12 @@
                     @foreach($data as $item)
             @if($item->room_title == 'single' && $item->room_type=='roomonly') 
                 <div class="price">Rs {{ $item->price }} </div>
-            @endif
-        @endforeach
+            
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="package" value="Room Only Single">
-                    <input type="hidden" name="total_price" id="roomOnlyTotalPrice" value="5000">
+                    <input type="hidden" name="total_price" id="roomOnlyTotalPrice" value=" {{ $item->price }}">
 
                     <label for="check_in_date_room_only">Check-in Date:</label>
                     <input id="check_in_date_room_only" name="check_in_date" type="date" required>
@@ -322,12 +328,14 @@
                     <label for="rooms_room_only">Number of Rooms:</label>
                     <input id="rooms_room_only" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_room_only', 'roomOnlyTotalPrice', 'totalRoomOnly')">
 
-                    <div class="total-price">Total Price: <span id="totalRoomOnly">5000</span> Rs</div>
+                    <div class="total-price">Total Price: <span id="totalRoomOnly"> {{ $item->price }}</span> Rs</div>
 
                     <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
 
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
                 </form>
+                @endif
+        @endforeach
             </div>
         </div>
     </div>
