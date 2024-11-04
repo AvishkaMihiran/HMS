@@ -31,14 +31,10 @@
                         </tr>
                       </thead>
                       <tbody>
-                      @if($data->isEmpty())
-                         <tr class = "tr_deg">
-                            <td colspan="6">No rooms available.</td>
-                        </tr>
-                    @else
+                      
                       @foreach($data as $item)
-                        <tr class = "tr_deg">
-                            <td class = "td_deg">{{ optional($item)->room_title }}</td>
+                        <tr>
+                            <td>{{ optional($item)->room_title }}</td>
                             <td>{{ optional($item)->room_type }}</td>
                             <td>{{ optional($item)->description }}</td>
                             <td>{{ optional($item)->wifi }}</td>
@@ -51,7 +47,7 @@
 
                         @endforeach
 
-                        @endif
+                        
                       </tbody>
                     </table>
                   </div>
@@ -70,19 +66,15 @@
                             <th>Price</th>
                             <th>Quntity</th>
                             <th>Total Price</th>
-                            <th>Price</th>
+                            
                             
                         </tr>
                       </thead>
                       <tbody>
-                      @if($item->isEmpty())
-                         <tr class = "tr_deg">
-                            <td colspan="6">No rooms available.</td>
-                        </tr>
-                    @else
-                      @foreach($item as $item)
+                      
+                      @foreach($orders as $item)
                         <tr>
-                            <td>{{ optional($item)->item_name }}</td>
+                            <td>{{ optional($item)->item_name}}</td>
                             <td>{{ optional($item)->price}}</td>
                             <td>{{ optional($item)->quantity}}</td>
                             <td>{{ optional($item)->total}}</td>
@@ -92,7 +84,7 @@
 
                         @endforeach
 
-                        @endif
+                        
                       </tbody>
                     </table>
                   </div>
