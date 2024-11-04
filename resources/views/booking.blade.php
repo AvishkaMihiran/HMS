@@ -239,7 +239,11 @@
                 <div class="content">
                     <h2>Half Board</h2>
                     <p>Stay with breakfast and dinner included.</p>
-                    <div class="price">Price: 15000 Rs per room</div>
+                    @foreach($data as $item)
+            @if($item->room_title == 'single' && $item->room_type=='halfboard') <!-- Adjust this based on room type -->
+                <div class="price">{{ $item->price }} Rs</div>
+            @endif
+        @endforeach
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
@@ -269,7 +273,11 @@
                 <div class="content">
                     <h2>Room Only</h2>
                     <p>Book a room with no additional meals.</p>
-                    <div class="price">Price: 5000 Rs per room</div>
+                     @foreach($data as $item)
+                        
+                    <div class="price">{{ optional($item)->price }}</div>
+                    @endforeach
+                    
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
