@@ -161,10 +161,9 @@ public function mail(Request $request, $id)
     return redirect()->back()->with('success', 'Mail sent successfully.');
 }
 
-public function table()
-{
-    return view('admin.table');
-    
+public function table() {
+    $data = Room::all(); 
+    return view('admin.table', compact('data'));
 }
 
    

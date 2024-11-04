@@ -13,7 +13,7 @@
     <section class="no-padding-top">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-lg-6">
+              <!--<div class="col-lg-6">-->
                 <div class="block margin-bottom-sm">
                   <div class="title"><strong>Basic Table</strong></div>
                   <div class="table-responsive"> 
@@ -21,6 +21,9 @@
                       <thead>
                         <tr>
                           <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Username</th>
                           <th>First Name</th>
                           <th>Last Name</th>
                           <th>Username</th>
@@ -50,7 +53,9 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6">
+              <div class="container-fluid">
+            <div class="row">
+              <!--<div class="col-lg-6">-->
                 <div class="block margin-bottom-sm">
                   <div class="title"><strong>Striped Table</strong></div>
                   <div class="table-responsive"> 
@@ -87,7 +92,10 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6">
+              <div class="container-fluid">
+            <div class="row">
+              <!--<div class="col-lg-6">-->
+              
                 <div class="block">
                   <div class="title"><strong>Striped table with hover effect</strong></div>
                   <div class="table-responsive"> 
@@ -124,7 +132,10 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6">
+              <div class="container-fluid">
+            <div class="row">
+              <!--<div class="col-lg-6">-->
+              
                 <div class="block">
                   <div class="title"><strong>Compact Table</strong></div>
                   <div class="table-responsive"> 
