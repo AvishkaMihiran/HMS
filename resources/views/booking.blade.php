@@ -19,12 +19,15 @@
                 <div class="content">
                     <h2>Full Board</h2>
                     <p>Enjoy a complete stay with all meals included.</p>
-                    <div class="price">Price: 25000 Rs per room</div>
+                    @foreach($data as $item)
+            @if($item->room_title == 'family' && $item->room_type=='fullboard') 
+                <div class="price">Rs {{ $item->price }} </div>
+            
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="package" value="Full Board Family">
-                    <input type="hidden" name="total_price" id="fullBoardTotalPrice" value="25000">
+                    <input type="hidden" name="total_price" id="fullBoardTotalPrice" value="{{ $item->price }}">
 
                     <label for="check_in_date_full_board">Check-in Date:</label>
                     <input id="check_in_date_full_board" name="check_in_date" type="date" required>
@@ -35,12 +38,14 @@
                     <label for="rooms_full_board">Number of Rooms:</label>
                     <input id="rooms_full_board" name="rooms" type="number" min="1" value="1" required oninput="calculateTotal('rooms_full_board', 'fullBoardTotalPrice', 'totalFullBoard')">
 
-                    <div class="total-price">Total Price: <span id="totalFullBoard">25000</span> Rs</div>
+                    <div class="total-price">Total Price: <span id="totalFullBoard"> {{ $item->price }}</span> Rs</div>
 
                     <input type="hidden" name="username" value="{{ Auth::user()->name }}"> <!-- Get the username from Auth -->
                     
                     <button class="book-now-button" type="submit"><i class="fas fa-book"></i> Book Now</button>
                 </form>
+                @endif
+        @endforeach
             </div>
 
             <!-- Half Board Option -->
@@ -49,7 +54,11 @@
                 <div class="content">
                     <h2>Half Board</h2>
                     <p>Stay with breakfast and dinner included.</p>
-                    <div class="price">Price: 20000 Rs per room</div>
+                    @foreach($data as $item)
+            @if($item->room_title == 'family' && $item->room_type=='halfboard') 
+                <div class="price">Rs {{ $item->price }} </div>
+            @endif
+        @endforeach
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
@@ -79,7 +88,11 @@
                 <div class="content">
                     <h2>Room Only</h2>
                     <p>Book a room with no additional meals.</p>
-                    <div class="price">Price: 10000 Rs per room</div>
+                    @foreach($data as $item)
+            @if($item->room_title == 'family' && $item->room_type=='roomonly') 
+                <div class="price">Rs {{ $item->price }} </div>
+            @endif
+        @endforeach
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
@@ -114,7 +127,11 @@
                 <div class="content">
                     <h2>Full Board</h2>
                     <p>Enjoy a complete stay with all meals included.</p>
-                    <div class="price">Price: 23000 Rs per room</div>
+                    @foreach($data as $item)
+            @if($item->room_title == 'double' && $item->room_type=='fullboard') 
+                <div class="price">Rs {{ $item->price }} </div>
+            @endif
+        @endforeach
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
@@ -144,7 +161,11 @@
                 <div class="content">
                     <h2>Half Board</h2>
                     <p>Stay with breakfast and dinner included.</p>
-                    <div class="price">Price: 17000 Rs per room</div>
+                    @foreach($data as $item)
+            @if($item->room_title == 'double' && $item->room_type=='halfboard') 
+                <div class="price">Rs {{ $item->price }} </div>
+            @endif
+        @endforeach
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
@@ -174,7 +195,11 @@
                 <div class="content">
                     <h2>Room Only</h2>
                     <p>Book a room with no additional meals.</p>
-                    <div class="price">Price: 7000 Rs per room</div>
+                    @foreach($data as $item)
+            @if($item->room_title == 'double' && $item->room_type=='roomonly') 
+                <div class="price">Rs {{ $item->price }} </div>
+            @endif
+        @endforeach
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
@@ -209,7 +234,11 @@
                 <div class="content">
                     <h2>Full Board</h2>
                     <p>Enjoy a complete stay with all meals included.</p>
-                    <div class="price">Price: 20000 Rs per room</div>
+                    @foreach($data as $item)
+            @if($item->room_title == 'single' && $item->room_type=='fullboard') 
+                <div class="price">Rs {{ $item->price }} </div>
+            @endif
+        @endforeach
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
@@ -241,7 +270,7 @@
                     <p>Stay with breakfast and dinner included.</p>
                     @foreach($data as $item)
             @if($item->room_title == 'single' && $item->room_type=='halfboard') <!-- Adjust this based on room type -->
-                <div class="price">{{ $item->price }} Rs</div>
+                <div class="price">Rs {{ $item->price }} </div>
             @endif
         @endforeach
                 </div>
@@ -273,11 +302,11 @@
                 <div class="content">
                     <h2>Room Only</h2>
                     <p>Book a room with no additional meals.</p>
-                     @foreach($data as $item)
-                        
-                    <div class="price">{{ optional($item)->price }}</div>
-                    @endforeach
-                    
+                    @foreach($data as $item)
+            @if($item->room_title == 'single' && $item->room_type=='roomonly') 
+                <div class="price">Rs {{ $item->price }} </div>
+            @endif
+        @endforeach
                 </div>
                 <form class="booking-form" action="{{ route('booking.store') }}" method="post">
                     @csrf
