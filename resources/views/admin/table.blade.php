@@ -13,13 +13,14 @@
     <section class="no-padding-top">
           <div class="container-fluid">
             <div class="row">
-              <!--<div class="col-lg-6">-->
+              <div class="col-lg-6">
                 <div class="block margin-bottom-sm">
-                  <div class="title"><strong>Basic Table</strong></div>
-                  <div class="table-responsive"> 
+                  <div class="title"><strong>Room Booked Table</strong></div>
+                  <div> 
                     <table class="table">
                       <thead>
                         <tr>
+                        <th>#</th>
                         <th>Room Title</th>
                             <th>Packge Type</th>
                             <th>Description</th>
@@ -34,6 +35,7 @@
                       
                       @foreach($data as $item)
                         <tr>
+                        <td>{{ optional($item)->id }}</td>
                             <td>{{ optional($item)->room_title }}</td>
                             <td>{{ optional($item)->room_type }}</td>
                             <td>{{ optional($item)->description }}</td>
@@ -55,13 +57,14 @@
               </div>
               <div class="container-fluid">
             <div class="row">
-              <!--<div class="col-lg-6">-->
+              <div class="col-lg-6">
                 <div class="block margin-bottom-sm">
-                  <div class="title"><strong>Striped Table</strong></div>
-                  <div class="table-responsive"> 
+                  <div class="title"><strong>Resturant Ordered Table</strong></div>
+                  <div> 
                     <table class="table table-striped">
                       <thead>
                       <tr>
+                            <th>#</th>
                             <th>Item Name</th>
                             <th>Price</th>
                             <th>Quntity</th>
@@ -74,6 +77,7 @@
                       
                       @foreach($orders as $item)
                         <tr>
+                        <td>{{ optional($item)->id }}</td>
                             <td>{{ optional($item)->item_name}}</td>
                             <td>{{ optional($item)->price}}</td>
                             <td>{{ optional($item)->quantity}}</td>
@@ -92,11 +96,11 @@
               </div>
               <div class="container-fluid">
             <div class="row">
-              <!--<div class="col-lg-6">-->
+              <div class="col-lg-6">
               
                 <div class="block">
-                  <div class="title"><strong>Striped table with hover effect</strong></div>
-                  <div class="table-responsive"> 
+                  <div class="title"><strong>Booking Table</strong></div>
+                  <div> 
                     <table class="table table-striped table-hover">
                       <thead>
                         <tr>
@@ -132,7 +136,7 @@
               </div>
               <div class="container-fluid">
             <div class="row">
-              <!--<div class="col-lg-6">-->
+              <div>
               
                 <div class="block">
                   <div class="title"><strong>Compact Table</strong></div>
