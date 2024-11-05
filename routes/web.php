@@ -166,3 +166,6 @@ Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
 
 Route::get('/booking', [BookingController::class, 'booking'])->name('bookings');
+Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+
