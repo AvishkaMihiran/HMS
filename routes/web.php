@@ -79,7 +79,6 @@ Route::get('/booking', function () {
     return view('booking');
 })->middleware('auth')->name('booking');
 
-
 /*Route::get('/booking', function () {
     return view('booking');
 })->middleware('auth');*/
