@@ -135,12 +135,17 @@
               <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/DE.png" alt="English" class="mr-2"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="English" class="mr-2"><span>French  </span></a></div>
             </div>-->
             <!-- Log out               -->
+<<<<<<< HEAD
             <div class="list-inline-item logout">  
 
               <x-app-layout>
               </x-app-layout>
               
             </div>
+=======
+            <div class="list-inline-item logout">                   
+              <a id="logout" href="{{url('login')}}" class="nav-link">Log Out<i class="icon-logout"></i></a></div>
+>>>>>>> a489ce267d23ca596ab97cda2a8912d3631f5510
           </div>
         </div>
       </nav>

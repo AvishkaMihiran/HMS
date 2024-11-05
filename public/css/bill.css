@@ -1,0 +1,51 @@
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #B28B46;
+    font-size: 28px;
+}
+
+.bill-table {
+    margin: 20px 0;
+    border: 2px solid #B28B46;
+    padding: 10px;
+    background-color: #F9F9F9;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #B28B46;
+    color: #fff;
+}
+
+tfoot td {
+    font-weight: bold;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #B28B46;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #D3A875;
+}

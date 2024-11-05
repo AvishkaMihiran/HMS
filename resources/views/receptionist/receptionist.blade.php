@@ -22,9 +22,14 @@
             <!-- Update: Use route for Foods button to navigate to foods-interface -->
             <div class="section" onclick="window.location.href='{{ route('receptionist.foods-interface') }}'">Foods</div>
             <div class="section" onclick="window.location.href='{{ route('receptionist.rooms-interface') }}'">Rooms</div>
+<<<<<<< HEAD
 >>>>>>> cac11ffc9ede9bcd846263868beafbe670a07b8d:resources/views/receptionist/receptionist.blade.php
             <div class="section" onclick="navigateTo('calendar')">Calendar</div>
             <div class="section" onclick="navigateTo('bill')">Bill</div>
+=======
+            <div class="section" onclick="window.location.href='{{ route('receptionist.calendar') }}'">Calendar</div>
+            <div class="section" onclick="window.location.href='{{ route('receptionist.bill') }}'">Bill</div>
+>>>>>>> a489ce267d23ca596ab97cda2a8912d3631f5510
         </main>
         <footer class="footer">
             <p>IMPERIAL CROWN</p>

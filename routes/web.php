@@ -7,6 +7,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\WaiterOrderController;
+use App\Http\Controllers\ReceptionistController;
+
+use App\Http\Controllers\KitchenOrdersController;
+use App\Http\Controllers\BillController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,7 +39,11 @@ Route::get('/receptionist', function () {
 });
 
 
+Route::get('/receptionist/calendar', function () {
+    return view('receptionist.calendar');
+})->name('receptionist.calendar');
 
+Route::get('/receptionist/get-bookings/{date}', [ReceptionistController::class, 'getBookingsByDate']);
 
 
 Route::get('/receptionist/rooms-interface', function () {
@@ -49,9 +59,21 @@ Route::get('/food-ordering', function () {
     return view('food-ordering');
 })->middleware('auth')->name('food-ordering');
 
+// Food menu view (single definition)
+Route::get('/foodmenu', function () {
+    return view('foodmenu');
+})->name('foodmenu'); // Named route for 'foodmenu'
+
+// Rooms details interface
+
 // Define the route to rooms-details-interface view
+
 Route::get('/receptionist/rooms-details-interface', [RoomController::class, 'showRoomDetails'])
     ->name('receptionist.rooms-details-interface');
+
+Route::get('/kitchen-orders', [KitchenOrdersController::class, 'showKitchenOrders'])->name('kitchen-orders');
+
+Route::get('/receptionist/bill', [BillController::class, 'showBills'])->name('receptionist.bill');
 
 
 Route::get('/cook', function () {
@@ -92,9 +114,13 @@ Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('dat
 Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('data.edit_room');
 
 Route::get('/booking-success', [BookingController::class, 'success'])->name('booking.success');
+<<<<<<< HEAD
 >>>>>>> cac11ffc9ede9bcd846263868beafbe670a07b8d
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 
+=======
+//Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+>>>>>>> a489ce267d23ca596ab97cda2a8912d3631f5510
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
 
 Route::get('/boking_aprove', [AdminController::class, 'boking_aprove'])->name('admin.boking_aprove');
@@ -108,18 +134,55 @@ Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name('admin.boking_delete');
 
 Route::get('/all_msg', [AdminController::class, 'all_msg'])->name('admin.all_msg');
-
 Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->name('admin.send_mail');
 
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 
 
-Route::get('/food-menu', function () {
-    return view('food-menu');
 
+// Table route
 Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
 
+<<<<<<< HEAD
 >>>>>>> cac11ffc9ede9bcd846263868beafbe670a07b8d
 
+=======
+// Waiter routes
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::post('/orders', [WaiterOrderController::class, 'store']);
+
+// Food menu and table routes
+Route::get('/foodmenu', function () {
+    return view('foodmenu');
+});
+>>>>>>> a489ce267d23ca596ab97cda2a8912d3631f5510
 
 
+Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
+Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
+
+Route::get('/booking', [BookingController::class, 'booking'])->name('bookings');
+
+
+// for cook
+Route::get('/cook', [OrderController::class, 'showOrders'])->name('cook');
+Route::delete('/order/{id}/complete', [OrderController::class, 'completeOrder'])->name('order.complete');
+
+
+// Table route
+Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
+
+// Waiter routes
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::post('/orders', [WaiterOrderController::class, 'store']);
+
+// Food menu and table routes
+/*Route::get('/foodmenu', function () {
+    return view('foodmenu');
+});*/
+
+
+Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
+Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
+
+Route::get('/booking', [BookingController::class, 'booking'])->name('bookings');

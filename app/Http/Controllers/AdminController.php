@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-namespace App\Http\Controllers\AdminadminController;
+namespace App\Http\Controllers\AdminController;
+namespace App\Http\Controllers\OrderController;
 namespace App\Http\Controllers;
 use App\Models\Room;
+use App\Models\Order;
 use App\Models\Booking;
 use App\Models\User;
 use Notification;
@@ -47,9 +49,10 @@ class AdminController extends Controller
     }
 
     public function view_room() {
-        $data = Room::all(); 
+        $data = Room::all(); // Ensures $data is a collection
         return view('admin.view_room', compact('data'));
     }
+    
 
     public function room_delete($id) {
         $data = Room::find($id);
@@ -164,9 +167,11 @@ public function mail(Request $request, $id)
 
 public function table() {
     $data = Room::all(); 
-    return view('admin.table', compact('data'));
+    $orders = Order::all(); 
+    return view('admin.table', compact('orders', 'data'));
+   
 }
 
-   
 
+   
 }
