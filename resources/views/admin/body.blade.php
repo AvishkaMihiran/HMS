@@ -136,7 +136,13 @@
               </div>
             </div>
           </div>
-          <table class="table">
+          <div class="container-fluid">
+            <div class="row">
+              <div>
+                <div class="block margin-bottom-sm">
+                  <div class="title"><strong>Resturant Ordered Table</strong></div>
+                  <div> 
+                    <table class="table">
                       <thead>
                         <tr>
                         <th>#</th>
@@ -148,12 +154,12 @@
                       </thead>
                       <tbody>
                       
-                      @foreach($data as $item)
+                      @foreach($user as $item)
                         <tr>
                         <td>{{ optional($item)->id }}</td>
-                            <td>{{ optional($item)->room_title }}</td>
-                            <td>{{ optional($item)->room_type }}</td>
-                            <td>{{ optional($item)->description }}</td>
+                            <td>{{ optional($item)->name }}</td>
+                            <td>{{ optional($item)->email}}</td>
+                            <td>{{ optional($item)->usertype }}</td>
                             
                         </tr>
                        

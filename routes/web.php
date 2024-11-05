@@ -131,7 +131,6 @@ Route::get('/foodmenu', function () {
 
 
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
-Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
 Route::delete('/admin/delete', [AdminController::class, 'delete'])->name('admin.delete');
 
 Route::get('/booking', [BookingController::class, 'booking'])->name('bookings');

@@ -13,7 +13,6 @@
         <ul class="list-unstyled">
                 <li><a href="{{url('admin')}}"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="{{url('all_msg')}}"> <i class="icon-mail"></i>Send message</a></li>
-                <li><a href="{{url('table')}}"> <i class="icon-grid"></i>Tables </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Room</a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{url('create_room')}}">Add Room</a></li>

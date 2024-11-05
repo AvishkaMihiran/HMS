@@ -26,7 +26,7 @@ class AdminController extends Controller
         $orders = Order::all(); 
         $user = User::all();
         
-        return view('admin.admindashboard', compact('total_booking','total_order','total_user','orders', 'data'));
+        return view('admin.admindashboard', compact('total_booking','total_order','total_user','orders', 'data','user'));
         
     }
 
@@ -174,13 +174,6 @@ public function mail(Request $request, $id)
     Notification::send($user, new MyFirstNotification($details));
     
     return redirect()->back()->with('success', 'Mail sent successfully.');
-}
-
-public function table() {
-    $data = Room::all(); 
-    $orders = Order::all(); 
-    return view('admin.table', compact('orders', 'data'));
-   
 }
 
 public function delete(Request $request)
