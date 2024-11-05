@@ -110,22 +110,18 @@ Route::get('/update_room/{id}', [AdminController::class, 'update_room'])->name('
 
 Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('data.edit_room');
 
-=======
 Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('data.edit_room');
 
 Route::get('/booking-success', [BookingController::class, 'success'])->name('booking.success');
->>>>>>> cac11ffc9ede9bcd846263868beafbe670a07b8d
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 
-=======
 //Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
->>>>>>> a489ce267d23ca596ab97cda2a8912d3631f5510
 Route::post('/bookings', [BookingController::class, 'store'])->name('booking.store');
 
 Route::get('/boking_aprove', [AdminController::class, 'boking_aprove'])->name('admin.boking_aprove');
 
 route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name('admin.boking_delete');
-=======
+
 Route::get('/boking_aproved/{id}', [AdminController::class, 'boking_aproved'])->name('boking_aproved');
 Route::get('/boking_reject/{id}', [AdminController::class, 'boking_reject'])->name('boking_reject');
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
@@ -142,7 +138,6 @@ Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
 
 
-=======
 // Waiter routes
 Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 Route::post('/orders', [WaiterOrderController::class, 'store']);
