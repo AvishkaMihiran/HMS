@@ -106,7 +106,7 @@ Route::post('/add_room', [AdminController::class, 'add_room']);
 Route::get('/view_room', [AdminController::class, 'view_room'])->name('admin.view_room');
 Route::get('/room_delete/{id}', [AdminController::class, 'room_delete'])->name('admin.room_delete');
 Route::get('/update_room/{id}', [AdminController::class, 'update_room'])->name('update_room');
-<<<<<<< HEAD
+
 
 Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('data.edit_room');
 
@@ -114,7 +114,6 @@ Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('dat
 Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->name('data.edit_room');
 
 Route::get('/booking-success', [BookingController::class, 'success'])->name('booking.success');
-<<<<<<< HEAD
 >>>>>>> cac11ffc9ede9bcd846263868beafbe670a07b8d
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 
@@ -125,7 +124,6 @@ Route::post('/bookings', [BookingController::class, 'store'])->name('booking.sto
 
 Route::get('/boking_aprove', [AdminController::class, 'boking_aprove'])->name('admin.boking_aprove');
 
-<<<<<<< HEAD
 route::get('/boking_delete/{id}',[AdminController::class,'boking_delete'])->name('admin.boking_delete');
 =======
 Route::get('/boking_aproved/{id}', [AdminController::class, 'boking_aproved'])->name('boking_aproved');
@@ -143,8 +141,6 @@ Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 // Table route
 Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
 
-<<<<<<< HEAD
->>>>>>> cac11ffc9ede9bcd846263868beafbe670a07b8d
 
 =======
 // Waiter routes
@@ -155,7 +151,6 @@ Route::post('/orders', [WaiterOrderController::class, 'store']);
 Route::get('/foodmenu', function () {
     return view('foodmenu');
 });
->>>>>>> a489ce267d23ca596ab97cda2a8912d3631f5510
 
 
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
