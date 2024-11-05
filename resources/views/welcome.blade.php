@@ -77,7 +77,7 @@
 
         /* Dashboard Section */
         .home-section {
-            background-image: url('{{ asset('images/background3.jpg') }}');
+            background-image: url('{{ asset('images/hotel-bckground.jpg') }}');
             background-size: cover;
             background-position: center;
             display: flex;
