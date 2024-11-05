@@ -8,6 +8,7 @@ use App\Models\Room;
 use App\Models\Order;
 use App\Models\Booking;
 use App\Models\User;
+use App\Models\Gallary;
 use Notification;
 use Illuminate\Http\Request;
 use App\Notifications\MyFirstNotification;
@@ -17,7 +18,15 @@ class AdminController extends Controller
     // Display the admin dashboard
     public function admindashboard()
     {
-        return view('admin.admindashboard');
+        $total_user = User::all('id')->count();
+        $total_booking = Room::all('id')->count();
+        $total_order = Order::all('id')->count();
+
+        $data = Room::all(); 
+        $orders = Order::all(); 
+        $user = User::all();
+        
+        return view('admin.admindashboard', compact('total_booking','total_order','total_user','orders', 'data','user'));
         
     }
 
@@ -44,12 +53,14 @@ class AdminController extends Controller
             $data->image = $imagename;
         }
 
+         
         $data->save();
         return redirect()->back();
     }
 
     public function view_room() {
         $data = Room::all(); // Ensures $data is a collection
+
         return view('admin.view_room', compact('data'));
     }
     
@@ -165,12 +176,22 @@ public function mail(Request $request, $id)
     return redirect()->back()->with('success', 'Mail sent successfully.');
 }
 
-public function table() {
-    $data = Room::all(); 
-    $orders = Order::all(); 
-    return view('admin.table', compact('orders', 'data'));
-   
+public function delete(Request $request)
+{
+    $ids = $request->ids;
+
+    if (!$ids) {
+        return response()->json(['success' => false, 'message' => 'No IDs provided.']);
+    }
+
+    try {
+        Room::whereIn('id', $ids)->delete();
+        return response()->json(['success' => true, 'message' => 'Rooms deleted successfully.']);
+    } catch (\Exception $e) {
+        return response()->json(['success' => false, 'message' => 'Error deleting rooms.']);
+    }
 }
+
 
 
    
