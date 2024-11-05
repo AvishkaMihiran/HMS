@@ -5,7 +5,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
     <title>Cook Dashboard</title>
     <style>
-        /* Overall styling */
+        /* Styles */
         body, html {
             height: 100%;
             margin: 0;
@@ -13,84 +13,97 @@
             background-image: url('{{ asset('images/food.jpg') }}');
             background-size: cover;
             background-position: center;
-            display: flex;
-            flex-direction: column;
             color: #fff;
         }
-        
-        /* Centered content container */
         .content {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             text-align: center;
         }
-
         h1 {
-            font-size: 20spx;
-            color: #FFD700; /* Luxurious gold color */
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Shadow for depth */
+            font-size: 24px;
+            color: #FFD700;
             margin-bottom: 20px;
             font-family: 'Cinzel', serif;
         }
-
-        .button-container {
-    display: flex;
-    gap: 15px;
-    justify-content: center;  /* Center buttons horizontally */
-    align-items: center;  /* Center buttons vertically */
-    position: absolute;
-    top: 50%;  /* Position to be slightly lower than the center */
-    left: 50%;  /* Center horizontally */
-    transform: translateX(-50%);  /* Center horizontally */
-    margin-top: 160px; /* Optional: Adjust margin to fine-tune vertical position */
-}
-        .button-container {
-    display: flex;
-    gap: 15px;
-    justify-content: center;  /* Center buttons horizontally */
-    align-items: center;  /* Center buttons vertically */
-    position: absolute;
-    top: 50%;  /* Position to the vertical center */
-    left: 50%;  /* Position to the horizontal center */
-    transform: translate(-50%, -50%);  /* Adjust for perfect centering */
-    bottom: 50px;
-}
-
-        /* Button styling */
-        .button {
-            background: linear-gradient(135deg, #6b73ff, #000dff); /* Royal gradient */
-            color: white;
-            padding: 15px 30px;
-            font-size: 12px;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Elevated shadow */
-            text-transform: uppercase;
+        .orders-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
         }
-
-        /* Hover effects */
-        .button:hover {
-            background: linear-gradient(135deg, #ff6b6b, #ff0000); /* Red gradient on hover */
-            transform: translateY(-3px); /* Slight lift on hover */
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+        .orders-table th, .orders-table td {
+            padding: 10px;
+            border: 1px solid #fff;
+            text-align: center;
+        }
+        .complete-button {
+            background: #ff0000;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="content">
         <h1>Cook's Dashboard</h1>
-        <p>View and manage incoming food orders.</p>
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User ID</th>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($orders as $order)
+                    <tr id="order-{{ $order->id }}">
+                        <td>{{ $order->id }}</td>
+                        <td>{{ $order->user_id }}</td>
+                        <td>{{ $order->item_name }}</td>
+                        <td>{{ $order->price }}</td>
+                        <td>{{ $order->quantity }}</td>
+                        <td>{{ $order->total }}</td>
+                        <td>
+                            <button class="complete-button" onclick="completeOrder({{ $order->id }})">
+                                Complete Order
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 
-    <div class="button-container">
-        <button class="button"><i class="fas fa-check-circle"></i> Proceed Order</button>
-        <button class="button"><i class="fas fa-times-circle"></i> Can't Proceed</button>
-        <button class="button"><i class="fas fa-clipboard-check"></i> Complete Order</button>
-    </div>
+    <script>
+        function completeOrder(orderId) {
+            if (confirm('Are you sure you want to mark this order as completed?')) {
+                fetch(`/order/${orderId}/complete`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById(`order-${orderId}`).remove();
+                    } else {
+                        alert('Failed to complete the order.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+    </script>
 </body>
 </html>
