@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('username'); //Aruna Username of the customer
             $table->string('room_title');
             $table->string('room_type');
-            $table->integer('available'); // Package type (Full Board, Half Board, Room Only)
+            $table->integer('available')->default(5);// Package type (Full Board, Half Board, Room Only)
             $table->date('check_in_date'); // Check-in date
             $table->date('check_out_date'); // Check-out date
             $table->integer('num_rooms'); // Number of rooms booked

@@ -193,6 +193,7 @@
     <nav>
         <div class="logo">IMPERIAL CROWN</div>
         <ul>
+        <li><a href="{{ url('/foodmenu') }}"><i class="fas fa-utensils"></i> Food Menu</a></li>
             <li><a href="{{ url('/booking') }}"><i class="fas fa-calendar-alt"></i> Booking</a></li>
             <li><a href="{{ url('/food-ordering') }}"><i class="fas fa-utensils"></i> Order</a></li>
             @auth

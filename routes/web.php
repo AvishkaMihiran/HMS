@@ -71,6 +71,11 @@ Route::get('/foodmenu', function () {
 Route::get('/receptionist/rooms-details-interface', [RoomController::class, 'showRoomDetails'])
     ->name('receptionist.rooms-details-interface');
 
+//reci
+Route::get('/receptionist/foods-interface', function () {
+    return view('receptionist.foods-interface');
+})->name('receptionist.foods-interface'); 
+
 Route::get('/kitchen-orders', [KitchenOrdersController::class, 'showKitchenOrders'])->name('kitchen-orders');
 
 Route::get('/receptionist/bill', [BillController::class, 'showBills'])->name('receptionist.bill');
@@ -166,3 +171,20 @@ Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');
 Route::get('/table', [AdminController::class, 'table'])->name('admin.table');
 
 Route::get('/booking', [BookingController::class, 'booking'])->name('bookings');
+
+
+//menu page dashbord
+Route::get('/food-menu', [YourController::class, 'showFoodMenu']);
+
+//avishka
+
+
+Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+
+
+
+//aruna
+Route::get('/food-menu', function () {
+    return view('foodmenu');
+})->name('foodmenu');
