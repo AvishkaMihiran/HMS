@@ -8,6 +8,7 @@ use App\Models\Room;
 use App\Models\Order;
 use App\Models\Booking;
 use App\Models\User;
+use App\Models\Gallary;
 use Notification;
 use Illuminate\Http\Request;
 use App\Notifications\MyFirstNotification;
@@ -23,6 +24,7 @@ class AdminController extends Controller
 
         $data = Room::all(); 
         $orders = Order::all(); 
+        $user = User::all();
         
         return view('admin.admindashboard', compact('total_booking','total_order','total_user','orders', 'data'));
         

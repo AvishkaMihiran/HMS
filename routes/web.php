@@ -136,3 +136,5 @@ Route::delete('/admin/delete', [AdminController::class, 'delete'])->name('admin.
 
 Route::get('/booking', [BookingController::class, 'booking'])->name('bookings');
 
+
+

@@ -133,98 +133,41 @@
                   </div>
                 </div>
               </div>
-              <div class="container-fluid">
-            <div class="row">
-              <div>
-              
-                <div class="block">
-                  <div class="title"><strong>Booking Table</strong></div>
-                  <div> 
-                    <table class="table table-striped table-hover">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter       </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="container-fluid">
-            <div class="row">
-              <div>
-              
-                <div class="block">
-                  <div class="title"><strong>Compact Table</strong></div>
-                  <div class="table-responsive"> 
-                    <table class="table table-striped table-sm">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter      </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">5</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
+          <table class="table">
+                      <thead>
+                        <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                            <th>email</th>
+                            <th>User Type</th>
+                            
+                        </tr>
+                      </thead>
+                      <tbody>
+                      
+                      @foreach($data as $item)
+                        <tr>
+                        <td>{{ optional($item)->id }}</td>
+                            <td>{{ optional($item)->room_title }}</td>
+                            <td>{{ optional($item)->room_type }}</td>
+                            <td>{{ optional($item)->description }}</td>
+                            
+                        </tr>
+                       
+
+                        @endforeach
+
+                        
+                      </tbody>
+                    </table>
+                    </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+                    
         </section>
