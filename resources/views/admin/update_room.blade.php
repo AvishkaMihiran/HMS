@@ -32,7 +32,7 @@
                     <h1 style = "font-size: 30px; font-weight: bold;">Update Room</h1>
                     <form action="{{route('data.edit_room', $data->id)}}" method="Post" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
+                        
                         <div class = "div_deg">
                             <lable>
                                 Room Title

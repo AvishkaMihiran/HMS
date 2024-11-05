@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rooms', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('room_title')->nullable();
-            $table->longText('description')->nullable();
-            $table->string('price')->nullable();
-            $table->string('wifi')->default('yes');
-            $table->string('room_type')->nullable();
-            $table->string('image')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->string('item_name');
+            $table->decimal('price', 8, 2);
+            $table->integer('quantity');
+            $table->decimal('total', 8, 2);
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('orders');
     }
 };
