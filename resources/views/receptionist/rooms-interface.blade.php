@@ -23,7 +23,7 @@
         </main>
     </div>
     <script>
-        const roomBookingUrl = "{{ route('booking') }}";
+        const roomBookingUrl = "{{ route('bookings') }}";
         const roomDetailsUrl = "{{ route('receptionist.rooms-details-interface') }}"; // Add this line
 
         document.querySelectorAll('.section').forEach(section => {

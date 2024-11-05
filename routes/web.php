@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\WaiterOrderController;
 use App\Http\Controllers\ReceptionistController;
-
+use App\Http\Controllers\KitchenOrdersController;
+use App\Http\Controllers\BillController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -68,6 +69,9 @@ Route::get('/foodmenu', function () {
 Route::get('/receptionist/rooms-details-interface', [RoomController::class, 'showRoomDetails'])
     ->name('receptionist.rooms-details-interface');
 
+Route::get('/kitchen-orders', [KitchenOrdersController::class, 'showKitchenOrders'])->name('kitchen-orders');
+
+Route::get('/receptionist/bill', [BillController::class, 'showBills'])->name('receptionist.bill');
 
 Route::get('/cook', function () {
     return view('cook'); 
@@ -124,9 +128,9 @@ Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 Route::post('/orders', [WaiterOrderController::class, 'store']);
 
 // Food menu and table routes
-Route::get('/foodmenu', function () {
+/*Route::get('/foodmenu', function () {
     return view('foodmenu');
-});
+});*/
 
 
 Route::post('/mail/{id}',[AdminController::class,'mail'])->name('mail');

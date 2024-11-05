@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foods - Imperial Crown</title>
-    <link rel="stylesheet" href="{{ asset('css/foods.css') }}"> <!-- Directly load CSS without Vite -->
+    <link rel="stylesheet" href="{{ asset('css/foods.css') }}">
 </head>
 <body>
     <div class="foods-container">
@@ -29,7 +29,9 @@
     <script>
         const foodOrderingUrl = "{{ route('food-ordering') }}";
         const foodMenuUrl = "{{ route('foodmenu') }}";
+        const kitchenOrdersUrl = "{{ route('kitchen-orders') }}"; // Route to kitchen-orders interface
     </script>
-    <script src="{{ asset('js/foods.js') }}"></script> <!-- Directly load JavaScript without Vite -->
+    <script src="{{ asset('js/foods.js') }}"></script>
 </body>
 </html>
+
